@@ -1,0 +1,29 @@
+.department-common-page {
+  .chairperson-message-part {
+    background: rgba(255, 255, 255, 0.08);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      left: 0;
+      bottom: 0px;
+      background: url("../../../assets/shape/shape-1.png");
+      background-repeat: repeat;
+      background-size: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .department-common-page .chairperson-message-part {
+    padding: 24px 0;
+  }
+  .chairperson-message-part .chairperson-message-main .chairperson-message-img {
+    width: 90% !important;
+  }
+}

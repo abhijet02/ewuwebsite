@@ -1,0 +1,277 @@
+.visit-us-part {
+  padding: 120px 0px;
+
+  .visit-us-main {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    .visit-us {
+      background: var(--text-normal-color);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 10px;
+      gap: 10px;
+
+      h2 {
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--text-normal-color);
+        margin: 0;
+        display: inline-block;
+        padding: 10px 16px;
+        background: var(--primary-bg);
+        border-radius: 0 0 8px 8px;
+
+        &:last-child {
+          border-radius: 8px 8px 0 0;
+        }
+      }
+
+      .visit-us-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+
+        & > div {
+          flex: 1 1 calc(50% - 20px);
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .visit-us-icon {
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--primary-bg);
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin: 0;
+        }
+
+        p {
+          padding-left: 30px;
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--p-text2);
+          margin: 0;
+        }
+
+        .visit-us-maps {
+          flex: 1 1 calc(100% - 20px);
+        }
+      }
+
+      .visit-us-location {
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--text-normal-color);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        background: var(--primary-bg);
+        border-radius: 8px 8px 0 0;
+        border: none;
+        transition: all 0.3s linear;
+
+        &:hover {
+          background: var(--secondary-bg);
+        }
+      }
+    }
+  }
+
+  .visit-us-img-part {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    overflow: hidden;
+    z-index: -1;
+
+    .visit-us-img {
+      // background: url("https://new1.ewubd.edu/backend/uploads/Temporary-Website-Images/PHT00948 copy.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 560px;
+      width: 100%;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      video {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .visit-us-img-icon {
+        width: 70px;
+        height: 70px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out 0s;
+        box-shadow: rgba(193, 244, 246) 0px 0px 0px 0px;
+        animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none
+          running pulse;
+
+        svg {
+          color: var(--primary-bg);
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      @keyframes pulse {
+        100% {
+          box-shadow: 0 0 0 45px rgba(217, 249, 250, 0);
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .visit-us-part {
+  .visit-us-main {
+    .visit-us {
+      background: var(--dark-bg-one);
+      box-shadow: var(--shadow);
+
+      h2 {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:last-child {
+          border-radius: 8px 8px 0 0;
+        }
+      }
+
+      .visit-us-info {
+        .visit-us-icon {
+          color: var(--text-normal-color);
+        }
+
+        p {
+          color: var(--dark-p-text);
+        }
+      }
+
+      .visit-us-location {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:hover {
+          background: var(--secondary-bg);
+        }
+      }
+    }
+  }
+
+  .visit-us-img-part {
+    .visit-us-img {
+      .visit-us-img-icon {
+        background: var(--dark-bg-one);
+        box-shadow: rgba(0, 0, 0, 0.651) 0px 0px 0px 0px;
+        animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none
+          running pulse;
+
+        svg {
+          color: var(--text-normal-color);
+        }
+      }
+
+      @keyframes pulse {
+        100% {
+          box-shadow: 0 0 0 45px rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .visit-us-img-part {
+    position: initial !important;
+    transform: translate(0, 0) !important;
+    margin-bottom: 30px;
+  }
+  .visit-us-part {
+    padding: 60px 0;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .visit-us-part {
+    padding: 120px 0;
+  }
+
+  .visit-us-img {
+    height: 400px !important;
+  }
+}
+
+/* Swiper pagination wrapper */
+.visit-us-swiper .swiper-pagination {
+  bottom: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  flex-direction: column;
+  left: 0;
+  width: fit-content;
+  left: 24px;
+}
+
+/* Inactive bullets */
+.visit-us-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #fff; /* or any color you like */
+  opacity: 1; /* slightly transparent inactive */
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Active bullet */
+.visit-us-swiper .swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  background: transparent; /* outer circle transparent */
+  border: 2px solid #fff; /* white border */
+  border-radius: 50%;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inner dot for active bullet */
+.visit-us-swiper .swiper-pagination-bullet-active::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #fff; /* inner dot color */
+  border-radius: 50%;
+  display: block;
+}

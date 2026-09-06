@@ -1,0 +1,153 @@
+.custom-field {
+  height: 50px; /* same height for all */
+  background-color: transparent; /* transparent background */
+  border: 1px solid #ccc; /* keep border visible */
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.custom-field:focus {
+  box-shadow: none; /* remove default bootstrap glow */
+  border-color: #666;
+}
+
+.department-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0px;
+
+  label {
+    padding: 10px 15px;
+    background-color: #e0e0e0;
+    font-weight: 600;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+  }
+
+  select.form-select {
+    padding: 20px 30px;
+    border: 2px solid #e0e0e0;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+.accordion-wrapper {
+  padding: 10px 0 10px 0;
+  .accordion {
+    .accordion-header {
+      .accordion-button:not(.collapsed) {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .accordion-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+
+      .publication-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        background: #f8f9fa;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background: #e9ecef;
+        }
+
+        &.active {
+          background: #007bff;
+          color: white;
+          border-color: #007bff;
+        }
+      }
+
+      .publication-content {
+        margin-top: 10px;
+      }
+
+      .no-publication {
+        font-style: italic;
+        color: #999;
+        background-color: #f9f9f9;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+      }
+
+      a {
+        display: block;
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+          color: #0056b3;
+          text-decoration: none;
+        }
+      }
+
+      .nav {
+        padding-bottom: 5px;
+        .nav-item {
+          .nav-link {
+            padding-bottom: 5px;
+            font-size: 1rem;
+          }
+
+          .nav-link.active {
+            color: var(--secondary-bg);
+            background: transparent;
+            font-weight: 600;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .tab-content {
+        .tab-pane {
+          p {
+            display: inline;
+            margin: 0;
+          }
+
+          a {
+            display: inline;
+            margin: 0 4px;
+          }
+
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/* Fix long text overflow in all form-select dropdowns */
+.form-select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 2rem !important; /* Ensure space for arrow */
+  background-position: right 0.75rem center !important;
+  background-repeat: no-repeat;
+  background-size: 1rem auto;
+}

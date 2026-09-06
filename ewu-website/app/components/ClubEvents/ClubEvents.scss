@@ -1,0 +1,125 @@
+.recent-clubs-events-part {
+  padding: 40px 0px;
+
+  // background: #F7F5F2;
+  .recent-clubs-events-items-row {
+    background: var(--primary-color-bg);
+    border-radius: 25px;
+    padding: 30px;
+
+    .recent-clubs-events-para {
+      color: var(--text-normal-color);
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .recent-clubs-events-title {
+      h1 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--text-normal-color);
+      }
+    }
+
+    .recent-clubs-events-item {
+      display: flex;
+      gap: 20px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--primary-color-bg);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .recent-clubs-events-date {
+        min-width: 100px !important;
+
+        h3 {
+          font-size: 40px;
+          font-weight: 600;
+          color: var(--secondary-color-bg);
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--secondary-color-bg);
+        }
+      }
+
+      .recent-clubs-events-info {
+        h2 {
+          font-size: 22px;
+          font-weight: 600;
+          color: var(--text-normal-color);
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--text-normal-color);
+        }
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    .recent-clubs-events-view-all {
+      display: flex;
+      justify-content: end;
+
+      a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-normal-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        transition: all linear 0.3s;
+
+        svg {
+          transition: all linear 0.3s;
+        }
+
+        &:hover svg {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .recent-clubs-events-view-all {
+    justify-content: start !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .recent-clubs-events-part
+    .recent-clubs-events-items-row
+    .recent-clubs-events-item {
+    flex-direction: column !important;
+  }
+
+  .recent-clubs-events-part
+    .recent-clubs-events-items-row
+    .recent-clubs-events-item
+    img {
+    width: 100% !important;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .recent-clubs-events-part {
+      padding: 40px 0;
+  }
+}

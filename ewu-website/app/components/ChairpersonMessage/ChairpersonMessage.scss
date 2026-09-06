@@ -1,0 +1,40 @@
+.chairperson-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 48px 0px;
+  @media screen and (max-width: 991px) {
+    margin: 24px 0px;
+  }
+}
+.faculty-charperson-card-body {
+  padding: 24px;
+  @media screen and (max-width: 767px) {
+    padding: 16px;
+  }
+}
+.chairperson-header {
+  padding: 16px;
+  background: #e4e4e4ff;
+  color: var(--primary-bg);
+}
+.image-wrraper {
+  padding: 8px;
+  background: var(--primary-bg);
+  display: block;
+  width: 100%;
+  aspect-ratio: 300 / 350;
+  border-radius: 8px;
+}
+/* Dark Mode */
+[data-theme="dark"] .chairperson-card {
+  background: var(--dark-bg-one);
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .image-wrraper {
+  background: var(--primary-bg);
+}
+[data-theme="dark"] .chairperson-header {
+  background: var(--dark-bg-one);
+  color: var(--text-normal-color);
+}

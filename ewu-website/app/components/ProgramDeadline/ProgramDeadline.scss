@@ -1,0 +1,294 @@
+.program {
+  padding: 40px 0px 140px 0;
+
+  .program-content {
+    display: flex;
+    align-items: stretch;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .program-main {
+    background: #f6f6f6;
+    padding: 30px;
+    flex: 1;
+    transition: all linear 0.3s;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      color: var(--primary-bg);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 1px solid var(--primary-bg);
+          border-radius: 6px;
+          padding: 10px 20px;
+          transition: all linear 0.3s;
+          width: fit-content;
+          color: var(--primary-bg);
+
+          svg {
+            transition: all linear 0.3s;
+          }
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+
+            svg {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.undergraduate-part {
+  background: url(../../assets/bg-faculties.png) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all linear 0.3s;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+  }
+
+  h2 {
+    color: var(--text-normal-color) !important;
+  }
+
+  ul {
+    li {
+      a {
+        border: 1px solid var(--text-normal-color) !important;
+        color: var(--text-normal-color) !important;
+
+        &:hover {
+          background: var(--text-normal-color) !important;
+          color: var(--primary-bg) !important;
+          border-color: var(--text-normal-color) !important;
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .program {
+  .program-main {
+    background: var(--dark-primary-bg1);
+
+    h2 {
+      color: var(--text-normal-color);
+    }
+
+    ul {
+      li {
+        a {
+          border: 1px solid var(--dark-p-text);
+          color: var(--text-normal-color);
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .program .program-content {
+    flex-direction: column;
+  }
+
+  .program .program-main ul li a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .program .program-content {
+    flex-direction: column;
+  }
+
+  .program .program-main ul li a {
+    font-size: 14px;
+  }
+
+  .program {
+    padding: 40px 0px 200px;
+  }
+}
+
+.academic-partner-main {
+  background: var(--text-normal-color);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.academic-partner-main .table-responsive {
+  border-radius: 8px;
+}
+
+.academic-partner-main table {
+  border: 1px solid #fff;
+  overflow: hidden;
+  margin: 0;
+}
+
+.academic-partner-main table thead tr th {
+  border-right: 1px solid #fff !important;
+  border: none;
+  background: var(--primary-bg);
+  color: var(--text-normal-color);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 20px;
+  white-space: nowrap;
+}
+
+.academic-partner-main table thead tr th:last-child {
+  border-right: none;
+}
+
+.academic-partner-main table tbody tr td {
+  border-right: 1px solid #fff !important;
+  border: none;
+}
+
+.academic-partner-main table tbody tr td:last-child {
+  border-right: none;
+}
+
+.academic-partner-main table tbody tr td div {
+  background: rgba(28, 67, 112, 0.05);
+  color: var(--black-bg);
+  font-size: 14px;
+  font-weight: 500;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.academic-partner-main table tbody tr td div img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.academic-partner-main table tbody tr:nth-of-type(2n + 1) td {
+  background: rgba(28, 67, 112, 0.1);
+}
+
+[data-theme="dark"] .academic-partner-main {
+  background: var(--dark-primary-bg1);
+}
+
+[data-theme="dark"] .academic-partner-main .table-responsive {
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .academic-partner-main table {
+  border: 1px solid var(--dark-input-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0;
+}
+
+[data-theme="dark"] .academic-partner-main table thead tr th {
+  border-right: 1px solid var(--dark-input-border) !important;
+  background: var(--primary-bg);
+  color: var(--text-normal-color);
+}
+
+[data-theme="dark"] .academic-partner-main table thead tr th:last-child {
+  border-right: none !important;
+}
+
+[data-theme="dark"] .academic-partner-main table tbody tr td {
+  border-right: 1px solid var(--dark-input-border) !important;
+  background: transparent;
+}
+
+[data-theme="dark"] .academic-partner-main table tbody tr td:last-child {
+  border-right: none !important;
+}
+
+[data-theme="dark"] .academic-partner-main table tbody tr td div {
+  background: transparent;
+  color: var(--text-normal-color);
+}
+
+[data-theme="dark"]
+  .academic-partner-main
+  table
+  tbody
+  tr:nth-of-type(2n + 1)
+  td {
+  background: #495057;
+}
+
+// Skeleton //
+
+.skeleton {
+  display: inline-block;
+  height: 16px;
+  width: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 18px;
+  width: 80%; // text width look
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

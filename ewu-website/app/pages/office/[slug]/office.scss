@@ -1,0 +1,171 @@
+.bot-main-wrapper {
+  .page-title {
+    font-weight: 900;
+    line-height: 45px;
+    color: var(--primary-bg);
+    letter-spacing: 1px;
+  }
+
+  .chairperson-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+
+    img {
+      border: 5px solid var(--primary-bg);
+      border-radius: 20px;
+    }
+
+    .chairperson-info {
+      .name {
+        color: var(--primary-bg);
+        font-weight: 600;
+      }
+      .degnation {
+        margin-bottom: 8px;
+        color: #666;
+      }
+      .doc-lable {
+        margin-bottom: 20px;
+        color: #444;
+      }
+      .formar-title {
+        display: inline-block;
+        margin-bottom: 10px;
+        // padding: 6px 18px;
+        // background: var(--secondary-bg);
+        padding-bottom: 3px;
+        color: var(--secondary-bg);
+        border-bottom: 1px dashed var(--secondary-bg);
+        font-weight: 600;
+        // border-radius: 4px;
+      }
+      .formar {
+        color: #444;
+        margin-bottom: 15px;
+        font-weight: 400;
+
+        svg {
+          margin-right: 5px;
+          color: var(--secondary-bg);
+          vertical-align: sub;
+        }
+      }
+    }
+  }
+
+  .bot-members-wrapper {
+    padding: 60px 0;
+
+    .bot-members-title {
+      margin-bottom: 30px;
+      color: var(--primary-bg);
+      font-weight: 700;
+    }
+
+    .bot-member {
+      margin-bottom: 20px;
+      img {
+        border: 3px solid var(--primary-bg);
+        border-radius: 10px;
+        transition: all 1s ease-in-out;
+
+        &:hover {
+          transform: scale(1.09);
+        }
+      }
+
+      .title {
+        margin-top: 10px;
+        margin-bottom: 2px;
+        color: var(--primary-bg);
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .designation {
+        color: var(--p-text2);
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .bot-main-wrapper {
+  .page-title {
+    color: var(--text-normal-color);
+  }
+  .chairperson-card {
+    .chairperson-info {
+      .name {
+        color: #eee;
+      }
+      .degnation {
+        color: #ccc;
+      }
+      .doc-lable {
+        color: #ddd;
+      }
+      .formar {
+        color: #ddd;
+      }
+    }
+  }
+  .bot-members-wrapper {
+    .bot-members-title {
+      color: var(--text-normal-color);
+    }
+    .bot-member {
+      .title {
+        color: #ddd;
+      }
+      .designation {
+        color: var(--secondary-bg);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .bot-main-wrapper {
+    .page-title {
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .chairperson-card {
+      flex-direction: column;
+      align-items: center;
+
+      .chairperson-info {
+        text-align: center;
+      }
+    }
+
+    .bot-members-wrapper {
+      padding: 40px 0;
+      text-align: center;
+
+      .bot-member {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+.office-common-page {
+  select.form-select {
+    width: 220px; // fixed width
+  }
+}
+.office-document-filter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+  @media screen and (max-width: 568px) {
+    flex-direction: column;
+  }
+}

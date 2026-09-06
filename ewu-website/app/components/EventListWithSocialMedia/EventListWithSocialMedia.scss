@@ -1,0 +1,201 @@
+.event-social-part {
+  padding: 40px 0px;
+  background: var(--text-normal-color);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: -70px;
+    bottom: -30px;
+    background: url("../../assets/shape/shape-4.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: -70px;
+    top: -70px;
+    background: url("../../assets/shape/shape-4.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .event-view-all {
+      display: block ruby;
+
+      a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--primary-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        transition: all linear 0.3s;
+
+        svg {
+          transition: all linear 0.3s;
+        }
+
+        &:hover {
+          color: var(--secondary-bg);
+        }
+
+        &:hover svg {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .event-main {
+    margin-top: 30px;
+    height: 480px;
+    overflow: inherit;
+
+    .event-box {
+      display: flex;
+      align-items: stretch;
+      transition: all linear 0.3s;
+      cursor: pointer;
+      background: #f7f5f2;
+
+      &:hover {
+        background: var(--secondary-bg);
+      }
+
+      .event-date {
+        width: 100px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid #eeeeee;
+        flex-direction: column;
+        flex-shrink: 0;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 700;
+          margin: 0;
+          padding: 0;
+          color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: var(--primary-bg);
+          transition: all linear 0.3s;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 500;
+          color: #737477;
+          padding: 0;
+          margin: 0;
+          transition: all 0.3s linear;
+        }
+      }
+
+      &:hover .event-date h1 {
+        -webkit-text-stroke-color: var(--text-normal-color);
+      }
+
+      &:hover .event-date p {
+        color: var(--text-normal-color);
+      }
+
+      .event-info {
+        padding: 10px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+          margin: 0;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--primary-bg);
+          transition: all linear 0.3s;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+        }
+
+        p {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 400;
+          color: #737477;
+          transition: all linear 0.3s;
+
+          span {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+          }
+        }
+      }
+
+      &:hover .event-info {
+        h4 {
+          color: var(--text-normal-color);
+        }
+
+        p {
+          color: #f6f6f6;
+        }
+      }
+    }
+  }
+
+}
+
+[data-theme="dark"] .event-social-part {
+  background: var(--dark-primary-bg);
+}
+
+@media screen and (max-width: 576px) {
+  .event-social-part {
+    padding: 40px 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .social-part {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social-part {
+    display: none;
+  }
+}

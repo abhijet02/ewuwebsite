@@ -1,0 +1,147 @@
+.parent-gurdian-corner-section {
+  margin-top: 48px;
+}
+
+// Hero Section
+
+.parent-her-section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  h3 {
+    color: var(--primary-bg);
+    margin: 0;
+    font-weight: 700;
+    [data-theme="dark"] & {
+      color: #ffffff;
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+.parent-info-card {
+  padding: 24px 12px;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .parent-info-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/teachers-say-bg-1.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+  }
+  h5 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+.parent-info-card-even {
+  background-color: var(--primary-bg);
+}
+.parent-info-card-odd {
+  background-color: var(--secondary-bg);
+}
+
+// Quick Links
+.parent-quick-link-section {
+  margin-top: 64px;
+}
+.parent-quick-link-icon-body {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 40px;
+  border-radius: 8px;
+  background-color: #1c43702e;
+  [data-theme="dark"] & {
+    background-color: #ffffff2e;
+  }
+  .parent-quick-link-icon {
+    color: #1c4370;
+    [data-theme="dark"] & {
+      color: #ffffff;
+    }
+  }
+}
+.quick-link-card {
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #fff;
+  border: 1px solid #e3e9ff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  [data-theme="dark"] & {
+    background-color: var(--dark-bg-one);
+    border: 1px solid #4e4e4e;
+  }
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); // add shadow
+  }
+
+  &:hover .parent-quick-link-icon-body {
+    background-color: var(--primary-bg); // icon background change
+  }
+
+  &:hover .parent-quick-link-icon-body .parent-quick-link-icon {
+    color: #fff; // icon color white
+  }
+}
+
+.parent-quick-link-content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  h5 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--primary-bg) !important;
+    [data-theme="dark"] & {
+      color: #fff !important;
+    }
+  }
+  p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--p-body) !important;
+    text-align: left !important;
+    [data-theme="dark"] & {
+      color: #fff !important;
+    }
+  }
+}
+.category-divider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.category-divider {
+  border: none;
+}

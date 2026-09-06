@@ -1,0 +1,30 @@
+.chairperson-slider-deck {
+  padding: 48px 0px;
+  background: rgba(30, 62, 109, 0.05);
+
+  .swiper-pagination-horizontal {
+    bottom: 0px !important;
+    position: inherit !important;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 40px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 40px !important;
+    height: 5px !important;
+    background: var(--text-normal-color) !important;
+    border-radius: 2px !important;
+    opacity: 1 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--secondary-bg) !important;
+  }
+}
+
+[data-theme="dark"] .chairperson-slider-deck {
+  background: var(--dark-bg-one);
+}
+

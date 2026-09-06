@@ -1,0 +1,54 @@
+.degree-programs-section {
+  padding: 48px 16px;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  .degree-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      color: #1c4370;
+      background-color: rgba(28, 67, 112, 0.1);
+      transition: background-color 0.3s, color 0.3s;
+      &.active {
+        background-color: #1c4370;
+        color: #fff;
+      }
+    }
+  }
+
+  .program-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    height: 120px;
+    text-align: center;
+    gap: 8px;
+    color: #1c4370;
+    text-decoration: none;
+    background-color: transparent !important; // force no background
+    box-shadow: none !important; // force no shadow
+    transition: transform 0.2s;
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon-wrapper {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.mobile-navbar-button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.mobile-navbar-quick-button-body {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 40%);
+  border: 1px solid rgb(255 255 255 / 40%);
+  color: var(--primary-bg);
+}

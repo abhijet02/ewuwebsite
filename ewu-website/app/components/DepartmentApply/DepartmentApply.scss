@@ -1,0 +1,58 @@
+.department-apply-part {
+    padding: 30px 0;
+    background: var(--secondary-bg);
+
+    .department-apply {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--text-normal-color);
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-normal-color);
+            margin: 0;
+        }
+
+        a {
+            font-size: 14px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background: var(--text-normal-color);
+            color: var(--primary-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: all linear 0.3s;
+
+            svg {
+                transition: all linear 0.3s;
+            }
+
+            &:hover {
+                background: var(--primary-bg);
+                color: var(--text-normal-color);
+            }
+
+            &:hover svg {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .department-apply-part .department-apply {
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+    }
+}

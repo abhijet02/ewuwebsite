@@ -1,0 +1,21 @@
+.clubs-common-page {
+    .video-banner {
+        height: 700px;
+
+        img {
+            object-fit: cover;
+        }
+    }
+    .recent-clubs-events-date{
+        min-width: 100px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .clubs-common-page .video-banner {
+        height: 207px;
+    }
+    .video-banner .swiper-pagination-horizontal {
+        bottom: 15px !important;
+    }
+}

@@ -1,0 +1,205 @@
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  background: #00000000; // transparent initially
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+    background: #00000055; // fade in overlay
+  }
+}
+.body-zoomed {
+  .drawer-overlay {
+    zoom: 0.8333333; // 1 / 1.2
+    height: calc(100vh / 0.8333333);
+  }
+}
+.drawer-body {
+  width: 360px;
+  height: 100vh; // CRITICAL
+  max-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  transform: translateX(100%); // start off screen
+  transition: transform 0.3s ease 0.1s; // delay slightly after overlay
+  display: flex; /* added for layout control */
+  flex-direction: column; /* added for scrollable content separation */
+  @media (max-width: 970px) {
+    width: 100%;
+  }
+
+  &.open {
+    transform: translateX(0); // slide in
+  }
+
+  .drawer-header {
+    border-bottom: 1px solid rgba(145, 158, 171, 0.36);
+    padding: 16px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0; /* keep header fixed */
+
+    p {
+      margin: 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    div {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Scrollable main content area */
+  .drawer-scroll-content {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #bfbfbf transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #bfbfbf;
+      border-radius: 3px;
+    }
+  }
+
+  .drawer-options {
+    padding: 16px;
+  }
+
+  .accessibility-action-button {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(145, 158, 171, 0.36);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f7f7f7;
+    }
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+
+  .reset-accessibility {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    background-color: var(--secondary-bg);
+    padding: 10px;
+    cursor: pointer;
+    justify-content: center;
+    color: #fff;
+    &:hover {
+      background: #92403a;
+    }
+  }
+}
+
+[data-theme="dark"] .drawer-body {
+  background: #212529;
+}
+
+[data-theme="dark"] .accessibility-action-button {
+  &:hover {
+    background: #495057;
+  }
+}
+
+.drawer-links {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-link {
+  border: 1px solid rgba(145, 158, 171, 0.36);
+  padding: 8px;
+  color: var(--primary-bg);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+  text-align: left !important;
+  &:hover {
+    background: rgba(145, 158, 171, 0.16);
+    svg {
+      transform: rotate(-45deg);
+      transition: all 0.36s ease-in-out;
+    }
+  }
+}
+
+[data-theme="dark"] .drawer-link {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+  &:hover {
+    background: rgba(145, 158, 171, 0.16);
+    svg {
+      transform: rotate(-45deg);
+      transition: all 0.36s ease-in-out;
+    }
+  }
+}
+
+.keyboard-acceessibility-message {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(145, 158, 171, 0.36);
+  border-radius: 8px;
+  padding: 12px;
+  h6 {
+    margin: 0;
+    font-size: 16px !important;
+  }
+  p {
+    margin: 0;
+    font-size: 14px !important;
+    text-align: left !important;
+  }
+}

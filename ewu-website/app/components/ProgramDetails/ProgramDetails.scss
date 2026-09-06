@@ -1,0 +1,210 @@
+.program {
+  padding: 40px 0px 140px 0;
+
+  p {
+    text-align: left;
+  }
+
+  .program-content {
+    display: flex;
+    align-items: stretch;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .program-main {
+    background: #f6f6f6;
+    padding: 30px;
+    flex: 1;
+    transition: all linear 0.3s;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      color: var(--primary-bg);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 1px solid var(--primary-bg);
+          border-radius: 6px;
+          padding: 10px 20px;
+          transition: all linear 0.3s;
+          width: fit-content;
+          color: var(--primary-bg);
+
+          svg {
+            transition: all linear 0.3s;
+          }
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+
+            svg {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.undergraduate-part {
+  background: url(../../assets/bg-faculties.png) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all linear 0.3s;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+  }
+
+  h2 {
+    color: var(--text-normal-color) !important;
+  }
+
+  ul {
+    li {
+      a {
+        border: 1px solid var(--text-normal-color) !important;
+        color: var(--text-normal-color) !important;
+
+        &:hover {
+          background: var(--text-normal-color) !important;
+          color: var(--primary-bg) !important;
+          border-color: var(--text-normal-color) !important;
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .program {
+  .program-main {
+    background: var(--dark-primary-bg1);
+
+    h2 {
+      color: var(--text-normal-color);
+    }
+
+    ul {
+      li {
+        a {
+          border: 1px solid var(--dark-p-text);
+          color: var(--text-normal-color);
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .myhtml2-main-wrapper {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #eee;
+  }
+
+  a {
+    color: var(--secondary-bg);
+  }
+
+  p,
+  span,
+  em,
+  b {
+    color: #ddd !important;
+  }
+
+  .table {
+    border-color: #666;
+    thead {
+      tr {
+        th {
+          color: var(--text-normal-color);
+          background: var(--secondary-bg);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          color: #ddd;
+          background: var(--dark-primary-bg1);
+          border-right-color: #666 !important;
+        }
+      }
+      tr:nth-of-type(2n + 1) td {
+        background: var(--dark-primary-bg1);
+        border-right-color: #666 !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .program .program-content {
+    flex-direction: column;
+  }
+
+  .program .program-main ul li a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .program .program-content {
+    flex-direction: column;
+  }
+
+  .program .program-main ul li a {
+    font-size: 14px;
+  }
+
+  .program {
+    padding: 40px 0px 200px;
+  }
+}

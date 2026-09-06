@@ -1,0 +1,88 @@
+.clubs-announcements-part {
+    padding: 130px 0 90px 0;
+    background: #F7F5F2;
+    overflow: hidden;
+
+    .important-dates-content-part {
+        position: relative;
+        z-index: 999;
+    }
+
+    .important-dates {
+        display: flex;
+        justify-content: end;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            left: -70px;
+            bottom: -30px;
+            background: url("../../assets/shape/shape-3.png");
+            background-repeat: repeat;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            right: -70px;
+            top: -70px;
+            background: url("../../assets/shape/shape-2.png");
+            background-repeat: repeat;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+    }
+
+    .important-dates-bg {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        top: -40px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+}
+
+[data-theme="dark"] .clubs-announcements-part {
+    background: transparent;
+}
+
+@media screen and (max-width:1024px) {
+    .important-dates-part {
+        padding: 40px 0px;
+    }
+
+    .important-dates-bg {
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .important-dates-part {
+        padding: 50px 0;
+    }
+
+    .important-dates-bg {
+        display: none;
+    }
+
+}

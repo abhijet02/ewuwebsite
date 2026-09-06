@@ -1,0 +1,42 @@
+.section-main-wrapper {
+  p {
+    text-align: justify;
+  }
+}
+
+.accordion-wrapper {
+  .accordion {
+    .accordion-header {
+      .accordion-button:not(.collapsed) {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .accordion-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+
+      p {
+        text-align: left;
+      }
+
+      a {
+        display: block;
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+          color: #0056b3;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

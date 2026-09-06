@@ -1,0 +1,142 @@
+.social-links,
+.academic-links {
+  display: flex;
+  gap: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #1c4370;
+    text-decoration: none;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: #1c4370; // icon color
+    }
+
+    &:hover {
+      opacity: 0.8; // subtle hover effect
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  // Specific backgrounds for academic links
+  .orcid {
+    background: #a9d03f;
+  }
+  .researchgate {
+    background: #0cd5af;
+  }
+  .scopus {
+    background: #ff8608;
+  }
+  .google-scholar {
+    background: #5981c1;
+  }
+}
+.degnation {
+  font-size: 14px;
+  margin: 0;
+}
+.bot-details-page-card-media {
+  width: 100%;
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    object-position: top;
+    border: 5px double rgb(28 67 112 / 12%);
+    border-radius: 20px;
+    padding: 5px;
+  }
+  @media screen and (max-width: 992px) {
+    width: 260px;
+    height: 320px;
+  }
+  @media screen and (max-width: 575px) {
+    width: 260px;
+    height: 320px;
+  }
+}
+
+[data-theme="dark"] .bot-details-page-card-media {
+  img {
+    border: 5px double rgba(255, 255, 255, 0.12);
+  }
+}
+.botmember-content-pharser {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  svg {
+    color: var(--secondary-bg);
+  }
+  ul,
+  ol {
+    padding-left: 20px; // optional: keeps list indentation
+    li {
+      color: #1c4370 !important; // 👈 change this to your desired color
+      line-height: 1.6;
+      font-weight: 400;
+    }
+  }
+}
+[data-theme="dark"] .botmember-content-pharser {
+  svg {
+    color: var(--text-normal-color);
+  }
+  ul,
+  ol {
+    li {
+      color: var(--text-normal-color) !important;
+    }
+  }
+}
+.bot-profile-card-address-deck {
+  border: 1px solid #ebebeb;
+  background: #ebebeb;
+  border-radius: 8px;
+  height: 100%;
+  overflow: visible;
+}
+[data-theme="dark"] .bot-profile-card-address-deck {
+  border: 1px solid var(--dark-bg-one) !important;
+  background: var(--dark-bg-one) !important;
+}
+
+.bot-profile-address-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #204671;
+  font-weight: 600;
+  p {
+    text-align: left !important;
+  }
+}
+[data-theme="dark"] .bot-profile-address-info {
+  color: #fff !important;
+}
+.bot-profile-document-preview {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-bg);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary-bg);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  [data-theme="dark"] & {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+}

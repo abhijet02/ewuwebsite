@@ -1,0 +1,863 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["linux-musl-arm64-openssl-3.0.x", "linux-arm64-openssl-3.0.x", "debian-openssl-3.0.x"]
+  output        = "./generated/page-builder"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PAGE_BUILDER_DATABASE_URI")
+}
+
+enum Publish {
+  YES @map("1")
+  NO  @map("0")
+}
+
+enum YesOrNo {
+  YES @map("1")
+  NO  @map("0")
+}
+
+enum MenuType {
+  HEADER
+  FOOTER
+  SIDEBAR
+}
+
+enum JobType {
+  FULLTIME
+  PARTTIME
+  CONTACTUAL
+}
+
+enum MenuPosition {
+  TOP
+  BOTTOM
+}
+
+
+model menus {
+  id                  Int          @id @default(autoincrement())
+  pageId              Int?
+  label               String
+  link                String
+  parent              Int
+  sort                Int
+  depth               Int
+  mobileSort          Int?
+  hasFooterMenuButton YesOrNo      @default(NO)
+  isMegaMenu          YesOrNo      @default(NO)
+  menuType            MenuType     @default(HEADER)
+  menuPosition        MenuPosition @default(BOTTOM)
+  createdAt           DateTime     @default(now())
+  updateAt            DateTime?    @default(now())
+}
+
+model header {
+  id                Int       @id @default(autoincrement())
+  pageId            Int
+  headerLogoUrl     String?
+  headerLogoLink    String?
+  megamenuTitle     String?
+  megaMenuBtn1Title String?
+  megaMenuBtn1Link  String?
+  megaMenuBtn2Title String?
+  megaMenuBtn2Link  String?
+  megaMenuBtn3Title String?
+  megaMenuBtn3Link  String?
+  createdAt         DateTime  @default(now())
+  updateAt          DateTime? @default(now())
+  createdBy         Int       @default(0)
+  updatedBy         Int?      @default(0)
+}
+
+model footer {
+  id                     Int       @id @default(autoincrement())
+  pageId                 Int
+  headerText             String?
+  footerApplyNowText     String?
+  footerApplyNowLink     String?
+  footerLogoUrl          String?
+  footerMediaUrl         String?
+  footerContactUsMobile  String?
+  footerContactUsEmail   String?
+  footerContactUsHotline String?
+  footerAddress          String?
+  footerMap              String?
+  footerMapPath          String?
+  footerCopyRightTitle   String?
+  createdAt              DateTime  @default(now())
+  updateAt               DateTime? @default(now())
+  createdBy              Int       @default(0)
+  updatedBy              Int       @default(0)
+}
+
+model socialMedia {
+  id        Int       @id @default(autoincrement())
+  link      String
+  logoUrl   String?
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+  createdBy Int       @default(0)
+  updatedBy Int       @default(0)
+}
+
+model emergencyHotLine {
+  id        Int       @id @default(autoincrement())
+  link      String
+  logoUrl   String?
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+  createdBy Int       @default(0)
+  updatedBy Int       @default(0)
+}
+
+model pages {
+  id          Int       @id @default(autoincrement())
+  label       String
+  link        String
+  isHomePage  YesOrNo   @default(NO)
+  isConvocationPage  YesOrNo   @default(NO)
+  seoDescription String?
+  seoKeywords  String[]
+  contentOf    Int?
+  departmentId Int?
+  facultyId    Int?
+  clubId       Int?
+  officeId     Int?
+  homePageId  Int?      @default(0)
+  groupPageId Int?      @default(0)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model component {
+  id            Int        @id @default(autoincrement())
+  label         String
+  thumbnailPath String?
+  viewAllLink   String?
+  createdAt     DateTime   @default(now())
+  updateAt      DateTime?  @default(now())
+  //category      category[]
+}
+
+model viewAll {
+  id            Int        @id @default(autoincrement())
+  componentId   Int
+  pageId        Int
+  viewAllLink   String
+  createdAt     DateTime   @default(now())
+  updateAt      DateTime?  @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int      @default(0)
+}
+
+model accordion {
+  id          Int      @id @default(autoincrement())
+  pageId      Int      @default(0)
+  title       String
+  description String
+  color       String?
+  section     Int?
+  col         Int?
+  isPublished Publish  @default(NO)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int      @default(0)
+}
+
+model notice {
+  id            Int           @id @default(autoincrement())
+  category      String
+  isCopiedTo    Int[]
+  slug          String?       @unique
+  order         Int           @default(0)
+  isMarquee     YesOrNo       @default(NO)
+  isArchived    YesOrNo       @default(NO)
+  isPublished   Publish       @default(NO)
+  isApprovedByAdmin YesOrNo   @default(NO)
+  sub_category  String?
+  pageId        Int
+  label         String
+  description   String
+  date          DateTime
+  attachmentUrl String?
+  photos        noticePhoto[]
+  thumbnail     String?
+  location      String?
+  author        String?
+  createdAt     DateTime      @default(now())
+  updateAt      DateTime?     @default(now())
+}
+
+model noticePhoto {
+  id        Int       @id @default(autoincrement())
+  noticeId  Int
+  fileName  String?
+  url       String
+  notice    notice    @relation(fields: [noticeId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+}
+
+model latestNews {
+  id          Int       @id @default(autoincrement())
+  pageId      Int
+  label       String
+  link        String
+  isCopiedTo  Int?
+  expierDate  DateTime?
+  order       Int       @default(0)
+  isPublished Publish   @default(NO)
+  entryDate   DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model news {
+  id           Int         @id @default(autoincrement())
+  pageId       Int
+  label        String
+  description  String?
+  slug         String?     @unique
+  order        Int         @default(0)
+  date         DateTime
+  photos       newsPhoto[]
+  thumbnail    String?
+  reporterName String?
+  isCopiedTo    Int[]
+  isMarquee    YesOrNo     @default(NO)
+  isArchived   YesOrNo     @default(NO)
+  isPublished  Publish     @default(NO)
+  isApprovedByAdmin YesOrNo   @default(NO)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime?   @default(now())
+  createdBy    Int         @default(0)
+  updatedBy    Int         @default(0)
+}
+
+model newsPhoto {
+  id        Int       @id @default(autoincrement())
+  newsId    Int
+  url       String
+  news      news      @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @default(now())
+  createdBy Int       @default(0)
+  updatedBy Int       @default(0)
+}
+
+model newsMedia {
+  id          Int             @id @default(autoincrement())
+  pageId      Int?
+  label       String
+  description String?
+  category    String?
+  slug        String?         @unique
+  date        DateTime
+  thumbnail   String?
+  files       newsMediaFile[]
+  link        String?
+  isArchived  YesOrNo         @default(NO)
+  isPublished Publish         @default(NO)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime?       @default(now())
+  createdBy   Int             @default(0)
+  updatedBy   Int             @default(0)
+}
+
+model newsMediaFile {
+  id           Int       @id @default(autoincrement())
+  newsMediaId  Int
+  orgName      String?
+  thumbNailUrl String?
+  fileUrl      String?
+  link         String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @default(now())
+  createdBy    Int       @default(0)
+  updatedBy    Int       @default(0)
+
+  newsMedia newsMedia @relation(fields: [newsMediaId], references: [id], onDelete: Cascade)
+}
+
+model newsMediaOrg {
+  id          Int       @id @default(autoincrement())
+  newsMediaId Int?
+  title       String?
+  link        String?
+  thumbnail   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int       @default(0)
+}
+
+model achievement {
+  id          Int                @id @default(autoincrement())
+  pageId      Int
+  label       String
+  description String?
+  slug        String?            @unique
+  order       Int                @default(0)
+  category    String?
+  isCopiedTo    Int[]
+  date        DateTime
+  photos      achievementPhoto[]
+  thumbnail   String?
+  isMarquee   YesOrNo            @default(NO)
+  isArchived  YesOrNo            @default(NO)
+  isPublished Publish            @default(NO)
+  isApprovedByAdmin YesOrNo      @default(NO)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime?          @default(now())
+  createdBy   Int                @default(0)
+  updatedBy   Int                @default(0)
+}
+
+model achievementPhoto {
+  id            Int         @id @default(autoincrement())
+  achievementId Int
+  url           String
+  achievement   achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime?   @default(now())
+  createdBy     Int         @default(0)
+  updatedBy     Int         @default(0)
+}
+
+model feedbackofStudent {
+  id           Int       @id @default(autoincrement())
+  pageId       Int
+  order        Int       @default(0)
+  name         String
+  departmentId Int?
+  year         String?
+  designation  String?
+  description  String?
+  photoUrl     String?
+  attachmentUrl String?
+  isPublished  Publish   @default(NO)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @default(now())
+  createdBy    Int       @default(0)
+  updatedBy    Int       @default(0)
+}
+
+model category {
+  id          Int       @id @default(autoincrement())
+  componentId Int
+  category    String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @default(now())
+  //component   component @relation(fields: [componentId], references: [id], onDelete: Cascade)
+}
+
+model quickLinks {
+  id        Int       @id @default(autoincrement())
+  label     String
+  url       String
+  category  String
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+}
+
+model event {
+  id             Int       @id @default(autoincrement())
+  pageId         Int
+  category       String
+  title          String
+  slug           String?   @unique
+  order          Int       @default(0)
+  fromDate       DateTime
+  toDate         DateTime?
+  location       String?
+  description    String?
+  attachmentUrl  String?
+  attachmentName String?
+  isCopiedTo     Int[]
+  isMarquee      YesOrNo   @default(NO)
+  isArchived     YesOrNo   @default(NO)
+  isPublished    Publish   @default(NO)
+  isApprovedByAdmin YesOrNo      @default(NO)
+  createdBy      Int       @default(0)
+  updatedBy      Int?      @default(0)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+
+  eventSpeaker eventSpeaker[]
+  attachments  eventAttachment[]
+}
+
+model eventAttachment {
+  id             Int       @id @default(autoincrement())
+  eventId        Int
+  attachmentUrl  String?
+  attachmentName String?
+  createdBy      Int       @default(0)
+  updatedBy      Int?      @default(0)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+
+  event event? @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model eventSpeaker {
+  id          Int       @id @default(autoincrement())
+  eventId     Int
+  name        String
+  designation String?
+  companyName String?
+  photoUrl    String?
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+
+  event event? @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model patnership {
+  id          Int      @id @default(autoincrement())
+  pageId      Int
+  name        String
+  logoUrl     String?
+  origin      String?
+  websiteLink String?
+  isPublished Publish  @default(NO)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int      @default(0)
+}
+
+model contactInfo {
+  id               Int      @id @default(autoincrement())
+  pageId           Int?
+  primaryEmail     String
+  secondaryEmail   String?
+  primaryPhone     String?
+  secondaryPhone   String?
+  address          String?
+  officePhone      String?
+  primaryHotline   String
+  secondaryHotline String?
+  link             String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now())
+  createdBy        Int      @default(0)
+  updatedBy        Int?     @default(0)
+
+  // One-to-Many Relation with contactContent
+  contents contactContent[] @relation(name: "contactContentTocontactInfo")
+  media    contactPhoto[]   @relation(name: "contactPhotoTocontactInfo")
+}
+
+model contactPhoto {
+  id            Int      @id @default(autoincrement())
+  contactInfoId Int
+  url           String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+  createdBy     Int      @default(0)
+  updatedBy     Int?     @default(0)
+
+  contactInfo contactInfo @relation(name: "contactPhotoTocontactInfo", fields: [contactInfoId], references: [id], onDelete: Cascade)
+}
+
+model contactContent {
+  id            Int         @id @default(autoincrement())
+  text          String
+  header        String?
+  link          String?
+  contactInfo   contactInfo @relation(name: "contactContentTocontactInfo", fields: [contactInfoId], references: [id], onDelete: Cascade)
+  contactInfoId Int
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @default(now())
+}
+
+model quotes {
+  id               Int      @id @default(autoincrement())
+  pageId           Int?
+  designation      String
+  name             String
+  quote            String
+  imageUrl         String?
+  nextThumbnailUrl String?
+  url              String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now())
+  createdBy        Int      @default(0)
+  updatedBy        Int?     @default(0)
+}
+
+model description {
+  id          Int       @id @default(autoincrement())
+  pageId      Int
+  title       String?
+  description String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model slider {
+  id                Int       @id @default(autoincrement())
+  pageId            Int
+  sliderMediaUrl    String?
+  isWatermarkEnable YesOrNo   @default(NO)
+  watermarkLogourl  String?
+  isCountdownShow   YesOrNo   @default(NO)
+  countDownLogo     String?
+  countDownLabel    String?
+  countDownDate     DateTime? @default(now())
+  countDownTime     String?
+  isBanner1Show     YesOrNo   @default(NO)
+  banner1label      String?
+  banner1LogoLabel  String?
+  banner1LogoUrl    String?
+  isBanner2Show     YesOrNo   @default(NO)
+  banner2label      String?
+  banner2LogoLabel  String?
+  banner2LogoUrl    String?
+  overlayText       String?
+  isPublished       Publish   @default(NO)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @default(now())
+  createdBy         Int       @default(0)
+  updatedBy         Int       @default(0)
+}
+
+model builder {
+  id                 Int      @id @default(autoincrement())
+  pageId             Int
+  isLatestNewsEnable YesOrNo  @default(NO)
+  isHeaderEnable     YesOrNo  @default(NO)
+  isHeader2Enable    YesOrNo  @default(NO)
+  isHeader3Enable    YesOrNo  @default(NO)
+  isClubHeaderEnable YesOrNo  @default(NO)
+  isSliderEnable     YesOrNo  @default(NO)
+  isFooterEnable     YesOrNo  @default(NO)
+  isFooter2Enable    YesOrNo  @default(NO)
+  isFooter3Enable    YesOrNo  @default(NO)
+  isClubFooterEnable YesOrNo  @default(NO)
+  sectionCount       Int
+  isPublished        Publish  @default(NO)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now())
+  createdBy          Int      @default(0)
+  updatedBy          Int      @default(0)
+}
+
+model section {
+  id                     Int     @id @default(autoincrement())
+  pageId                 Int
+  secetionOrder          Int
+  sectionTitle           String?
+  sectionSubTitle        String?
+  sectionBackgroundColor String?
+  columRatio             String?
+  columnOrder            Int
+  componentId            Int
+}
+
+model programCalender {
+  id               Int                @id @default(autoincrement())
+  year             Int
+  label            String
+  order            Int?
+  semesterCalender semesterCalender[]
+  calender         calender[]
+  isPublished      Publish            @default(NO)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @default(now())
+  createdBy        Int                @default(0)
+  updatedBy        Int                @default(0)
+}
+
+model semesterCalender {
+  id              Int             @id @default(autoincrement())
+  title           String
+  shortNote       String?
+  label           String
+  order           Int?
+  description     String?
+  attachmentUrl   String?
+  programId       Int
+  programCalender programCalender @relation(fields: [programId], references: [id], onDelete: Cascade)
+  calender        calender[]
+  isBiSemester    YesOrNo         @default(NO)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @default(now())
+  createdBy       Int             @default(0)
+  updatedBy       Int             @default(0)
+}
+
+model calender {
+  id               Int              @id @default(autoincrement())
+  date             DateTime?
+  dateText         String?
+  endDate          DateTime?
+  endDateText      String?
+  day              String?
+  event            String?
+  classDays        String?
+  description      String?
+  lastDateOfClass  DateTime?        @default(now())
+  lastDateOfClassText String?
+  finalExamDays    String?
+  finalExamDate    DateTime?
+  finalExamDateText String?
+  isImportantDate  YesOrNo          @default(NO)
+  isPublished      Publish          @default(NO)
+  programId        Int
+  order            Int              @default(0)
+  programCalender  programCalender  @relation(fields: [programId], references: [id], onDelete: Cascade)
+  semesterId       Int
+  semesterCalender semesterCalender @relation(fields: [semesterId], references: [id], onDelete: Cascade)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @default(now())
+  createdBy        Int              @default(0)
+  updatedBy        Int              @default(0)
+}
+
+model yearlyViewComponent {
+  id              Int      @id @default(autoincrement())
+  pageId          Int?
+  date            DateTime @default(now())
+  order           Int @default(0)
+  year            String
+  title           String?
+  subTitle        String?
+  photoUrl        String?
+  attachment1Url  String?
+  attachment1Name String?
+  attachment2Url  String?
+  attachment2Name String?
+  isPublished     Publish  @default(NO)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  createdBy       Int      @default(0)
+  updatedBy       Int      @default(0)
+
+  yearlyViewAttachment yearlyViewAttachment[]
+}
+
+model yearlyViewAttachment{
+  id              Int      @id @default(autoincrement())
+  yearlyViewId    Int 
+  attachmentUrl  String?
+  attachmentName String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  createdBy       Int      @default(0)
+  updatedBy       Int      @default(0)
+
+  yearlyViewComponent yearlyViewComponent @relation(fields: [yearlyViewId], references: [id], onDelete: Cascade)
+}
+
+model job {
+  id             Int      @id @default(autoincrement())
+  pageId         Int?
+  order          Int      @default(0)
+  slug           String?
+  title          String?
+  numberOfVacancy Int?
+  designation    String?
+  officeId       Int?
+  departmentId   Int?
+  facultyId      Int?
+  ageLimit       Int?
+  ageLimitDate   DateTime? 
+  date           DateTime @default(now())
+  deadline       DateTime @default(now())
+  jobDescription String?
+  jobtype        JobType? @default(FULLTIME)
+  fbLink         String?
+  xLink          String?
+  inLink         String?
+  jobCircularUrl String?
+  email          String
+  exeperience    String
+  education      String
+  isPublished    Publish  @default(NO)
+  isArchived     YesOrNo  @default(NO)
+  isApplyNowShow YesOrNo  @default(NO)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int      @default(0)
+
+  jobApplication jobApplication[]
+}
+
+model jobApplication {
+  id             Int       @id @default(autoincrement())
+  jobId          Int
+  jobApplicationId String? @unique
+  name           String
+  email          String
+  phone          String
+  designation    String?
+  dob            DateTime?   
+  address        String?
+  coverLetter    String?
+  cvUrl          String?
+  photoUrl       String?
+  coverLetterUrl String?
+  attachmentUrl  String?
+  isPublished    Publish   @default(NO)
+  isChecked      YesOrNo  @default(NO)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime? @default(now())
+
+  job job @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+model gallery {
+  id          Int       @id @default(autoincrement())
+  date        DateTime  @default(now())
+  pageId      Int
+  title       String?
+  category    String?
+  year        String?
+  order       Int?      @default(0)
+  slug        String?   @unique
+  description String?
+  mediaUrl    String?
+  galleryPhoto galleryPhoto[]
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+
+}
+
+model galleryPhoto{
+  id          Int       @id @default(autoincrement())
+  gallaryId   Int
+  mediaUrl    String?
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+
+  gallery gallery @relation(fields: [gallaryId], references: [id], onDelete: Cascade)
+
+}
+
+model campusLife {
+  id          Int       @id @default(autoincrement())
+  pageId      Int
+  title       String?
+  subtitle    String?
+  description String?
+  mediaUrl    String?
+  link        String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model aboutOrg {
+  id              Int       @id @default(autoincrement())
+  sectionTitle    String?
+  sectionSubTitle String?
+  aboutUstitle    String?
+  aboutUs         String?
+  missionTitle    String?
+  mission         String?
+  visionTitle     String?
+  vision          String?
+  mediaUrl        String?
+  isPublished     Publish   @default(NO)
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime? @default(now())
+  createdBy       Int       @default(0)
+  updatedBy       Int?      @default(0)
+}
+
+model suucessCard {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  countLabel  String?
+  logoLink    String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model programCard {
+  id          Int       @id @default(autoincrement())
+  pageId      Int?
+  title       String?
+  link        String?
+  logoLink    String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model searchCourseCard {
+  id          Int       @id @default(autoincrement())
+  pageId      Int?
+  title       String?
+  subTitle    String?
+  link        String?
+  logoLink    String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model hotline {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  link        String?
+  logoLink    String?
+  order       Int       @default(0)
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model followUs {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  link        String?
+  logoLink    String?
+  order       Int       @default(0)
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}
+
+model liveSession{
+  id          Int       @id @default(autoincrement())
+  title       String
+  platform    String?
+  link        String?
+  expiryDate  String?
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  createdBy   Int       @default(0)
+  updatedBy   Int?      @default(0)
+}

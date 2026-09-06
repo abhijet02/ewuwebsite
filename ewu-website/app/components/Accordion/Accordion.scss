@@ -1,0 +1,43 @@
+.accordion-wrapper {
+  .accordion {
+    .accordion-header {
+      .accordion-button:not(.collapsed) {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .accordion-wrapper {
+  .accordion {
+    .accordion-item {
+      border: 1px solid var(--dark-input-border);
+    }
+
+    .accordion-header {
+      .accordion-button {
+        color: var(--text-normal-color);
+        background: var(--dark-primary-bg1);
+&::after {
+    filter: invert(1); /* Makes the default arrow white */
+  }
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: var(--text-normal-color);
+        background: var(--dark-primary-bg1) !important;
+        border-color: var(--dark-input-border) !important;
+      }
+    }
+
+    .accordion-body {
+      color: var(--text-normal-color);
+      background: var(--dark-primary-bg1);
+    }
+  }
+}

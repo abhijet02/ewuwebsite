@@ -1,0 +1,113 @@
+.clubs-goal-part {
+  padding: 40px 0px;
+  background: var(--secondary-color-bg);
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 100%;
+    top: 0;
+    left: 260px;
+    background: url(../../assets/clubs/shape-1.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: -1;
+  }
+
+  .clubs-goal-all-cards {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+  }
+
+  .clubs-goal-title h1 {
+    margin-bottom: 40px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .clubs-goal-main {
+    &:nth-child(1) {
+      border-right: 1px solid #dbd8d8;
+      border-bottom: 1px solid #dbd8d8;
+    }
+
+    &:nth-child(2) {
+      border-bottom: 1px solid #dbd8d8;
+    }
+
+    &:nth-child(3) {
+      border-right: 1px solid #dbd8d8;
+    }
+
+    .clubs-goal-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      padding: 20px;
+
+      h1 {
+        margin-bottom: 0;
+        font-size: 3.3rem;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      h2 {
+        font-size: 22px;
+        color: #fff;
+      }
+
+      p {
+        font-size: 14px;
+        text-align: center;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .clubs-goal-part::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .clubs-goal-part::before {
+    display: none;
+  }
+
+  .clubs-goal-main {
+    &:nth-child(1) {
+      border-bottom: 1px solid #dbd8d8;
+      border-right: 0 !important;
+    }
+
+    &:nth-child(2) {
+      border-bottom: 1px solid #dbd8d8;
+    }
+
+    &:nth-child(3) {
+      border-bottom: 1px solid #dbd8d8;
+      border-right: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .clubs-goal-part {
+    padding: 40px 0;
+  }
+  .clubs-goal-part .clubs-goal-title h1 {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,215 @@
+.club-contact-section {
+  margin: 180px 0 0;
+
+
+ .contact-title {
+  font-weight: bold;
+  color: #1d406f;
+}
+
+ .contact-title {
+  margin-bottom: 80px;
+}
+
+ .small-text {
+  color: black;
+  opacity: 50%;
+}
+
+ .top-space {
+  margin-top: 30px;
+}
+
+ .contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex: 1;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: transform 0.5s ease;
+  text-align: center;
+  width: 400px;
+  height: 330px;
+  padding: 20px;
+}
+ .contact-card.blue-effect:hover {
+  transform: translateY(-8px);
+  border-bottom: 8px solid #1c4370;
+  cursor: pointer;
+}
+
+ .contact-card.green-effect:hover {
+  transform: translateY(-8px);
+  border-bottom: 8px solid rgb(141, 185, 82);
+  cursor: pointer;
+}
+
+ .contact-card.red-effect:hover {
+  transform: translateY(-8px);
+  border-bottom: 8px solid #aa4a44;
+  cursor: pointer;
+}
+
+ .description-text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: gray;
+  margin: 20px 0 50px;
+}
+
+ .must-fill {
+  color: #bd463d;
+}
+
+ .contact-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact-section {
+  padding: 50px 0;
+}
+ .form-control {
+  border-radius: 10px;
+}
+
+ .small-text {
+  font-size: 0.9rem;
+}
+
+.submit-message-btn {
+  margin: 15px 0 90px 0;
+}
+
+ .submit-message-btn {
+  background-color: #1c4370;
+  border: none;
+  color: white;
+  width: 220px;
+  height: 58px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .submit-message-btn:hover {
+  background-color: #fff;
+  border: 1px solid #1c4370;
+  color: #1c4370;
+}
+
+ .submit-btn-icon {
+  font-size: 23px;
+  margin-left: 12px;
+  transition: transform 0.3s ease;
+}
+
+ .submit-message-btn:hover .submit-btn-icon {
+  transform: rotate(90deg);
+}
+
+ input.form-control::placeholder {
+  color: #7b7979cb;
+}
+
+
+input.form-control[type="text"] {
+  text-transform: capitalize;
+  background-color: #ebedf0;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+ input.form-control[type="number"],
+ [type="text"],
+[type="email"] {
+  text-transform: none;
+  background-color: #ebedf0;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+
+input.form-control[type="email"] {
+  text-transform: none;
+  background-color: #ebedf0;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+ textarea.form-control::placeholder {
+  color: #7b7979cb;
+}
+
+ textarea.form-control {
+  border: 3px solid #edeff1;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ebedf0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #c0c0c0;
+}
+
+@media (max-width: 768px) {
+   .contact-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+ .contact-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+   .contact-title {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+   .submit-message-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+   .form-group {
+    width: 100%;
+  }
+
+   .contact-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+}
+
+[data-theme="dark"] .club-contact-section{
+  .contact-title{
+    color: var(--secondary-bg);
+  }
+
+  .contact-card{
+    background-color: #282f35;
+
+    img{}
+  }
+}

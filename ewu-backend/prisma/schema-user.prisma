@@ -1,0 +1,99 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./generated/user"
+  binaryTargets = ["linux-musl-arm64-openssl-3.0.x", "linux-arm64-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("USER_DATABASE_URI")
+}
+
+model users {
+  id                  Int       @id @default(autoincrement())
+  roleId              Int
+  email               String    @unique
+  mobileNo            String?   
+  bloodGroup          String?
+  firstName           String?
+  lastName            String?
+  password            String
+  rememberToken       String
+  emailVarifiedAt     String
+  profilePhotoUrl     String?
+  signatureUrl        String?
+  gmail2StepCode      String?
+  officeId            Int[]
+  officeMemberId      Int[]
+  clubId              Int[]
+  clubMemberId        Int[]
+  facultyId           Int[]
+  facultyPersonId     Int[]
+  departmentId        Int[]
+  activateStatus      Boolean   @default(true)
+  userType            UserType  @default(OTHER)
+  createdAt           DateTime  @default(now())
+  updateAt            DateTime? @default(now())
+  passwordLastUpdated DateTime  @default(now())
+  waringStatus        Boolean   @default(false)
+
+  // relations
+  role  role  @relation(fields: [roleId], references: [id], onDelete: Cascade)
+}
+
+model loginAttempt {
+  id               Int       @id @default(autoincrement())
+  email            String    @unique
+  tryToAttemptTime String
+  lockedTime       String
+  createdAt        DateTime  @default(now())
+  updateAt         DateTime? @default(now())
+}
+
+model adminMenu {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  link        String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  
+  // Relations
+  permissions roleMenuPermission[]
+}
+model role{
+  id               Int       @id @default(autoincrement())
+  name             String    @unique
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime? @default(now())
+  createdBy        Int       @default(0)
+  updatedBy        Int       @default(0)
+
+    // Relations
+  permissions roleMenuPermission[]
+  users users[]
+}
+
+model roleMenuPermission {
+  id         Int      @id @default(autoincrement())
+  roleId     Int
+  menuId     Int
+
+  canView    Boolean  @default(false)
+  canEdit    Boolean  @default(false)
+  canAdd   Boolean  @default(false)
+  canDelete   Boolean  @default(false)
+  canPublish   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  // Relations
+  role       role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  menu       adminMenu     @relation(fields: [menuId], references: [id],onDelete: Cascade)
+
+  @@unique([roleId, menuId]) // One role can have only one permission set per menu
+}
+
+enum UserType {
+  SUPERADMIN @map("1")
+  OTHER      @map("0")
+}

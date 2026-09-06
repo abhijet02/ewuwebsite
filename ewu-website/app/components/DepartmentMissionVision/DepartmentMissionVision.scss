@@ -1,0 +1,92 @@
+.department-mission-vision-part {
+  padding: 50px 0;
+
+  .department-mission-vision {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--secondary-bg);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 16px;
+
+      li {
+        list-style: number;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--black-bg);
+        line-height: 22px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--black-bg);
+      line-height: 22px;
+      margin: 0;
+    }
+  }
+
+  .department-mission-vision-img {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+[data-theme="dark"] .department-mission-vision-part {
+  background-color: #282f36;
+
+  .department-mission-vision {
+    h1 {
+      color: var(--dark-secondary-bg);
+    }
+
+    ul {
+      li {
+        color: var(--dark-p-text);
+      }
+    }
+
+    p {
+      color: var(--dark-p-text);
+    }
+  }
+
+  .department-mission-vision-img {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .department-chairperson-part .social-links-part {
+    align-items: start;
+  }
+
+  .details-tabs {
+    flex-direction: column;
+  }
+  .department-mission-vision-part {
+    padding: 30px 0;
+  }
+  .department-mission-vision-part .department-mission-vision-img {
+    margin-top: 20px;
+  }
+}

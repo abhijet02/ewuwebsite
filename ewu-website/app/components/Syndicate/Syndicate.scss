@@ -1,0 +1,159 @@
+.syndicate-part {
+  margin: 48px 0;
+}
+
+.syndicate-row {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.syndicate-card {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width: 1400px) and (min-width: 992px) {
+    flex-direction: column;
+    .syndicate-image {
+      width: 120px;
+      height: 120px;
+    }
+    .syndicate-info {
+      text-align: center;
+    }
+    .syndicate-detail p {
+      text-align: center;
+
+      margin: 0;
+    }
+    .syndicate-org {
+      p {
+        font-weight: 600 !important;
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 420px) {
+    flex-direction: column !important;
+    .syndicate-image {
+      width: 120px;
+      height: 120px;
+    }
+    .syndicate-info {
+      text-align: center;
+    }
+    .syndicate-detail p {
+      text-align: center;
+    }
+    .syndicate-org {
+      p {
+      text-align: center;
+    }
+    }
+  }
+}
+
+.syndicate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.syndicate-image {
+  flex: 0 0 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.syndicate-image img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.syndicate-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.syndicate-info h6 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1c4370;
+  font-weight: 600;
+}
+
+.syndicate-detail {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.syndicate-detail p {
+  margin: 0;
+  text-align: left;
+}
+
+.syndicate-org {
+  p {
+  font-weight: 500;
+}
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .syndicate-card {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .syndicate-info h6 {
+    font-size: 0.9rem;
+  }
+
+  .syndicate-detail {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .syndicate-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .syndicate-info h6 {
+  color: #d5e3ff;
+}
+
+[data-theme="dark"] .syndicate-detail {
+  color: #c9c9c9;
+}
+
+.line {
+  flex-grow: 1;
+  height: 0.5px;
+  background-color: #ccc;
+}
+.syndicate-header-title-line {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 12px;
+  h4 {
+    color: var(--tertiary-bg) !important;
+  }
+}
+[data-theme = "dark"] .syndicate-header-title-line {
+  h4 {
+    color: #fff !important;
+  }
+}

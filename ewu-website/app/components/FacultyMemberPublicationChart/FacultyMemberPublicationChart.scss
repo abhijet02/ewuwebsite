@@ -1,0 +1,20 @@
+.faculty-member-publication-chart-body {
+  svg {
+    width: 100% !important;
+    height: 280px !important;
+  }
+}
+.research-profile {
+  padding: 48px;
+  margin-bottom: 24px;
+
+  background: var(--text-normal-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  [data-theme="dark"] & {
+    background: var(--dark-bg-one);
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+}

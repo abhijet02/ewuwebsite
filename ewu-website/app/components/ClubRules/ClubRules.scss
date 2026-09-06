@@ -1,0 +1,47 @@
+.clubs-rules-part {
+    padding: 40px 0px;
+    background: rgba(30, 62, 109, 0.05);
+
+    .major-activities {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--black-bg);
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 16px;
+
+            li {
+                list-style: disc;
+                font-size: 14px;
+                font-weight: 400;
+                color: var(--black-bg);
+                line-height: 24px;
+            }
+        }
+    }
+}
+
+[data-theme="dark"] .clubs-rules-part {
+    background: var(--dark-bg-one);
+
+    .major-activities {
+
+        h2 {
+            color: var(--text-normal-color);
+        }
+
+        ul {
+
+            li {
+                color: var(--dark-p-text);
+            }
+        }
+    }
+}

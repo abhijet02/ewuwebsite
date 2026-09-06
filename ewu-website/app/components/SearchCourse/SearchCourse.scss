@@ -1,0 +1,189 @@
+.search-courses-by-department-part {
+  padding: 40px 0px;
+  background: #f7f5f2;
+
+  .search-courses-card-part {
+    .search-courses-card {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 16px;
+      border: 1px solid #e5e5e5;
+      background: var(--text-normal-color);
+      border-radius: 10px;
+      text-align: center;
+      gap: 16px;
+      height: 225px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease-in-out;
+
+      h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--primary-bg);
+        margin: 0 0 8px 0;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--p-text2);
+        margin: 0;
+      }
+
+      &:hover {
+        background: var(--primary-bg);
+        border-color: var(--primary-bg);
+        transform: scale(1.04);
+
+        h2 {
+          color: var(--text-normal-color);
+        }
+
+        p {
+          color: var(--text-normal-color);
+        }
+      }
+    }
+  }
+
+  .search-courses-by-department-form {
+    padding: 30px;
+    background: var(--text-normal-color);
+    box-shadow: var(--shadow);
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary-bg);
+      margin: 0;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+
+    // fixed select
+    select.form-select {
+      width: 100%;
+      padding: 10px 16px;
+      padding-right: 3rem; // space for arrow
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      background-color: var(--text-normal-color);
+      color: inherit;
+      font-size: 14px;
+
+      // ellipsis behavior
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      // hide native arrow
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      // custom arrow
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.43057 8.51192C4.70014 8.19743 5.17361 8.161 5.48811 8.43057L12 14.0122L18.5119 8.43057C18.8264 8.16101 19.2999 8.19743 19.5695 8.51192C19.839 8.82642 19.8026 9.29989 19.4881 9.56946L12.4881 15.5695C12.2072 15.8102 11.7928 15.8102 11.5119 15.5695L4.51192 9.56946C4.19743 9.29989 4.161 8.82641 4.43057 8.51192Z' fill='%231C274C'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px 16px;
+
+      option {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    // IE legacy caret
+    select.form-select::-ms-expand {
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      background: var(--primary-bg);
+      color: var(--text-normal-color);
+      font-size: 18px;
+
+      a {
+        color: var(--text-normal-color);
+
+        &:hover {
+          color: var(--text-normal-color);
+        }
+      }
+    }
+  }
+}
+
+/* dark mode */
+[data-theme="dark"] .search-courses-by-department-part {
+  background-color: #282f36;
+
+  .search-courses-card-part {
+    .search-courses-card {
+      background-color: #1f1f1f;
+      border-color: var(--dark-bg-one);
+
+      &:hover {
+        background-color: var(--primary-bg);
+      }
+
+      h2 {
+        color: var(--secondary-bg);
+      }
+    }
+  }
+
+  .search-courses-by-department-form {
+    background-color: #1f1f1f;
+    border-color: var(--dark-bg-one);
+
+    h1 {
+      color: var(--secondary-bg);
+    }
+
+    select.form-select {
+      background-color: #43494f;
+      border: 1px solid var(--dark-input-border);
+      color: #adadad;
+
+      // dark mode arrow
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.43057 8.51192C4.70014 8.19743 5.17361 8.161 5.48811 8.43057L12 14.0122L18.5119 8.43057C18.8264 8.16101 19.2999 8.19743 19.5695 8.51192C19.839 8.82642 19.8026 9.29989 19.4881 9.56946L12.4881 15.5695C12.2072 15.8102 11.7928 15.8102 11.5119 15.5695L4.51192 9.56946C4.19743 9.29989 4.161 8.82641 4.43057 8.51192Z' fill='%231C274C'/%3E%3C/svg%3E");
+    }
+
+    input {
+      background-color: #43494f;
+      border: 1px solid var(--dark-input-border);
+      color: #ccc;
+    }
+
+    button {
+      border: 1px solid var(--dark-input-border);
+
+      &:hover {
+        background-color: var(--secondary-bg);
+      }
+    }
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 576px) {
+  .search-courses-by-department-part {
+    padding: 40px 0;
+  }
+}

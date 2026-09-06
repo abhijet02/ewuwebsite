@@ -1,0 +1,77 @@
+.syndicate-card {
+  border: 1px solid #b6b6b6ff;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  .syndicate-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.6s ease;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px);
+
+    .syndicate-image img {
+      transform: scale(1.08);
+    }
+  }
+
+  .syndicate-info {
+    padding: 8px;
+    background: #f5f6f9;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h6 {
+      margin: 0;
+      color: #1c4370;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .syndicate-detail {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+
+      p {
+        margin: 0;
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+  }
+}
+.directory-member-contact {
+  display: flex;
+  gap: 4px;
+  color: var(--secondary-bg);
+  align-items: flex-start;
+  margin-top: 6px;
+
+  p {
+    margin: 0;
+    color: var(--secondary-bg);
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-all;
+  }
+  .email {
+    font-size: 12px;
+    text-transform: lowercase;
+  }
+}

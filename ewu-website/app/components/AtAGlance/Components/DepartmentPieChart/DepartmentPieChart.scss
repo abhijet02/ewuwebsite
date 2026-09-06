@@ -1,0 +1,74 @@
+.faculty-ratio-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.faculty-ratio-card-header {
+  padding: 24px;
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+.custom-legend {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      [data-theme="dark"] & {
+        color: #ffffff;
+      }
+    }
+
+    .legend-label {
+      font-size: 14px;
+      color: #333;
+      [data-theme="dark"] & {
+        color: #ffffff;
+      }
+    }
+  }
+}
+[data-theme="dark"] .faculty-ratio-card {
+  background-color: var(--dark-bg-one);
+}
+.faculty-ratio-dount-chart {
+  width: 100%;
+  min-height: 240px;
+  overflow: visible;
+  svg {
+    width: 100% !important;
+    height: 240px !important;
+    text {
+      &.apexcharts-datalabel-text-label {
+        fill: #169247; // change center name color
+        font-weight: 600;
+      }
+
+      &.apexcharts-datalabel-text-value {
+        fill: #aa4a44; // change center value color
+        font-weight: 700;
+      }
+    }
+  }
+}
+.custom-donut-tooltip {
+  background: var(--primary-bg);
+  color: #ffffff; // white text
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}

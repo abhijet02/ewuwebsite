@@ -1,0 +1,188 @@
+/* ------------------ Live Session Popup ------------------ */
+.live-session-popup {
+  position: fixed;
+  top: 48%;
+  right: 20px;
+  width: 320px; /* fixed width for cards */
+  z-index: 9999;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  animation: slideIn 0.5s ease-out;
+  cursor: pointer;
+  overflow: hidden;
+  @media (max-width: 940px){
+    display: none;
+   }
+}
+
+/* ------------------ Live Animation (Header) ------------------ */
+.live-animation-div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #aa4a44; /* Live text color */
+  }
+}
+
+/* ------------------ Blob Indicator ------------------ */
+.live-blob {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  animation: pulseBlob 1.5s infinite ease-in-out;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.5;
+    animation: pulseGlow 1.5s infinite ease-in-out;
+  }
+}
+
+.facebook {
+  background: #1877f2;
+}
+.youtube {
+  background: #c4302b;
+}
+.others {
+  background: #004d40;
+}
+
+/* ------------------ Animations ------------------ */
+@keyframes pulseBlob {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ------------------ Modal ------------------ */
+.live-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.live-modal {
+  background: #fff;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 16px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+
+  h6 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .close-btn {
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
+.video-wrapper {
+  aspect-ratio: 16/9;
+  width: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.live-session-mobile{
+  display: none;
+   @media (max-width: 940px){
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .live-animation-div{
+      margin-bottom: 0px !important;
+    }
+   }
+}

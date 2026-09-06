@@ -1,0 +1,87 @@
+.department-details-tabs-part {
+  padding: 0 0 50px;
+  // background: rgba(30, 62, 109, 0.05);
+
+  .department-details-tabs {
+    background: var(--text-normal-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .details-tabs {
+    .nav {
+      padding: 20px;
+      background: rgba(28, 67, 112, 0.1);
+      margin: 0 !important;
+      gap: 10px;
+
+      button {
+        width: 260px;
+        text-align: start;
+        padding: 10px 20px;
+        color: var(--black-bg);
+        font-size: 16px;
+      }
+
+      .active {
+        background: var(--primary-bg);
+        color: var(--text-normal-color);
+      }
+    }
+
+    .tab-content {
+      padding: 20px;
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 28px;
+        margin: 0;
+        color: var(--black-bg);
+        text-align: left;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .department-details-tabs-part {
+  background: #212529;
+
+  .department-details-tabs {
+    background: var(--dark-primary-bg1);
+  }
+
+  .details-tabs {
+    .nav {
+      background: #565b60;
+
+      button {
+        color: var(--text-normal-color);
+      }
+
+      .active {
+        background: var(--primary-bg);
+        color: var(--text-normal-color);
+      }
+    }
+
+    .tab-content {
+      p {
+        color: var(--text-normal-color);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .department-chairperson-part .social-links-part {
+    align-items: start;
+  }
+  .department-details-tabs-part {
+    padding: 0 0 30px;
+  }
+
+  .details-tabs {
+    flex-direction: column;
+  }
+}

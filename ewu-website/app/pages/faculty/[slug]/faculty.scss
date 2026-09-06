@@ -1,0 +1,89 @@
+.faculty-common-page {
+  background: rgba(30, 62, 109, 0.05);
+
+  .department-chairpersons-part {
+    padding: 80px 0 !important;
+  }
+
+  .facultics-notice-events-part {
+    padding: 48px 0px !important;
+  }
+
+  .our-department-part {
+    padding: 80px 0 !important;
+
+    .our-department-box {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .news-letter-part {
+    .news-letter-bg {
+      position: relative;
+      height: 80px;
+      top: 0;
+      width: 100%;
+      left: 0;
+      z-index: 999;
+      background: transparent;
+    }
+  }
+
+  .event-main {
+    max-height: 480px !important;
+    height: auto !important;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  .important-dates-main-box {
+    max-height: 469px !important;
+    height: auto !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .populated-wrapper {
+    padding: 0;
+
+    .items-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-direction: column;
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .populated-wrapper {
+    padding: 0;
+
+    .items-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-direction: column;
+      padding: 30px 0;
+      text-align: center;
+    }
+  }
+
+  .faculty-common-page {
+    .sidebar-section {
+      width: 100%;
+      padding-bottom: 0 !important;
+    }
+    .faculty-message-part {
+      padding-top: 0 !important;
+    }
+  }
+}

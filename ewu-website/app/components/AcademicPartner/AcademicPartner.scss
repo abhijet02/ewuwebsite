@@ -1,0 +1,137 @@
+.academic-partner-part {
+  padding: 40px 0;
+  h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--black-bg);
+    margin-bottom: 20px;
+  }
+
+  .academic-partner-main {
+    background: var(--text-normal-color);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+
+    .table-responsive {
+      border-radius: 8px;
+    }
+
+    table {
+      border: 1px solid #fff;
+      overflow: hidden;
+      margin: 0;
+
+      thead {
+        tr {
+          th {
+            border-right: 1px solid #fff !important;
+            border: none;
+            // background: var(--primary-bg);
+            color: var(--text-normal-color);
+            font-size: 14px;
+            font-weight: 500;
+
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            // padding: 0;
+            border-right: 1px solid #fff !important;
+            border: none;
+
+            &:last-child {
+              border-right: none;
+            }
+
+            div {
+              // background: rgba(28, 67, 112, 0.05);
+              color: var(--black-bg);
+              font-size: 14px;
+              font-weight: 500;
+              height: 60px;
+              padding: 0 20px;
+              display: flex;
+              align-items: center;
+
+              img {
+                height: 40px;
+                object-fit: contain;
+              }
+            }
+          }
+
+          &:nth-of-type(2n + 1) td {
+            background: rgba(28, 67, 112, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .academic-partner-part {
+  // background: var(--dark-bg-one);
+
+  h2 {
+    color: var(--text-normal-color);
+  }
+
+  .academic-partner-main {
+    background: var(--dark-primary-bg1);
+
+    .table-responsive {
+      border-radius: 8px;
+    }
+
+    table {
+      border: 1px solid var(--dark-input-border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0;
+
+      thead {
+        tr {
+          th {
+            border-right: 1px solid var(--dark-input-border) !important;
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+
+            &:last-child {
+              border-right: none !important;
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border-right: 1px solid var(--dark-input-border) !important;
+            background: transparent;
+
+            &:last-child {
+              border-right: none !important;
+            }
+
+            div {
+              background: transparent;
+              color: var(--text-normal-color);
+            }
+          }
+
+          &:nth-of-type(2n + 1) td {
+            background: #495057;
+          }
+        }
+      }
+    }
+  }
+}

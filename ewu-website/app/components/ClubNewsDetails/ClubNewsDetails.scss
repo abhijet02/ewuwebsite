@@ -1,0 +1,143 @@
+.news-details-wrapper {
+  .social-icon-wrapper {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .date-time {
+      color: var(--primary-bg);
+      svg {
+        vertical-align: sub;
+        margin-right: 5px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        float: left;
+
+        a {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgba(230, 230, 230, 0.6);
+          border-radius: 6px;
+          color: var(--primary-bg);
+          transition: all linear 0.2s;
+          margin-left: 8px;
+
+          &:hover {
+            color: var(--text-normal-color);
+            background: var(--secondary-bg);
+          }
+        }
+      }
+    }
+  }
+  .video-banner {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  .banner-swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-banner {
+    .swiper-pagination-horizontal {
+      bottom: 40px !important;
+    }
+
+    .swiper-pagination-bullet {
+      width: 40px !important;
+      height: 5px !important;
+      background: var(--text-normal-color) !important;
+      border-radius: 2px !important;
+      opacity: 1 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--secondary-bg) !important;
+    }
+  }
+  .video-banner {
+    .swiper-wrapper {
+      height: 100% !important;
+    }
+  }
+
+  .industrialization-club-part {
+    padding: 20px 0;
+
+    .industrialization-club {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--black-bg);
+        margin: 0;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--p-text);
+        text-align: left;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .news-details-wrapper {
+  background: var(--dark-primary-bg);
+  .industrialization-club-part {
+    .industrialization-club {
+      h2 {
+        color: var(--text-normal-color);
+      }
+
+      p {
+        color: var(--dark-p-text);
+      }
+    }
+  }
+  .date-time {
+    color: var(--text-normal-color);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .news-details-wrapper {
+    .social-icon-wrapper {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}

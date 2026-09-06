@@ -1,0 +1,124 @@
+.news-list-news-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-end;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+  .image-alt-text {
+    padding: 12px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    p {
+      margin: 0;
+      text-align: center;
+      color: var(--p-text2);
+      font-size: 14px;
+    }
+    svg {
+      color: var(--p-text2);
+    }
+  }
+  .news-list-news-card-media img {
+    transition: transform 0.4s ease-in-out;
+  }
+
+  &:hover .news-list-news-card-media img {
+    transform: scale(1.1);
+  }
+
+  // 🌙 Dark mode shadow adjustment
+  [data-theme="dark"] & {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+    }
+  }
+}
+
+.news-list-news-card-media {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 12px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+}
+.news-list-news-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0px !important;
+  padding: 12px;
+}
+.news-list-news-card-info {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  color: var(--secondary-bg);
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+[data-theme="dark"] .news-list-news-card-info {
+  color: #d2d2d2;
+}
+.news-list-news-card-title-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--p-body);
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--p-text2);
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.news-list-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+[data-theme="dark"] .news-list-news-card-title-desc {
+  h2 {
+    color: var(--text-normal-color);
+  }
+}

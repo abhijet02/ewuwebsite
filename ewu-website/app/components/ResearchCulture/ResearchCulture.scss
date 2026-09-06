@@ -1,0 +1,148 @@
+.research-culture-header-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  .research-culture-header {
+    h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    p {
+      color: #555;
+      font-size: 0.95rem;
+      [data-theme="dark"] & {
+        color: #fff;
+      }
+    }
+  }
+
+  .research-culture-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.9rem;
+      color: #333;
+      [data-theme="dark"] & {
+        color: #fff;
+      }
+    }
+
+    select {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: var(--primary-color);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2);
+      }
+    }
+  }
+}
+:root {
+  --apex-label: #1f2937; /* data-labels */
+  --apex-axis-title: #1f2937;
+  --apex-axis-label: #4b5563;
+  --apex-grid: #e0e0e0;
+  --apex-bar: #1c4370;
+}
+[data-theme="dark"] {
+  --apex-label: #f3f4f6; // light gray for readability
+  --apex-axis-title: #f3f4f6;
+  --apex-axis-label: #d1d5db; // softer gray
+  --apex-grid: #374151;
+  --apex-bar: #deebfa;
+}
+.research-culture-chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px; // slightly increased for better spacing
+  border-radius: 16px; // modern rounded corners
+  background: var(--card-bg, #ffffff);
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03),
+    0 8px 12px rgba(0, 0, 0, 0.02);
+
+  // Dark mode override
+  [data-theme="dark"] & {
+    --card-bg: var(--dark-bg-one);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15),
+      0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary, #1f2937);
+
+    [data-theme="dark"] & {
+      --text-primary: #f3f4f6;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-secondary, #4b5563);
+
+    [data-theme="dark"] & {
+      --text-secondary: #d1d5db;
+    }
+  }
+}
+
+.research-culture-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+.research-culture-kpi-card {
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #aa4a44 0%, #7a302c 100%);
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03),
+    0 8px 12px rgba(0, 0, 0, 0.02);
+  [data-theme="dark"] & {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15),
+      0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 767px) {
+    height: 140px;
+  }
+  &:nth-child(2) {
+    background: radial-gradient(circle at bottom right, #1c4370, #112943);
+  }
+  display: flex;
+  flex-direction: column;
+}
+.kpi-part {
+  display: flex;
+  flex-direction: column;
+  h2 {
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+  }
+} /* ResearchCulture.scss (or your global styles) */

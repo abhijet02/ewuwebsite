@@ -1,0 +1,137 @@
+.degree-details {
+  padding: 40px 0;
+
+  .degree-details-content {
+    display: flex;
+    align-items: stretch;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .degree-details-main {
+    background: #f6f6f6;
+    padding: 30px;
+    flex: 1;
+    transition: all linear 0.3s;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      color: var(--primary-bg);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 1px solid var(--primary-bg);
+          border-radius: 6px;
+          padding: 10px 20px;
+          transition: all linear 0.3s;
+          width: fit-content;
+          color: var(--primary-bg);
+
+          svg {
+            transition: all linear 0.3s;
+          }
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+
+            svg {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .degree-desc {
+    h1{
+      font-size: 40px;
+      @media screen and (max-width: 767px){
+        font-size: 32px;
+      }
+    }
+     h3{
+      font-size: 28px;
+      @media screen and (max-width: 767px){
+        font-size: 20px;
+      }
+    }
+    p {
+      text-align: left;
+      @media screen and (max-width: 767px){
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .degree-details {
+  .degree-details-main {
+    background: var(--dark-primary-bg1);
+
+    h2 {
+      color: var(--text-normal-color);
+    }
+
+    ul {
+      li {
+        a {
+          border: 1px solid var(--dark-p-text);
+          color: var(--text-normal-color);
+
+          &:hover {
+            background: var(--primary-bg);
+            color: var(--text-normal-color);
+            border-color: var(--primary-bg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .degree-details .degree-details-content {
+    flex-direction: column;
+  }
+
+  .degree-details .degree-details-main ul li a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .degree-details .degree-details-content {
+    flex-direction: column;
+  }
+
+  .degree-details .degree-details-main ul li a {
+    font-size: 14px;
+  }
+
+  .degree-details {
+    padding: 40px 0px;
+  }
+}

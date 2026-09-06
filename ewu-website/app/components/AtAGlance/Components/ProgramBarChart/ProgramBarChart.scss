@@ -1,0 +1,80 @@
+.programbar-chart-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  [data-theme="dark"] & {
+    background-color: var(--dark-bg-one);
+  }
+}
+
+.program-bar-header {
+  padding: 24px;
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+.program-bars {
+  padding: 0 20px;
+}
+
+.program-row {
+  margin-bottom: 14px;
+}
+
+.program-row-top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.program-title {
+  font-size: 14px;
+}
+
+.program-value {
+  font-size: 14px;
+}
+.program-legend {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+
+  .legend-text {
+    font-size: 14px;
+    color: #333;
+    [data-theme="dark"] & {
+      color: #fff;
+    }
+  }
+}
+.bar-chart-wrapper {
+  svg {
+    width: 100% !important;
+    height: 240px !important;
+  }
+}
+.custom-polar-tooltip {
+  background: var(--primary-bg); // example dark blue bg
+  color: #ffffff; // white text
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}

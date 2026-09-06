@@ -1,0 +1,19 @@
+.preview-document-button-wrapper {
+  margin-top: 24px;
+  position: relative;
+  display: inline-block;
+}
+.preview-document-faculty-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-bg);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  [data-theme="dark"] & {
+    background-color: #fff;
+    color: var(--primary-bg);
+  }
+}

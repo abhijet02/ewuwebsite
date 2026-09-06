@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.application-wrapper {
+  margin: 100px 0;
+}
+
+h1.applicant-job-title {
+  font-weight: bold;
+  color: #1d406f;
+}
+
+.applicant-name-input {
+  width: 49.76%; // Adjust the width as needed
+}
+
+hr {
+  height: 2px;
+  background-color: #727272;
+  width: 100%;
+}
+
+p.applicant-department-name {
+  font-weight: 500;
+  color: #aa4a44;
+  font-size: 18px;
+}
+
+span.must-fill {
+  color: #bd463d;
+}
+
+small.text-red {
+  color: red;
+}
+
+/* Input Field Related Styles */
+
+input.form-control::placeholder {
+  color: #7b7979cb !important;
+}
+input.form-control[type="text"] {
+  text-transform: none;
+  background-color: #e9e4e4;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+input.form-control[type="number"],
+[type="text"],
+[type="email"] {
+  text-transform: none;
+  background-color: #e9e4e4;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+input.form-control[type="email"] {
+  text-transform: none;
+  background-color: #e9e4e4;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+textarea.form-control::placeholder {
+  color: #7b7979cb;
+}
+
+textarea.form-control {
+  border: 3px solid #edeff1;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #e9e4e4;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #c0c0c0;
+}
+
+/* End of Input Field Related Styles */
+
+/*End of Button Styles */
+
+input.form-control {
+  background-color: transparent !important;
+  color: #000000;
+}
+
+.apply-job-form-page {
+  margin: 40px 0px;
+}
+.job-apply-chip-deck {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.job-apply-chip {
+  padding: 4px 8px;
+  border: 1px solid var(--border-line);
+  width: fit-content;
+  border-radius: 4px;
+  p {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+// Photo upload page
+.photo-upload-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: #888;
+  }
+
+  .camera-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+  }
+
+  .photo-preview-circle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+// Upload boxes
+
+.upload-box {
+  width: 100%;
+  border: 1px dashed #bbb;
+  border-radius: 12px;
+  padding: 20px;
+  height: 180px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .upload-title {
+    font-weight: 600;
+    margin: 8px 0 0 0;
+  }
+
+  .upload-browse {
+    text-decoration: underline;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .upload-info {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.file-preview {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+
+  .file-preview-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .file-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .remove-icon {
+    cursor: pointer;
+    color: red;
+  }
+  .pdf-icon {
+    color: #de2429;
+  }
+}
+
+/*Button Styles */
+.cancel-btn {
+  background-color: #fff;
+  border: none;
+  color: #1c4370;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.5s ease;
+  padding: 8px 16px;
+  border: 1px solid var(--secondary-bg);
+}
+
+.submit-btn {
+  background-color: #1c4370;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  padding: 8px 16px;
+}
+.disabled-btn {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+svg.submit-btn-icon {
+  margin-left: 7px;
+}
+
+.submit-btn:hover {
+  background-color: #fff;
+  border: 1px solid #1c4370;
+  color: #1c4370;
+}
+
+.cancel-btn:hover {
+  background-color: #aa4a44;
+  border: 1px solid var(--secondary-bg);
+  color: #fff;
+}

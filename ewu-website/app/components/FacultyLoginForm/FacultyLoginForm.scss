@@ -1,0 +1,198 @@
+/* BoTMemberTab.scss (Updated for FacultyLoginForm) */
+
+.login-details-tabs-part {
+  background: transparent;
+  padding: 24px 16px;
+  margin-bottom: 64px;
+
+  .login-details-tabs {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+
+    .login-info-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      /* Tabs */
+      .login-tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 8px;
+        background: transparent;
+
+        .login-tab {
+          padding: 8px 16px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          color: #1c4370;
+          background-color: rgba(15, 42, 85, 0.1);
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: rgba(15, 42, 85, 0.2);
+          }
+
+          &.active {
+            background-color: #1c4370;
+            color: #fff;
+          }
+        }
+      }
+
+      /* Tab Content */
+      .login-tab-content {
+        background: transparent;
+        padding: 0;
+
+        .login-tab-pane {
+          p {
+            margin: 0;
+            color: #0f2a55;
+            line-height: 1.6;
+          }
+        }
+
+        /* --- ADDED STYLES FOR LINKS GRID/CARDS --- */
+        .login-link-cards-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 16px;
+        }
+
+        .login-link-card {
+          position: relative;
+          color: #fff;
+          padding: 16px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          z-index: 0; // make sure pseudo-element stays behind content
+
+          // background color layers
+          &.primary {
+            background-color: #1c4370;
+          }
+
+          &.secondary {
+            background-color: #aa4a44;
+          }
+
+          // background image layer (with opacity)
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("/teachers-say-bg-1.png") center center / cover
+              no-repeat;
+            opacity: 0.1; // 10% opacity
+            z-index: 0;
+          }
+
+          // ensure content stays above background
+          > * {
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        /* ------------------------------------------- */
+      }
+    }
+  }
+}
+.login-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-direction: column;
+}
+.login-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+.login-button-wrapper {
+  margin-top: 24px;
+}
+
+.login-button {
+  padding: 4px 8px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+}
+/* Responsive: Tabs stack vertically on small screens */
+@media (max-width: 576px) {
+  .login-tabs {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  .login-details-tabs-part {
+    background: transparent;
+
+    .login-details-tabs {
+      background: transparent;
+
+      .login-info-tabs {
+        .login-tabs {
+          border-bottom-color: rgba(255, 255, 255, 0.2);
+          background: transparent;
+
+          .login-tab {
+            color: #cfd8dc;
+            background-color: rgba(255, 255, 255, 0.05);
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            &.active {
+              background-color: #0f2a55; // active tab
+              color: #fff;
+            }
+          }
+        }
+
+        .login-tab-content {
+          background: transparent;
+
+          .login-tab-pane {
+            p {
+              color: #e0e0e0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+/* Live Session Popup Button */
+.admission-live-popup {
+  position: fixed;
+  top: 28%;
+  right: 20px;
+  width: fit-content;
+  z-index: 9999;
+  background: var(--secondary-bg); /* #aa4a44 */
+  border: 2px solid var(--secondary-bg);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(170, 74, 68, 0.7), 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 12px 32px;
+  animation: admission-live-slideIn 0.5s ease-out,
+    admission-live-glowPulse 2s infinite alternate;
+  cursor: pointer;
+  overflow: hidden;
+  @media (max-width: 767px){
+  padding: 6px 16px;
+  right: 16px;
+  top: 18%;
+
+  }
+}
+
+/* Glow pulse animation */
+@keyframes admission-live-glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(170, 74, 68, 0.6), 0 0 20px rgba(170, 74, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(170, 74, 68, 0.8), 0 0 30px rgba(170, 74, 68, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(170, 74, 68, 0.6), 0 0 20px rgba(170, 74, 68, 0.4);
+  }
+}
+
+/* Shiny effect inside the card after a delay */
+.admission-live-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,  /* softer shimmer */
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: admission-live-shimmer 2s ease-in-out 1s infinite; /* 1s delay */
+}
+
+/* Shimmer animation */
+@keyframes admission-live-shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Slide in from top */
+@keyframes admission-live-slideIn {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.admission-live-animation-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:8px;
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  }
+
+  p:first-child {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  p:nth-child(2) {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+ @media (max-width: 767px){
+  .admission-live-animation-div {
+  gap:4px;
+  p {
+    font-size: 14px;
+  }
+
+  p:first-child {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  p:nth-child(2) {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+ }
+

@@ -1,0 +1,28 @@
+.club-members-section-body {
+  padding: 64px 0px;
+}
+.club-member-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.club-member-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  h6 {
+    margin: 0;
+    text-align: center;
+    color: var(--primary-bg);
+    font-weight: 600;
+  }
+  p {
+    margin: 0;
+    color: var(--secondary-bg);
+    text-align: center;
+    font-weight: 500;
+  }
+}

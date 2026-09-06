@@ -1,0 +1,155 @@
+.archive-container {
+  padding: 20px;
+
+  /* ======================
+     🔹 HEADER SECTION
+     ====================== */
+  .archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  /* Right filters group */
+  .archive-header .archive-filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  /* Select wrappers */
+  .archive-header .filter-select {
+    position: relative;
+    display: inline-block;
+    flex: 1 1 160px;
+    min-width: 140px;
+    max-width: 200px;
+  }
+
+  /* Make 3rd (Page) select wider */
+  .archive-header .filter-select:nth-child(3) {
+    flex: 1 1 240px;
+    min-width: 200px;
+    max-width: 100%;
+  }
+
+  /* Select field */
+  .archive-header .filter-select select {
+    width: 100%;
+    height: 42px;
+    padding: 0 36px 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #ccc);
+    background-color: var(--bg-surface, #f9f9f9);
+    font-size: 15px;
+    color: var(--text-color, #222);
+    appearance: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover + focus effects */
+  .archive-header .filter-select select:hover,
+  .archive-header .filter-select select:focus {
+    border-color: var(--accent, #aa4a44);
+  }
+
+  /* Dropdown icon */
+  .archive-header .filter-select .select-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--icon-color, #444);
+    width: 20px;
+    height: 20px;
+  }
+
+  /* 🌙 Dark mode styles */
+  [data-theme="dark"] h3 {
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .archive-header .filter-select select {
+    background-color: #1e1e1e;
+    border-color: #444;
+    color: #eee;
+  }
+
+  [data-theme="dark"] .archive-header .filter-select .select-icon {
+    color: #bbb;
+  }
+
+  /* 📱 Responsive layout */
+  @media (max-width: 767px) {
+    .archive-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .archive-header .archive-filters {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .archive-header .filter-select {
+      flex: 1 1 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    .archive-header .filter-select select {
+      height: 44px;
+    }
+    .clear-filters-btn{
+      width: 100%;
+    }
+  }
+
+  /* ======================
+     🔹 TABLE SECTION
+     ====================== */
+  .archive-table-wrapper {
+    margin-top: 20px;
+    overflow-x: auto;
+
+    .no-data {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      margin: 20px 0;
+    }
+
+    .archive-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        text-align: left;
+      }
+
+      td.action-cell {
+        text-align: center;
+      }
+    }
+
+    .load-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  }
+}

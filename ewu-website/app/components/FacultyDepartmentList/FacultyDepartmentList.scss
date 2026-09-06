@@ -1,0 +1,12 @@
+.all-department-list-faculty-page{
+  padding: 48px 0;
+  background: rgba(30, 62, 109, 0.05);
+
+  .faculty-header h2 {
+    padding: 10px 0 10px;
+  }
+}
+
+[data-theme="dark"] .all-department-list-faculty-page{
+  background: var(--dark-bg-one);
+}

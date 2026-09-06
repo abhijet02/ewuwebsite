@@ -1,0 +1,14 @@
+.academic-calender-download-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background: #ffffffff;
+  border: 1px solid var(--primary-bg);
+  color: #1c4370;
+  border-radius: 8px;
+  &:hover{
+  background: var(--primary-bg);
+    color: #fff;
+  }
+}

@@ -1,0 +1,98 @@
+.student-welfare-part {
+    padding: 40px 0;
+
+    a {
+        width: 100%;
+    }
+}
+
+.student-welfare-card {
+    // overflow: hidden;
+    cursor: pointer;
+
+    .student-welfare-card-img {
+        background: var(--text-normal-color);
+        box-shadow: var(--shadow);
+        border-radius: 20px;
+        padding: 30px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            // width: 100%;
+            // height: 100%;
+            object-fit: contain;
+            transition: all linear 0.3s;
+        }
+    }
+
+    .student-welfare-card-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px;
+        // background: rgba(30, 62, 109, 0.1);
+
+        h2 {
+            font-size: 0.86rem;
+            font-weight: 500;
+            color: var(--primary-bg);
+            margin: 0 10px 0 0;
+        }
+
+        span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: all linear 0.3s;
+            width: fit-content;
+
+            svg {
+                transition: all linear 0.3s;
+            }
+
+
+
+        }
+    }
+
+    &:hover img {
+        transform: scale(1.1);
+    }
+
+    &:hover span svg {
+        transform: rotate(-45deg);
+    }
+}
+
+[data-theme="dark"] .student-welfare-part{
+    background: transparent;
+}
+
+
+[data-theme="dark"] .student-welfare-card {
+
+    .student-welfare-card-img{
+        background-color: var(--dark-bg-one);
+    }
+    
+
+    .student-welfare-card-info {
+
+        h2 {
+            color: var(--text-normal-color);
+        }
+        svg{
+            color: var(--text-normal-color);
+        }
+        a {
+            color: var(--text-normal-color);
+        }
+    }
+}

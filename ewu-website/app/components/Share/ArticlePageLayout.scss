@@ -1,0 +1,153 @@
+/* -------------------------------------------------
+   DEFAULT (SCREEN VIEW) – HIDE PRINT ELEMENTS
+------------------------------------------------- */
+.print-logo-container {
+  display: none;
+}
+.print-footer {
+  display: none;
+}
+.image-for-print {
+  display: none;
+}
+.notice-info-print {
+  display: none;
+}
+
+/* -------------------------------------------------
+   PRINT STYLES
+------------------------------------------------- */
+@media print {
+  /* ---------------------------------------------
+     RESET GLOBAL STYLES FOR PRINT
+  --------------------------------------------- */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000;
+    overflow: hidden !important;
+  }
+
+  /* ---------------------------------------------
+     HIDE NON-ESSENTIAL ELEMENTS
+  --------------------------------------------- */
+  .navbar-part,
+  .footer-main-body,
+  .news-letter-part,
+  .common-sub-banner-part,
+  .marquee-section-for-print,
+  .news-details-share,
+  .mobile-navbar-header,
+  .call-to-action-area,
+  .notice-headline,
+  .swiper,
+  .event-cover-image-wrapper,
+  .video-banner,
+  .notice-details-card,
+  .attachments-wrapper {
+    display: none !important;
+  }
+
+  /* ---------------------------------------------
+     TABLE STYLING FOR PRINTER
+  --------------------------------------------- */
+  table td,
+  table th {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-spacing: 0 !important;
+    border: 1px solid black !important;
+    box-sizing: border-box;
+    color: #000 !important;
+  }
+
+  table {
+    border-collapse: collapse !important; /* Ensures borders touch */
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    color: #000 !important;
+    table-layout: auto;
+  }
+
+  /* ---------------------------------------------
+     PRINT LOGO HEADER AREA
+  --------------------------------------------- */
+  .print-logo-container {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 24px !important;
+    width: 100vw;
+    border-bottom: 2px solid #808080;
+
+    img {
+      display: inline-block !important;
+      visibility: visible !important;
+    }
+  }
+
+  /* ---------------------------------------------
+     NOTICE INFO FOR PRINT
+  --------------------------------------------- */
+  .notice-info-print {
+    display: block;
+  }
+
+  /* ---------------------------------------------
+     FOOTER FOR PRINT
+  --------------------------------------------- */
+  .print-footer {
+    display: block !important;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 2px solid #aa4a44;
+  }
+
+  /* ---------------------------------------------
+     CONTAINER ADJUSTMENTS
+  --------------------------------------------- */
+  .container {
+    width: 100% !important;
+    max-width: 700px !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+
+    img {
+      display: block !important; /* Treat image as block */
+      margin-left: auto !important; /* Center horizontally */
+      margin-right: auto !important;
+      float: none !important;
+      clear: both !important;
+      margin-bottom: 24px;
+      margin-top: 12px !important;
+    }
+  }
+
+  /* ---------------------------------------------
+     MAIN CONTENT AREA
+  --------------------------------------------- */
+  .notice-content-body-print {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #print-content-area {
+    position: static !important;
+  }
+
+  /* ---------------------------------------------
+     SHOW IMAGES PREPARED FOR PRINT
+  --------------------------------------------- */
+  .image-for-print {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,250 @@
+.yearly-view-part {
+  padding: 40px 0px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/shape/about-bg.png");
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 600px;
+    top: 45px;
+    right: -100px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .common-header {
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      color: #737477;
+    }
+  }
+
+  .yearly-view-tabs {
+    margin-top: 20px;
+
+    .nav {
+      flex-wrap: nowrap;
+      overflow: auto;
+      padding-bottom: 8px;
+    }
+
+    .nav-item {
+      border-left: 1px solid #e8e8e8;
+      padding: 0 20px;
+
+      &:first-child {
+        border-left: transparent;
+        padding-left: 0;
+      }
+
+      .nav-link {
+        background: transparent;
+        color: var(--primary-bg);
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .active {
+        color: var(--secondary-bg);
+        border-bottom: 2px solid var(--secondary-bg);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .tab-content {
+    // max-height: 680px;
+    // overflow-y: auto;
+    // padding-right: 10px;
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: #737477;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        font-size: 16px;
+        font-weight: 500;
+        color: #181818;
+        padding: 4px 0;
+
+        svg {
+          margin-right: 8px;
+          color: var(--secondary-bg);
+        }
+      }
+    }
+  }
+
+  .yearly-view-img {
+    //background: url(../../assets//yearly-view-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .visit-us-img-icon {
+      width: 70px;
+      height: 70px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out 0s;
+      box-shadow: rgba(193, 244, 246) 0px 0px 0px 0px;
+      animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running
+        pulse;
+
+      svg {
+        color: var(--primary-bg);
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    @keyframes pulse {
+      100% {
+        box-shadow: 0 0 0 45px rgba(217, 249, 250, 0);
+      }
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+[data-theme="dark"] .yearly-view-part {
+  background: var(--dark-primary-bg);
+  .common-header {
+    p {
+      color: var(--dark-p-text);
+    }
+  }
+
+  .yearly-view-tabs {
+    .nav-item {
+      border-left: 1px solid #383838;
+
+      &:first-child {
+        border-left: transparent;
+        padding-left: 0;
+      }
+
+      .nav-link {
+        background: transparent;
+        color: var(--text-normal-color);
+      }
+
+      .active {
+        color: var(--dark-secondary-bg);
+        border-bottom: 2px solid var(--secondary-bg);
+      }
+    }
+  }
+
+  .tab-content {
+    p {
+      color: var(--dark-p-text);
+    }
+
+    ul {
+      li {
+        color: var(--dark-p-text);
+
+        svg {
+          color: var(--dark-secondary-bg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .yearly-view-img {
+    margin-top: 40px;
+  }
+
+  .yearly-view-part::before {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .yearly-view-img {
+    margin-top: 40px;
+  }
+
+  .yearly-view-part::before {
+    top: auto;
+    bottom: 0;
+  }
+
+  .yearly-view-part .yearly-view-tabs .nav-item {
+    padding: 0 10px;
+  }
+}
+.yearly-view-preview-button {
+  padding: 4px 8px;
+  border: 1px solid var(--secondary-bg);
+  color: var(--secondary-bg);
+  background: transparent;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+  &:hover {
+    background: var(--secondary-bg);
+    color: #fff;
+
+    border: 1px solid var(--secondary-bg);
+  }
+}
+
+.yearly-view-download-button {
+  padding: 4px 8px;
+  border: none;
+  background: #1c4370;
+  border: 1px solid #1c4370;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 100%;
+  &:hover {
+    background: transparent;
+    color: #1c4370;
+    border: 1px solid #1c4370;
+  }
+}
+
+.yearly-view-actions{
+  height: 100%;
+}

@@ -1,0 +1,273 @@
+.important-dates-part {
+  padding: 130px 0 90px 0;
+  background: #f7f5f2;
+  overflow: hidden;
+
+  .important-dates-content {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--text-normal-color);
+    position: relative;
+    z-index: 999;
+
+    .parent-tab-content {
+      .tab-pane {
+        .view-all {
+          a {
+            padding-top: 30px;
+          }
+        }
+      }
+    }
+
+    .important-dates-tabs {
+      .nav-item {
+        .nav-link {
+          padding: 8px 20px;
+          // border: 1px solid var(--primary-bg);
+          color: var(--primary-bg);
+          background: transparent;
+          // margin: 10px 0 0;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .active {
+          background: var(--secondary-bg);
+          border-color: var(--secondary-bg);
+          color: var(--text-normal-color);
+        }
+      }
+
+      .important-dates-main {
+        margin-top: 30px;
+        height: 400px;
+
+        .important-dates-box {
+          display: flex;
+          align-items: stretch;
+          transition: all linear 0.3s;
+          cursor: pointer;
+          border-radius: 6px;
+
+          &:hover {
+            background: var(--secondary-bg);
+          }
+
+          .important-dates-number {
+            width: 100px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #eeeeee;
+            flex-shrink: 0;
+
+            h1 {
+              font-size: 30px;
+              font-weight: 700;
+              margin: 0;
+              padding: 0;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: var(--primary-bg);
+              transition: all linear 0.3s;
+            }
+          }
+
+          &:hover .important-dates-number h1 {
+            -webkit-text-stroke-color: var(--text-normal-color);
+          }
+
+          .important-dates-info {
+            padding: 10px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h4 {
+              margin: 0;
+              margin-bottom: 10px;
+              font-size: 16px;
+              font-weight: 500;
+              color: var(--primary-bg);
+              transition: all linear 0.3s;
+            }
+
+            p {
+              margin: 0;
+              font-size: 14px;
+              font-weight: 400;
+              color: #737477;
+              transition: all linear 0.3s;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: normal;
+            }
+          }
+
+          &:hover .important-dates-info {
+            h4 {
+              color: var(--text-normal-color);
+            }
+
+            p {
+              color: #f6f6f6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .important-dates {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      left: -70px;
+      bottom: -30px;
+      background: url("../../assets/shape/shape-3.png");
+      background-repeat: repeat;
+      background-size: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -70px;
+      top: -70px;
+      background: url("../../assets/shape/shape-2.png");
+      background-repeat: repeat;
+      background-size: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }
+  }
+
+  .important-dates-bg {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    top: -40px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+}
+
+[data-theme="dark"] .important-dates-part {
+  background: var(--dark-bg-one);
+
+  .important-dates-content {
+    .parent-tab-content {
+      .tab-pane {
+        .view-all {
+          a {
+            color: #ddd;
+            transition: transform 0.3s ease-in-out;
+            &:hover {
+              color: var(--secondary-bg);
+            }
+          }
+        }
+      }
+    }
+    background: var(--dark-primary-bg1);
+
+    .important-dates-tabs {
+      .nav-item {
+        .nav-link {
+          color: #ddd;
+          border-bottom: 1px solid #adadad;
+          &:hover {
+            border: 1px solid #adadad;
+          }
+        }
+      }
+      .important-dates-main {
+        .important-dates-box {
+          .important-dates-info {
+            p {
+              color: #ddd;
+            }
+          }
+          .important-dates-number {
+            border-right-color: rgb(86, 86, 86);
+            h1 {
+              -webkit-text-stroke-color: #c6c4c4;
+            }
+          }
+          h4 {
+            color: var(--dark-secondary-bg);
+          }
+
+          &:hover .important-dates-number {
+            h1 {
+              -webkit-text-stroke-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .important-dates-part {
+    padding: 40px 0px;
+  }
+
+  .important-dates-bg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .important-dates-part {
+    padding: 50px 0;
+  }
+
+  .important-dates-bg {
+    display: none;
+  }
+
+  .important-dates-part
+    .important-dates-content
+    .important-dates-tabs
+    .nav-item
+    .nav-link {
+    padding: 8px 14px;
+    margin-right: 10px;
+  }
+
+  .important-dates-part
+    .important-dates-content
+    .important-dates-tabs
+    .important-dates-main
+    .important-dates-box
+    .important-dates-number {
+    width: 60px;
+  }
+}

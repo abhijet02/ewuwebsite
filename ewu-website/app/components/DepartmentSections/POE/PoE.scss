@@ -1,0 +1,114 @@
+.poe-container {
+  background: rgba(30, 62, 109, 0.05);
+  padding: 48px 0px;
+}
+
+.poe-card {
+  background: #fff;
+  border-radius: 12px;
+  height: 100%;
+}
+.poe-title-body {
+  background-color: var(--primary-bg);
+  border-radius: 12px 12px 24px 24px;
+  padding: 16px;
+  color: #fff;
+  h4 {
+    margin: 0;
+  }
+}
+.poe-content-body {
+  padding: 16px;
+  p {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+.read-more {
+  color: var(--secondary-bg);
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 6px;
+}
+[data-theme="dark"] .poe-container {
+  background: var(--dark-bg-one);
+}
+[data-theme="dark"] .poe-card {
+  background: var(--dark-primary-bg1) !important;
+  color: var(--text-normal-color);
+}
+/* Modal */
+.poe-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.poe-modal-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.poe-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e4e4e4ff;
+  color: var(--primary-bg);
+  padding: 16px 24px;
+}
+
+.poe-modal-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.poe-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: var(--primary-bg);
+  cursor: pointer;
+}
+
+.poe-modal-body {
+  padding: 24px;
+  background: #fff;
+  color: #000;
+  max-height: 70vh; /* prevent overflow */
+  overflow-y: auto;
+}
+
+.poe-modal-body p {
+  margin: 0;
+  white-space: pre-line; /* preserve line breaks */
+}
+
+[data-theme="dark"] .poe-modal-body {
+  background: var(--dark-bg-one);
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .poe-modal-header {
+  background: var(--dark-primary-bg1) !important;
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .poe-modal-close {
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .poe-header {
+  h1 {
+    color: var(--text-normal-color);
+  }
+}

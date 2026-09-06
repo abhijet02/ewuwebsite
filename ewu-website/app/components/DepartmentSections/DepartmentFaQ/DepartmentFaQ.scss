@@ -1,0 +1,133 @@
+/* =======================
+   FAQ Section General
+   ======================= */
+.faq-section {
+  margin: 48px 0px;
+}
+
+.faq-section .title {
+  margin-bottom: 15px;
+  color: var(--secondary-bg);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.faq-section p {
+  margin-bottom: 30px;
+  color: var(--p-text2);
+}
+
+/* =======================
+   Accordion Styles
+   ======================= */
+.accordion .accordion-header .accordion-button {
+  display: flex;
+  align-items: center; /* vertically center Q and title */
+  gap: 12px; /* space between question mark and text */
+  padding: 12px 16px;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Accordion header when open (light mode) */
+.accordion .accordion-header .accordion-button:not(.collapsed) {
+  color: var(--text-normal-color);
+  background: var(--primary-bg);
+}
+
+/* Light mode: arrow icon color white when open */
+.accordion .accordion-header .accordion-button:not(.collapsed)::after {
+  color: #fff;
+}
+
+/* Remove focus shadow */
+.accordion .accordion-header .accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Accordion item border (optional) */
+.accordion-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+/* =======================
+   Question Mark Circle
+   ======================= */
+.question-mark {
+  flex: 0 0 32px; /* fixed width */
+  height: 32px;
+  background-color: var(--secondary-bg);
+  color: #fff;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  [data-theme="dark"] &{
+      background-color: var(--primary-bg);
+  }
+}
+
+/* =======================
+   Accordion Body
+   ======================= */
+.accordion-body {
+  background: #f8f8f8;
+  color: var(--p-text2);
+  padding: 16px;
+}
+
+/* =======================
+   Enquiry Button
+   ======================= */
+.enquiry-btn {
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #aa4a44;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enquiry-btn:hover {
+  background: #1c4370;
+}
+
+/* =======================
+   Dark Mode Styles
+   ======================= */
+[data-theme="dark"] .accordion-body {
+  background: var(--dark-bg-one) !important;
+  color: #dbdbdb; /* text color for contrast */
+}
+
+[data-theme="dark"] .accordion-item {
+  border-color: #333;
+}
+
+/* Dark mode: header when open */
+[data-theme="dark"] .accordion .accordion-header .accordion-button:not(.collapsed) {
+  background: #aa4a44; /* red background */
+  color: #fff;
+}
+
+/* Dark mode: arrow icon color white */
+[data-theme="dark"] .accordion .accordion-header .accordion-button:not(.collapsed)::after {
+  color: #fff;
+}
+
+/* Optional: rotate arrow icon smoothly */
+.accordion-button::after {
+  transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+}

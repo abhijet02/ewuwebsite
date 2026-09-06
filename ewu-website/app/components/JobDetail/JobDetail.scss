@@ -1,0 +1,138 @@
+.job-container {
+  padding: 48px 0px;
+}
+.job-details-header {
+  border-bottom: 1px solid var(--border-line);
+  padding: 12px 0px;
+  h3 {
+    color: var(--primary-bg);
+    font-weight: 600;
+  }
+  p {
+    color: var(--secondary-bg);
+    font-weight: 500;
+    margin: 0;
+  }
+}
+[data-theme="dark"] .job-details-header {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-normal-color);
+  }
+  p {
+    color: var(--text-normal-color);
+  }
+}
+
+.job-overview {
+  padding: 16px;
+  border: 1px solid var(--primary-bg);
+  border-radius: 12px;
+  background-color: #fff;
+}
+[data-theme="dark"] .job-overview {
+  background-color: #00000045;
+  border: 1px solid #ccc;
+
+}
+.job-overview-card-title {
+  padding: 4px 0px;
+  border-bottom: 1px solid var(--border-line);
+  p {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-bg);
+    margin: 0;
+  }
+}
+[data-theme="dark"] .job-overview-card-title {
+  p {
+
+    color: #fff !important;
+  }
+}
+.job-overview-specific-data {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.job-overview-icon-body {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aa4b4433;
+  border-radius: 6px;
+  svg {
+    color: #aa4a44;
+  }
+}
+[data-theme="dark"] .job-overview-icon-body {
+  background-color: #ffffff15;
+  svg {
+    color: #b3b3b3;
+  }
+}
+.job-overview-specific-data-part {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  p {
+    margin: 0;
+    &:nth-child(1) {
+      color: #808080;
+      font-size: 14px;
+    }
+
+    &:nth-child(2) {
+      color: --p-body;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}
+.job-overview-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 0px;
+}
+.job-apply-now-button {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: var(--primary-bg);
+  color: #fff;
+  border: 1px solid var(--primary-bg);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  &:hover {
+    color: var(--primary-bg);
+    background-color: #fff;
+    border: 1px solid var(--primary-bg);
+    svg{
+      transform: rotate(-45deg);
+    }
+  }
+}
+.call-to-action-area {
+  padding: 8px 0px;
+  border-top: 1px solid var(--border-line);
+}
+.apply-icon-body{
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

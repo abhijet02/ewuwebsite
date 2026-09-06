@@ -1,0 +1,19 @@
+# Dependencies and build output
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/coverage/
+ewu-backend/prisma/generated/
+
+# Secrets and local configuration
+**/.env
+**/.env.local
+**/.env.*.local
+*.pem
+
+# Runtime data: keep outside Git and back it up separately.
+ewu-backend/uploads/
+**/uploads/
+*.log
+.DS_Store

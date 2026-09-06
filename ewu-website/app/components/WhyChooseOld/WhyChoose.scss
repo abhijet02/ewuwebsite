@@ -1,0 +1,204 @@
+.why-choose-two {
+  position: relative;
+  padding: 40px 0px;
+
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url("https://new1.ewubd.edu/backend/uploads/Temporary-Website-Images/at-a-glance.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    border-top-left-radius: 200%;
+    border-bottom-left-radius: 200%;
+    z-index: -1;
+  }
+
+  .why-choose-two-info {
+    .why-chooes-info {
+      .common-header {
+        h2 {
+          color: var(--secondary-bg);
+        }
+      }
+      h5 {
+        font-size: 22px;
+        font-weight: 300;
+        text-transform: capitalize;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .why-contact {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        span {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          margin: 0;
+          padding: 2px 0;
+        }
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 16px;
+        color: var(--text-normal-color);
+        background: var(--secondary-bg);
+        border: none;
+        border-radius: 6px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        transition: all linear 0.3s;
+
+        svg {
+          transition: all linear 0.3s;
+        }
+
+        &:hover {
+          svg {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .box-item-main {
+    .box-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px;
+      text-align: center;
+      height: 100%;
+      border-radius: 6px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      transition: 1s all ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-normal-color);
+        margin: 0;
+      }
+    }
+
+    &:nth-child(1) {
+      .box-item {
+        background: #050b2bd4;
+      }
+    }
+
+    &:nth-child(2) {
+      .box-item {
+        background: #ff9a02dd;
+      }
+    }
+
+    &:nth-child(3) {
+      .box-item {
+        background: rgba(43, 9, 77, 0.856);
+      }
+    }
+
+    &:nth-child(4) {
+      .box-item {
+        background: rgba(0, 26, 0, 0.89);
+      }
+    }
+
+    &:nth-child(5) {
+      .box-item {
+        background: #33444ed8;
+      }
+    }
+
+    &:nth-child(6) {
+      .box-item {
+        background: #d7c11adf;
+      }
+    }
+  }
+
+  .why-choose-slider-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 53%;
+    height: 100%;
+    z-index: -1;
+
+    .video-banner {
+      height: 100%;
+      border-top-left-radius: 200%;
+      border-bottom-left-radius: 200%;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .why-choose-two {
+    padding: 40px 0;
+    background: var(--text-normal-color);
+
+    .why-choose-slider-wrapper {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .why-choose-two {
+    padding: 40px 0;
+    background: var(--text-normal-color);
+
+    .why-choose-slider-wrapper {
+      display: none;
+    }
+  }
+}
+
+[data-theme="dark"] .why-choose-two {
+  .why-choose-two-main {
+    .why-choose-two-info {
+      .common-header {
+        h2 {
+          color: var(--secondary-bg);
+        }
+      }
+
+      .why-chooes-info {
+        h5 {
+          color: #ddd;
+        }
+      }
+
+      .why-contact {
+        .dark-mode-contents {
+          color: #adadad;
+        }
+      }
+    }
+  }
+}

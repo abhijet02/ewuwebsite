@@ -1,0 +1,196 @@
+.at-a-glance-body {
+  padding: 24px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .at-a-glance-body {
+  background: #282f35;
+}
+
+.at-a-glance-title-header {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  h4 {
+    margin: 0;
+    color: var(--p-body);
+    font-weight: 600;
+  }
+}
+.at-a-glance-title-icon-body {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color: #169247;
+  }
+}
+.at-a-glance-common-card {
+  padding: 16px;
+  height: 140px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.at-a-glance-card-content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+.full-time-faculties {
+  background: linear-gradient(90deg, #068152, #20af8d);
+  position: relative;
+  border-radius: 12px;
+  padding: 24px;
+  color: #fff;
+  overflow: hidden;
+}
+.non-teaching-employee {
+  position: relative;
+  background: linear-gradient(90deg, #1883d1, #37aecd);
+  border-radius: 12px;
+  padding: 24px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.at-a-glance-count-icon-body {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color: #ffffff;
+  }
+}
+.at-a-glance-count {
+  font-size: 24px !important;
+
+  font-weight: 600;
+  margin: 0;
+}
+.at-a-glance-count-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.diploma-programs {
+  background-color: #e4f7fd;
+  p {
+    color: #000 !important;
+    font-size: 20px;
+  }
+  svg {
+    color: #1788dc;
+  }
+}
+.graduate-programs {
+  background-color: #e8fbef;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #169146;
+  }
+}
+.undergraduate-programs {
+  background-color: #fbf6e9;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #d8c083;
+  }
+}
+.departments-card {
+  background: linear-gradient(135deg, #aa4a44 0%, #7a302c 100%);
+  p {
+    color: #ffffff !important;
+  }
+  svg {
+    color: #ffffff;
+  }
+}
+.programes-card {
+  background: radial-gradient(circle at bottom right, #1c4370, #112943);
+  p {
+    color: #ffffff !important;
+  }
+  svg {
+    color: #ffffff;
+  }
+}
+.flass {
+  background-color: #e8f1ff;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #2c5da5;
+  }
+}
+.fbes {
+  background-color: #fff2e5;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #d6701e;
+  }
+}
+.undergraduate-students {
+  background-color: #e3fbfa;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #13b3b0;
+  }
+}
+.graduate-students {
+  background-color: #e2f5fe;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #178adf;
+  }
+}
+.total-students {
+  background-color: #e9fcec;
+  p {
+    color: #000 !important;
+  }
+  svg {
+    color: #159246;
+  }
+}
+.non-teaching-employee-icon-body {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.24;
+  svg {
+    color: #ffffff;
+    @media (max-width: 767px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}

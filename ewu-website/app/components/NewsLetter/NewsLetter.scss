@@ -1,0 +1,168 @@
+.yearly-newsletter-view-img-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 300px
+  }
+}
+
+.yearly-vc-newsletter-view-img-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 380px;
+  @media (max-width: 1354px) {
+    height: 324px; // 👈 change this to your desired height
+  }
+  @media (max-width: 576px) {
+    width: 50%;
+    height: 348px
+  }
+  @media (max-width: 478px) {
+    width: 65%;
+    height: 356px
+  }
+  @media (max-width: 372px) {
+    width: 80%;
+    height: 356px
+  }
+}
+.news-letter-card{
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.yearly-view-img {
+  object-fit: cover; // or "contain" if you don’t want cropping
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.yearly-view-card {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.yearly-view-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.yearly-view-buttons {
+  margin-top: auto;
+}
+
+.yearly-view-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.news-letter-preview-button {
+  padding: 6px 12px;
+  border: 1px solid var(--secondary-bg);
+  color: var(--secondary-bg);
+  background: transparent;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+  &:hover {
+    background: var(--secondary-bg);
+    color: #fff;
+
+    border: 1px solid var(--secondary-bg);
+  }
+}
+
+.news-letter-download-button {
+  padding: 6px 12px;
+  border: none;
+  background: #1c4370;
+  border: 1px solid #1c4370;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 100%;
+  &:hover {
+    background: transparent;
+    color: #1c4370;
+    border: 1px solid #1c4370;
+  }
+}
+
+/* 🔹 Filters Row Styling */
+.yearly-view-filters {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: flex-end;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    label {
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .form-control,
+    .form-select {
+      height: 44px; // same height
+      padding: 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #fff; // search bar white bg
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #ccc;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  /* widths */
+  .form-group:first-child {
+    flex: 3; // ~75%
+  }
+
+  .form-group:last-child {
+    flex: 1; // ~25%
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+
+    .form-group {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .yearly-view-img {
+    margin-top: 0 !important; // override unwanted margin
+  }
+}

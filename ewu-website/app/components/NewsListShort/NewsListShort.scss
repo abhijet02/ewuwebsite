@@ -1,0 +1,147 @@
+.department-page-latest-news-part {
+  padding: 48px 0px;
+}
+
+/* Latest News Header */
+.latest-news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.latest-news-header a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: all linear 0.3s;
+}
+
+.latest-news-header a svg {
+  transition: all linear 0.3s;
+}
+
+.latest-news-header a:hover {
+  color: var(--secondary-bg);
+}
+
+.latest-news-header a:hover svg {
+  transform: rotate(-45deg);
+}
+
+/* Latest News Box */
+.latest-news-box {
+  overflow: hidden;
+}
+
+.latest-news-box:hover img {
+  transform: scale(1.2);
+}
+
+.latest-news-img {
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.latest-news-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  transition: all linear 0.3s;
+}
+
+.latest-news-icon {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+  padding: 10px 0;
+  color: var(--secondary-bg);
+  p {
+    margin: 0;
+  }
+}
+
+.latest-news-box h2 {
+  font-size: 18px;
+  font-weight: 500;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  color: var(--primary-bg);
+}
+
+.latest-news-box p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--p-text);
+  text-align: left;
+}
+
+.department-page-latest-news-view-button {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all linear 0.3s;
+}
+
+.department-page-latest-news-view-button svg {
+  transition: all linear 0.3s;
+}
+
+.department-page-latest-news-view-button:hover {
+  color: var(--secondary-bg);
+}
+
+.department-page-latest-news-view-button:hover svg {
+  transform: rotate(-45deg);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .department-page-latest-news-part {
+  background: #212529;
+}
+
+[data-theme="dark"] .latest-news-header a {
+  color: var(--text-normal-color);
+}
+
+[data-theme="dark"] .latest-news-header a:hover {
+  color: var(--dark-secondary-bg);
+}
+
+[data-theme="dark"] .latest-news-box h2 {
+  color: var(--text-normal-color);
+}
+
+[data-theme="dark"] .latest-news-box p {
+  color: var(--dark-p-text);
+}
+
+[data-theme="dark"] .latest-news-box a {
+  color: var(--text-normal-color);
+}
+
+[data-theme="dark"] .latest-news-box a:hover {
+  color: var(--dark-secondary-bg);
+}
+[data-theme="dark"] .department-page-latest-news-view-button {
+  color: #fff;
+}
+
+[data-theme="dark"] .latest-news-icon {
+  color: #fff;
+}

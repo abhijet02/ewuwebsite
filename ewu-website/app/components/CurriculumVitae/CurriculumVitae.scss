@@ -1,0 +1,177 @@
+.cv-container-background {
+  background-color: #f2f3f6;
+  padding: 40px;
+}
+.cv-body {
+  background-color: #fff;
+}
+.cv-item-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.cv-item-body-title {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  h6 {
+    margin: 0;
+    font-size: 13px;
+    color: var(--p-body);
+  }
+}
+.cv-porfiles-other-links {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cv-header {
+  padding: 16px 24px;
+}
+.cv-header-media {
+  width: 300px;
+  height: 75px;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+.cv-profile-info {
+  padding: 24px;
+  background-color: #eff2f1;
+}
+.cv-content-sections {
+  padding: 24px;
+}
+.cv-profile-person-image {
+  width: 160px;
+  height: 200px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // soft shadow
+  img {
+    object-fit: cover;
+    object-position: top;
+  }
+}
+.cv-person--info {
+  h4,
+  h5,
+  p {
+    margin: 0;
+  }
+}
+.cv-section {
+  margin-top: 30px;
+
+  .cv-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1c4370;
+  }
+
+  .cv-section-divider {
+    width: 60px;
+    height: 2px;
+    background-color: #1c4370;
+    margin: 6px 0 12px;
+  }
+
+  .cv-section-content {
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .cv-publication-item {
+    margin-bottom: 16px;
+
+    .cv-publication-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .cv-publication-detail {
+      margin-left: 10px;
+    }
+  }
+}
+.cv-page-header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.back-button{
+  padding: 4px 16px;
+  border: 1px solid var(--primary-bg);
+  color: var(--primary-bg);
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.cv-print-button{
+  padding: 4px 16px;
+  border: 1px solid transparent;
+  background-color: var(--primary-bg);
+  color: #fff;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 8px;
+}
+/* ===== Print Styles ===== */
+/* ===== Print Styles ===== */
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .cv-container-background {
+    padding: 8px !important;
+    background-color: transparent;
+  }
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .cv-page-header-container {
+    display: none;
+  }
+  .cv-person--info {
+    padding-left: 56px !important;
+  }
+  .cv-porfiles-other-links {
+    padding-left: 56px !important;
+  }
+  h4,h5{
+    font-size: 13px;
+  }
+  p{
+    font-size: 11px;
+  }
+  @page {
+    size: A4;
+    margin: 8mm 4mm 8mm 4mm; /* top, right, bottom, left */
+  }
+
+  /* First page — less top margin */
+  @page :first {
+    margin-top: 4mm; /* keep smaller top margin only for first page */
+  }
+
+  /* Add top padding on elements after page break (optional improvement) */
+  .page-break {
+    page-break-before: always;
+    padding-top: 16mm !important; /* adds extra spacing at top of new page */
+  }
+}

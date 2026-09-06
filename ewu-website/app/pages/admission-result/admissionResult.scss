@@ -1,0 +1,59 @@
+.select-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 24px 0px;
+}
+
+.result-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  [data-theme="dark"] & {
+    background-color: var(--dark-bg-one);
+  }
+}
+.faculty-bottom-title {
+  color: var(--p-body);
+  [data-theme="dark"] & {
+    color: #fff !important;
+  }
+}
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; // Search wider
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.table {
+  font-size: 14px;
+  text-align: left;
+}
+.result-preview-button {
+  padding: 4px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--secondary-bg);
+  color: #fff;
+  &:hover {
+    background-color: var(--primary-bg);
+  }
+}
+.admission-result-title {
+  h2 {
+    color: var(--secondary-bg);
+  }
+  span {
+    color: var(--p-body);
+  }
+  [data-theme="dark"] & {
+    h2 {
+      color: #fff;
+    }
+    span {
+      color: #fff;
+    }
+  }
+}

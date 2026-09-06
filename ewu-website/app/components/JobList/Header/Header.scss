@@ -1,0 +1,71 @@
+.job-list-header {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("https://new1.ewubd.edu/backend/uploads/Temporary-Website-Images/at-a-glance.webp");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 96px 32px;
+  border-radius: 16px;
+
+  .job-list-search-bar {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.job-list-content {
+  .job-list-subtitle {
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  .job-list-title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: left;
+  }
+}
+.job-filter-clear-button {
+  padding: 4px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-bg);
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .job-list-header {
+    padding: 48px 16px;
+  }
+  .job-list-search-bar {
+    bottom: -64px !important;
+  }
+  .job-list-content .job-list-subtitle {
+    font-size: 16px;
+  }
+
+  .job-list-content .job-list-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    line-height: 32px;
+  }
+
+  .job-list-header .job-list-search-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
+}

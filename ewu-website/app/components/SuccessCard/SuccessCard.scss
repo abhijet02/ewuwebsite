@@ -1,0 +1,24 @@
+.success-card-part {
+  padding: 0 0 70px;
+}
+
+[data-theme="dark"] .success-card {
+  background-color: #43494f;
+  border: 1px solid #7c7c7c;
+
+  p {
+    color: #adadad;
+  }
+
+  .sucess-icon-number {
+    h1 {
+      color: #ddd;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .success-card-part {
+    padding: 0 0 40px;
+  }
+}

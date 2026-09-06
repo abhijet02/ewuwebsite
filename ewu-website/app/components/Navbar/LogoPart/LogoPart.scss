@@ -1,0 +1,67 @@
+/* ------------------------------
+   Logo section
+------------------------------ */
+.logo-part {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 250px;
+  transform: translate(-50%, 0);
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 0px 6px);
+  overflow: hidden;
+  z-index: 9999;
+  transition: LogoLanded 0.5s ease-in-out;
+  @media (max-width: 1240px) {
+     width: 200px;
+     top: -8px
+  }
+  @media (max-width: 1024px) {
+     width: 180px;
+     top: -14px
+  }
+}
+
+.logo-img {
+  position: relative;
+  top: 0px;
+  animation: LogoLanded 1s ease-in-out;
+}
+
+.logo {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+}
+
+.logo-bg {
+  height: 126px;
+}
+
+.logo-img-inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  animation: LogoInside 1.5s ease-in-out;
+  margin-top: 15px;
+}
+
+.navbar-body.menu-open .logo-part {
+  width: 180px; /* reduced size */
+  top: -12px; /* adjust vertical placement if needed */
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar-body.menu-open .logo-img-inside {
+  transform: translate(-50%, -75%); /* adjust vertical alignment inside */
+  margin-top: 8px; /* adjust spacing */
+}
+@keyframes LogoLanded {
+  0% {
+    top: -130px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}

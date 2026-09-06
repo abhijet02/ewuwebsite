@@ -1,0 +1,23 @@
+.faculty-chairperson-social-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: var(--primary-bg);
+}
+.faculty-chairperson-academic-social {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #fff;
+}
+[data-theme="dark"] .faculty-chairperson-social-icon  {
+  color: #fff;
+}

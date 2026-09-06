@@ -1,0 +1,265 @@
+/* RequestForm.scss */
+
+/* Card Container */
+.request-form-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #ffffff;
+
+  .form-title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    color: #0f2a55;
+  }
+}
+[data-theme="dark"] .request-form-card {
+  background-color: var(--dark-bg-one);
+  border: 1px solid #838383;
+  .form-title {
+    color: #ffffff;
+  }
+}
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  overflow: hidden;
+
+  .progress {
+    height: 100%;
+    background: #1c4370;
+    width: 0%;
+    transition: width 0.3s;
+  }
+}
+[data-theme="dark"] .progress-bar {
+  background: #707070;
+  .progress {
+    height: 100%;
+    background: #ffffff;
+    width: 0%;
+    transition: width 0.3s;
+  }
+}
+/* Form Fields */
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .form-row {
+    display: flex;
+    gap: 12px;
+
+    input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+  }
+
+  input,
+  select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background: #fff;
+  }
+
+  label {
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    display: block;
+    color: #0f2a55;
+  }
+}
+
+/* Radio Buttons */
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #0f2a55;
+
+    input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #1c4370;
+      cursor: pointer;
+    }
+
+    &:hover {
+      color: #1c4370;
+    }
+  }
+}
+
+/* Image Upload & File Upload */
+.image-upload,
+.file-upload {
+  margin-bottom: 16px;
+
+  .upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #1c4370;
+    padding: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+
+    img {
+      max-width: 120px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .camera-icon {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    span,
+    p {
+      color: #0f2a55;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background-color: rgba(28, 67, 112, 0.05);
+    }
+  }
+}
+[data-theme="dark"] .upload-box {
+  border: 2px dashed #ffffff;
+  span,
+  p {
+    color: #ffffff;
+  }
+}
+/* Navigation Buttons */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 12px;
+
+  // Ensure consistent height for all buttons
+  button {
+    flex: 1;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    transition: background 0.3s;
+    border: none;
+  }
+
+  .next-btn,
+  .request-submit-btn {
+    background: #1c4370;
+    color: #fff;
+
+    &:hover {
+      background: #16335a;
+      color: #fff;
+    }
+  }
+
+  .back-btn {
+    background: #ccc;
+    color: #0f2a55;
+
+    &:hover {
+      background: #b3b3b3;
+    }
+  }
+}
+
+/* Force single buttons to align with others */
+.single-btn-wrapper {
+  display: flex;
+  gap: 12px;
+
+  button {
+    flex: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-navigation,
+  .single-btn-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Helper Text */
+.helper-text {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* Required Field Indicator */
+.required {
+  color: red;
+  margin-left: 2px;
+}
+
+/* Error Text */
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+/* Dark Mode for Inputs inside .form-row */
+[data-theme="dark"] .request-form-card {
+  .request-form {
+    .form-row {
+      input,
+      select {
+        background-color: var(--dark-bg-one, #2a2a2a); // dark input bg
+        color: #ffffff; // text color
+        border: 1px solid #838383; // border for dark mode
+      }
+
+      input::placeholder,
+      select::placeholder {
+        color: #bbbbbb; // placeholder color for dark mode
+      }
+    }
+  }
+}

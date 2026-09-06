@@ -1,0 +1,21 @@
+.accordion-wrapper {
+  .accordion {
+    .accordion-header {
+      .accordion-button:not(.collapsed) {
+        color: var(--text-normal-color);
+        background: var(--primary-bg);
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.archive-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-bg);
+  margin-top: 30px;
+}

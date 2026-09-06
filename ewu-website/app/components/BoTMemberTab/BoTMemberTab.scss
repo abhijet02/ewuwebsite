@@ -1,0 +1,29 @@
+.department-details-list {
+  .department-detail-item {
+    margin-bottom: 24px;
+
+    .department-detail-title-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .department-detail-title {
+        font-weight: 600;
+        font-size: 18px;
+        white-space: nowrap;
+      }
+
+      .line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+      }
+    }
+
+    .department-detail-description {
+      margin-top: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+}

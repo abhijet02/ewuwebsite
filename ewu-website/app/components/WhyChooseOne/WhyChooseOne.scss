@@ -1,0 +1,396 @@
+// .why-choose-one-wrapper {
+//     padding: 0 0 90px;
+//     background: url(../../assets/why-choose-one-bg.png) no-repeat;
+//     background-size: cover;
+
+//     .title {
+//         margin-bottom: 40px;
+//         color: var(--p-body);
+//         font-weight: 600;
+//     }
+//     .choose-items-section {
+//         .choose-items-wrapper {
+//             display: flex;
+//             align-items: flex-start;
+//             justify-content: center;
+//             gap: 20px;
+//             flex-wrap: wrap;
+//             margin-bottom: 30px;
+    
+//             .choose-items {
+//                 display: flex;
+//                 align-items: flex-start;
+//                 flex: 1 1 45%;
+//                 // gap: 20px;
+        
+//                 .number {
+//                     background: url(../../assets/why-rectangle1.png) no-repeat;
+//                     background-size: contain;
+//                     width: 56px;
+//                     height: 60px;
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+//                     padding-top: 10px;
+//                     color: #fff;
+//                     font-size: 1rem;
+//                     // font-weight: 500;
+//                 }
+//                 .number.one {
+//                     background: url(../../assets/why-rectangle1.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .number.two {
+//                     background: url(../../assets/why-rectangle2.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .number.three {
+//                     background: url(../../assets/why-rectangle3.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .number.four {
+//                     background: url(../../assets/why-rectangle4.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .number.five {
+//                     background: url(../../assets/why-rectangle5.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .number.six {
+//                     background: url(../../assets/why-rectangle6.png) no-repeat;
+//                     background-size: contain;
+//                 }
+//                 .content {
+//                     padding: 5px;
+//                     border: 1px solid #ddd;
+//                     color: var(--p-text2);
+//                     font-size: 11px;
+//                     font-weight: 500;
+//                     // height: 39px;
+//                     display: flex;
+//                     align-items: flex-start;
+//                     justify-content: center;
+//                     border-top-right-radius: 10px;
+//                     border-bottom-right-radius: 10px;
+//                 }
+//                 .content.one {
+//                     border-color: #aa4a44;
+//                 }
+//                 .content.two {
+//                     border-color: #1e406f;
+//                 }
+//                 .content.three {
+//                     border-color: #1f3f72;
+//                 }
+//                 .content.four {
+//                     border-color: #0f9ed6;
+//                 }
+//                 .content.five {
+//                     border-color: #fb5d62;
+//                 }
+//                 .content.six {
+//                     border-color: #9f2a93;
+//                 }
+//             }
+//         }
+//         .apply-btn {
+//             display: inline-block;
+//             padding: 15px;
+//             color: var(--text-normal-color);
+//             background: var(--secondary-bg);
+//             font-size: .9rem;
+//             border-radius: 6px;
+    
+//             &:hover {
+//                 background: var(--primary-bg);
+//             }
+//         }
+//         .contact-info-wrapper {
+//             .contact-info {
+//                 color: var(--text-normal-color);
+//                 background: var(--primary-bg);
+//                 padding: 15px;
+//                 border-radius: 4px;
+                
+//                 .title {
+//                     margin-bottom:15px;
+//                     color: var(--text-normal-color);
+//                 }
+//                 .contact {
+//                     margin-bottom: 8px;
+//                     color: #ddd;
+//                     font-size: 0.9rem;
+
+//                     svg {
+//                         margin-right: 8px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .img-wrapper {
+//         position: relative;
+
+//         &::before {
+//             content: "";
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 500px;
+//             height: 100%;
+//             background: url(../../assets/why-one-fream.png) no-repeat;
+//             background-size: cover;
+//         }
+//     }
+// }
+
+
+.why-choose-part {
+    background: var(--primary-bg);
+    padding: 40px 0px;
+    position: relative;
+    z-index: 1;
+
+    .why-chosse-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: calc(100% - 60px);
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(24, 19, 19, 0.3);
+            backdrop-filter: blur(6px);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+    }
+
+    .why-main-contant {
+        position: relative;
+        z-index: 99;
+
+        .why-choose-box {
+            display: flex;
+            flex-wrap: wrap;
+
+            .box-item {
+                flex: 1 1 calc(50%);
+                padding: 16px;
+                height: 250px;
+                color: var(--text-normal-color);
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+
+            .box-item:nth-child(1) {
+                background: #4685EE;
+            }
+
+            .box-item:nth-child(2) {
+                position: relative;
+                z-index: 9;
+                overflow: hidden;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-image: url(../../assets/box-bg-1.jpg);
+                    width: 100%;
+                    height: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: rgba(24, 19, 19, 0.3);
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    backdrop-filter: blur(6px);
+                    z-index: -1;
+                }
+
+            }
+
+            .box-item:nth-child(3) {
+                position: relative;
+                z-index: 9;
+                overflow: hidden;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-image: url(../../assets/box-bg-2.jpg);
+                    width: 100%;
+                    height: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: rgba(246, 39, 39, 0.3);
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    backdrop-filter: blur(6px);
+                }
+            }
+
+            .box-item:nth-child(4) {
+                background: #6B881C;
+            }
+
+            .box-item:nth-child(5) {
+                background: var(--primary-bg);
+            }
+
+            .box-item:nth-child(6) {
+                position: relative;
+                z-index: 9;
+                overflow: hidden;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-image: url(../../assets/box-bg-1.jpg);
+                    width: 100%;
+                    height: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: rgba(24, 19, 19, 0.3);
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    backdrop-filter: blur(6px);
+                    z-index: -1;
+                }
+            }
+        }
+    }
+
+    .why-chooes-info {
+        color: var(--text-normal-color);
+        padding: 0 30px;
+
+        h5 {
+            font-size: 30px;
+            font-weight: 300;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .why-contact {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            span {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0;
+                padding: 2px 0;
+            }
+        }
+
+        button {
+            font-size: 14px;
+            padding: 10px 16px;
+            color: var(--primary-bg);
+            background: var(--text-normal-color);
+            border: none;
+            border-radius: 6px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            transition: all linear 0.3s;
+
+            svg {
+                transition: all linear 0.3s;
+            }
+
+            &:hover {
+                background: var(--secondary-bg);
+                color: var(--text-normal-color);
+
+                svg {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .why-choose-part .why-chosse-bg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .why-choose-part .why-chooes-info {
+        margin-top: 40px;
+    }
+
+}
+
+@media screen and (max-width:567px) {
+    .why-choose-part .why-main-contant .why-choose-box .box-item {
+        flex: 100%;
+    }
+
+    .why-choose-part .why-chooes-info h5 {
+        font-size: 24px;
+    }
+}

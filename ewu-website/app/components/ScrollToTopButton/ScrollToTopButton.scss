@@ -1,0 +1,36 @@
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 110px;
+  right: 40px;
+  height: 56px;
+  width: 56px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(28, 67, 112, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(28, 67, 112, 0.5);
+    transform: scale(1.1);
+  }
+
+  .arrow-icon {
+    transition: transform 0.5s ease;
+  }
+
+  &.rotate .arrow-icon {
+    transform: rotate(180deg);
+  }
+  @media (max-width: 767px) {
+    bottom: 100px;
+    right: 16px;
+  }
+}

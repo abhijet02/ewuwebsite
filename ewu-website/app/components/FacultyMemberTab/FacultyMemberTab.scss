@@ -1,0 +1,211 @@
+.faculty-member-description-container {
+  padding: 24px 0px;
+}
+.faculty-member-details-sidebar {
+  background: rgba(15, 42, 85, 0.1);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+}
+[data-theme="dark"] .faculty-member-details-sidebar {
+  background: #282f35;
+}
+.sidebar-button {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #000;
+}
+[data-theme="dark"] .sidebar-button {
+  color: var(--text-normal-color);
+}
+.sidebar-button-active {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #0f2a55;
+  color: #fff;
+}
+
+.faculty-member-content-body {
+  padding: 0px 24px;
+  border-radius: 12px;
+  height: 100%;
+  overflow: hidden;
+  text-align: justify;
+}
+
+// Accordion Part.
+.faculty-member-accordion {
+  h2 {
+    margin-bottom: 0px !important;
+  }
+  .faculty-member-accordion-item {
+    border: 1px solid #444;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .faculty-member-accordion-header {
+    .faculty-member-accordion-button {
+      width: 100%;
+      text-align: left;
+      background-color: #ffffff; /* default white */
+      color: var(--primary-bg); /* default text color */
+      font-weight: 500;
+      padding: 12px 16px;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 16px;
+
+      &.collapsed {
+        background-color: #ffffff;
+        color: var(--primary-bg);
+        .accordion-arrow {
+          border-right: 2px solid var(--primary-bg);
+          border-bottom: 2px solid var(--primary-bg);
+        }
+      }
+
+      &.active {
+        background-color: var(--primary-bg); /* expanded background */
+        color: #fff; /* expanded text */
+
+        .accordion-arrow {
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      .accordion-arrow {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        transition: transform 0.2s;
+      }
+
+      &.active .accordion-arrow {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  .faculty-member-accordion-collapse {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    .faculty-member-accordion-body {
+      padding: 4px 8px;
+      background-color: #ffffff; /* always white */
+      color: var(--text-body); /* always normal text */
+      white-space: pre-wrap;
+
+      .publication-detail {
+        padding: 8px;
+        margin-bottom: 6px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        text-align: left;
+      }
+
+      .no-content {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .faculty-member-accordion {
+  .faculty-member-accordion-header {
+    .faculty-member-accordion-button {
+      background: #282f35;
+      &.collapsed {
+        background: #282f35;
+        color: var(--text-normal-color);
+        .accordion-arrow {
+          border-right: 2px solid var(--text-normal-color);
+          border-bottom: 2px solid var(--text-normal-color);
+        }
+      }
+
+      &.active {
+        background-color: var(--primary-bg); /* expanded background */
+        color: #fff; /* expanded text */
+        .accordion-arrow {
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      .accordion-arrow {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        transition: transform 0.2s;
+      }
+
+      &.active .accordion-arrow {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  .faculty-member-accordion-collapse {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    .faculty-member-accordion-body {
+      background: #282f35;
+      color: var(--text-normal-color);
+
+      .publication-detail {
+        padding: 8px;
+        margin-bottom: 6px;
+        border-radius: 4px;
+        background: #282f35;
+      }
+
+      .no-content {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+.faculty-profile-sidebar-divider {
+  margin: 0px;
+  height: 0.2px;
+  color: #00000000 !important;
+}

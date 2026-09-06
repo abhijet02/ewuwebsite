@@ -1,0 +1,393 @@
+.slider-hero-section {
+  position: relative;
+  overflow: hidden;
+}
+.height-for-marque {
+  height: 95vh !important;
+  @media (max-width: 768px) {
+    height: 55vh !important;
+  }
+}
+.height-for-no-marque {
+  height: 100vh !important;
+  @media (max-width: 768px) {
+    height: 55vh !important;
+  }
+}
+// .slider-gradient-overlay {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 5;
+//   pointer-events: none;
+//    background: linear-gradient(
+//     to top,
+//     rgba(255, 255, 255, 1) 0%,
+//     rgba(255, 255, 255, 0) 100%
+//   );
+// }
+// [data-theme="dark"] .slider-gradient-overlay {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 100;
+//   pointer-events: none;
+//   background: linear-gradient(
+//     0deg,
+//     rgba(33, 37, 41, 1) 0%,
+//     rgba(33, 37, 41, 1) 6%,
+//     rgba(33, 37, 41, 0) 12%
+//   );
+// }
+// (33, 37, 41)
+.slider-hero-section-swiper-container {
+  height: 100vh;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    height: 55vh;
+  }
+}
+.slider-hero-section-swiper-container-slider-part {
+  position: relative;
+  height: 100vh;
+  @media (max-width: 768px) {
+    height: 55vh;
+  }
+}
+.slider-media-container {
+  position: relative;
+  width: 100%;
+  height: 100%; // make it take the slide height
+}
+
+// ----------------------------------------- Slider Overlay Text ----------------------------------------- //
+
+.slider-overlay-text {
+  position: absolute;
+  bottom: 120px;
+  left: 64px;
+  max-width: 100%;
+  width: 840px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.64);
+  padding: 12px 24px;
+  border-radius: 8px;
+  line-height: 140%;
+  @media (max-width: 991px) {
+    width: 70%;
+    bottom: 120px;
+    left: 40px;
+  }
+  @media (max-width: 768px) {
+    bottom: 20px;
+    left: 16px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  @media (max-width: 567px) {
+    display: none;
+  }
+}
+.slider-overlay-text-club {
+  position: absolute;
+  bottom: 64px;
+  left: 64px;
+  max-width: 100%;
+  width: 840px;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.64);
+  padding: 12px 24px;
+  border-radius: 8px;
+  line-height: 140%;
+  @media (max-width: 991px) {
+    width: 70%;
+    font-size: 20px;
+    bottom: 64px;
+    left: 40px;
+  }
+  @media (max-width: 768px) {
+    bottom: 20px;
+    left: 16px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  @media (max-width: 567px) {
+    display: none;
+  }
+}
+
+// ----------------------------------------- Watermark label ----------------------------------------- //
+
+.watermark-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 50;
+  .logo {
+    opacity: 0.5;
+  }
+  @media (max-width: 768px) {
+    width: 56%;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+  }
+}
+.watermark-wrapper-with-marquee {
+  align-items: flex-end;
+  bottom: 8%;
+  @media (max-width: 768px) {
+    bottom: 2%;
+  }
+}
+.watermark-wrapper-without-marquee {
+  align-items: flex-end;
+  bottom: 2%;
+  @media (max-width: 768px) {
+    bottom: 2%;
+  }
+}
+// ----------------------------------------- Banner Container Slider ----------------------------------------- //
+
+.banner-container-slider {
+  position: absolute;
+  top: 25%;
+  z-index: 111;
+  left: 50%;
+  width: 100%;
+  max-width: 1420px;
+  padding: 12px 48px;
+  transform: translateX(-50%);
+  @media (max-width: 991px) {
+    display: none;
+  }
+  pointer-events: none;
+}
+
+// ----------------------------------------- Banner card style start ----------------------------------------- //
+.banner-card-style {
+  color: var(--text-normal-color);
+  padding: 12px;
+  border-radius: 8px;
+  background: #ccc3;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 116px;
+  transition: width 0.5s ease-in-out;
+pointer-events: auto;
+  h5 {
+    margin: 0;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    word-break: normal;
+    opacity: 0;
+  }
+  &:hover {
+    width: 360px;
+  }
+  &:hover h5 {
+    opacity: 1;
+  }
+}
+
+.banner-card-left-part {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+.baner-card-media {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// ----------------------------------------- Banner card Count down start ----------------------------------------- //
+
+.banner-card-style-countdown {
+  color: var(--text-normal-color);
+  pointer-events: auto;
+  padding: 12px;
+  border-radius: 8px;
+  background: #ccc3;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: inherit;
+  transition: all 0.3s ease-in-out;
+  gap: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  h5 {
+    margin: 0;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.slider-timer-card-deck {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px 8px;
+  justify-content: space-between;
+}
+.timer-box-container {
+  background: rgba(255, 255, 255, 0.3);
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.count-down-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  h5 {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.slider-banner-action-button {
+  padding: 8px 20px;
+  background: var(--secondary-bg);
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  &:hover {
+    background: #fff;
+    color: var(--secondary-bg);
+    border: 1px solid var(--secondary-bg);
+  }
+}
+// ----------------------------------------- Slider event card for club ----------------------------------------- //
+
+.slider-event-card-for-club {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+  transform: translateX(150%);
+  opacity: 0;
+  animation: slideInRight 0.6s ease-out forwards;
+  position: absolute;
+  z-index: 999;
+  top: 180px;
+  right: 48px;
+  border-radius: 12px;
+  width: 280px;
+  p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; // (or inline-block)
+  }
+  @media (max-width: 991px) {
+    top: 136px;
+    right: 24px;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.slider-event-card-for-club-media {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease; // ✅ smooth image zoom
+  }
+
+  /* IMAGE HOVER EFFECT (triggered by card hover) */
+  .slider-event-card-for-club:hover & img {
+    transform: scale(1.15); // ✅ image zoom-in
+  }
+}
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slider-upcoming-event-button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background-color: var(--primary-bg);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  p {
+    margin: 0;
+    position: relative;
+    z-index: 5;
+    font-size: 14px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../../../public/test.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.4; // adjust
+    z-index: 0;
+  }
+}

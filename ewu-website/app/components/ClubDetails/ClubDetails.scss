@@ -1,0 +1,43 @@
+.industrialization-club-part {
+  padding: 40px 0px;
+
+  .industrialization-club {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--black-bg);
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--p-text);
+      text-align: left;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    ul {
+      list-style: disc;
+    }
+  }
+}
+
+[data-theme="dark"] .industrialization-club-part {
+  .industrialization-club {
+    h2 {
+      color: var(--text-normal-color);
+    }
+
+    p {
+      color: var(--dark-p-text);
+    }
+  }
+}

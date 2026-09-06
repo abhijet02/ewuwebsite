@@ -1,0 +1,198 @@
+.clubs-notice-part {
+  padding: 40px 0px;
+  background: #fbf1eb;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    right: 220px;
+    top: 80px;
+    background: url("../../assets/clubs/shape-1.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    left: 240px;
+    bottom: 200px;
+    background: url("../../assets/clubs/shape-2.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  .clubs-notice-title {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--primary-color-bg);
+    }
+
+    a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--primary-color-bg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg {
+        transition: all linear 0.3s;
+      }
+
+      &:hover svg {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .clubs-notice-items {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: var(--text-normal-color);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-top: 30px;
+
+    .clubs-notice-main-title {
+      width: 260px;
+      height: 260px;
+      background: var(--secondary-color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--primary-color-bg);
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .clubs-notice-main-items {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #d9d9d9;
+
+      .important-dates-items {
+        height: 240px;
+        overflow-x: auto;
+      }
+
+      .important-dates-box {
+        display: flex;
+        align-items: stretch;
+        transition: all linear 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background: var(--primary-color-bg);
+        }
+
+        .important-dates-number {
+          width: 100px;
+          height: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-right: 1px solid #eeeeee;
+          flex-shrink: 0;
+
+          h1 {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var(--primary-bg);
+            transition: all linear 0.3s;
+          }
+        }
+
+        &:hover .important-dates-number h1 {
+          -webkit-text-stroke-color: var(--text-normal-color);
+        }
+
+        .important-dates-info {
+          padding: 10px 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          h4 {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-bg);
+            transition: all linear 0.3s;
+          }
+
+          p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #737477;
+            transition: all linear 0.3s;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+          }
+        }
+
+        &:hover .important-dates-info {
+          h4 {
+            color: var(--text-normal-color);
+          }
+
+          p {
+            color: #f6f6f6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .clubs-notice-main-title {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .clubs-notice-main-title {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .clubs-notice-part {
+    padding: 40px 0;
+}
+}

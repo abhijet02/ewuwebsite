@@ -1,0 +1,62 @@
+"use client";
+import "./SuccessCard.scss";
+import ProgressCard from "../ProgressCard/ProgressCard";
+import { useSelector } from "react-redux";
+import { RootState } from "@lib/root.reducer";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@lib/hooks";
+import { successCardActions } from "@lib/slices/successCard/successCard.slice";
+const SuccessCard: React.FC = () => {
+  const isStatic = useSelector((state: RootState) => state.accessibility.mode);
+
+  const dispatch = useAppDispatch();
+
+  const successCardData = useAppSelector(
+    (state) => state.successCard.getSuccessCardResponse?.successCards
+  );
+
+  useEffect(() => {
+    dispatch(
+      successCardActions.getSuccessCard({
+        request: {
+          page: 1,
+          limit: 10000,
+        },
+      })
+    );
+  }, [dispatch]);
+
+  return (
+    <>
+      <section className="success-card-part">
+        <div className="container">
+          <div className="row">
+            {successCardData?.length > 0 &&
+              successCardData?.map((item, index) => (
+                <div
+                  {...(!isStatic
+                    ? {
+                        "data-aos":
+                          window.innerWidth < 800
+                            ? "fade-up" // all items on small screens
+                            : index === 0
+                            ? "fade-right"
+                            : index === successCardData.length - 1
+                            ? "fade-left"
+                            : "zoom-in", // middle items on large screens
+                      }
+                    : {})}
+                  key={item.id}
+                  className="col-lg-3 col-md-6 my-2 sucess-card"
+                >
+                  <ProgressCard item={item} index={index} />
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default SuccessCard;

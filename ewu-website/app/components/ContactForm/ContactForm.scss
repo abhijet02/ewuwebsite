@@ -1,0 +1,259 @@
+.contact-page-section {
+  margin: 80px 0 100px;
+
+  .form-section {
+    background-color: #f7f7f7;
+    padding: 30px 30px;
+    border-radius: 5px;
+
+    .caption {
+      color: rgb(28, 67, 112);
+      font-weight: 600;
+    }
+
+    .form-label {
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin: 1px 0;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      background-color: var(--text-normal-color);
+      transition: 0.3s ease;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      margin: 1px 0;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      background-color: var(--text-normal-color);
+      transition: 0.3s ease;
+    }
+
+    .must-fill {
+      color: rgb(170, 74, 68);
+    }
+
+    .text-red {
+      color: rgb(181, 7, 7);
+    }
+
+    .form-control::placeholder,
+    textarea.form-control::placeholder {
+      color: #7b7979cb;
+    }
+
+    textarea.form-control {
+      border-radius: 5px;
+      padding: 10px;
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    input.form-control:focus,
+    textarea.form-control:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #c0c0c0;
+    }
+
+    input.form-control[type="file"] {
+      appearance: none;
+      margin-top: 7px;
+      width: 115px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .send-message-btn {
+      background-color: #1c4370;
+      border: none;
+      color: white;
+      width: 220px;
+      height: 58px;
+      font-size: 17px;
+      font-weight: 500;
+      border-radius: 5px;
+      transition:
+        background-color 0.5s ease,
+        opacity 0.3s ease,
+        cursor 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        background-color: #fff;
+        border: 1px solid #1c4370;
+        color: #1c4370;
+      }
+
+      &:disabled {
+        background-color: #cccccc;
+        color: #888888;
+        cursor: not-allowed;
+        opacity: 0.6;
+        border: none;
+      }
+
+      svg.send-message-btn-icon {
+        font-size: 20px;
+        margin-left: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover:not(:disabled) svg.send-message-btn-icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    .label-error {
+      color: #dc2626 !important;
+    }
+
+    .input-error {
+      border: 1px solid #dc2626 !important;
+      background-color: #fee2e2 !important;
+    }
+  }
+
+  .contact-info {
+    padding: 0 40px;
+
+    .info h3 {
+      color: var(--primary-bg);
+      font-size: 23px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .info p {
+      padding-bottom: 10px;
+      color: var(--p-text2);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .info a {
+      text-decoration: none;
+      color: #a4a4a4;
+      transition: color 0.3s ease;
+    }
+
+    svg.info-icon {
+      margin-right: 12px;
+      font-size: 25px;
+      color: var(--primary-bg);
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+
+      &:hover {
+        animation: sideRotation 1s ease-in-out;
+        color: #1c4370;
+      }
+    }
+
+    .info {
+      margin-bottom: 28px;
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+
+      hr {
+        opacity: 0.15;
+      }
+
+      &:hover {
+        transform: translateX(10px);
+        color: #1c4370;
+        cursor: pointer;
+      }
+
+      h3:hover {
+        color: #1c4370;
+      }
+
+      p:hover {
+        color: #a7a7a7;
+      }
+    }
+  }
+
+  .disabled-select:disabled {
+    background-color: #f0f0f0;
+    color: #666;
+    cursor: not-allowed;
+  }
+
+  @keyframes sideRotation {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .form-section .send-message-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+}
+
+[data-theme="dark"] .contact-page-section {
+  background-color: var(--dark-primary-bg);
+
+  .form-section {
+    background-color: var(--dark-bg-one);
+
+    .caption {
+      color: var(--secondary-bg);
+    }
+
+    .form-control {
+      background-color: #43494f;
+      border: 1px solid var(--dark-input-border);
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: var(--dark-p-text2);
+    }
+
+    .form-label {
+      color: var(--dark-p-text);
+    }
+
+    .send-message-btn {
+      &:hover:not(:disabled) {
+        background-color: var(--secondary-bg);
+        color: #fff;
+        border-color: var(--secondary-bg);
+      }
+    }
+  }
+}
+.captcha-lable {
+  color: var(--secondary-bg);
+  font-weight: 600;
+  margin-bottom: 16px;
+}

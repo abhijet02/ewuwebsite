@@ -1,0 +1,102 @@
+.success-card {
+  border-radius: 10px;
+  text-align: center;
+  // height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  // color: var(--text-normal-color);
+  padding: 26px 0;
+  position: relative;
+  z-index: 2;
+  transition: all linear 0.3s;
+  border: 1px solid rgb(236, 236, 236);
+
+  &::before {
+    content: "";
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/box-bg-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: all linear 0.3s;
+  }
+
+  &::after {
+    content: "";
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(170, 75, 68, 0.6);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    transition: all linear 0.3s;
+  }
+
+  &.odd::after {
+    content: "";
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 67, 112, 0.6);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    transition: all linear 0.3s;
+  }
+  &:hover {
+    h1 {
+      color: var(--text-normal-color) !important;
+    }
+    svg {
+      color: var(--text-normal-color) !important;
+    }
+    p {
+      color: var(--text-normal-color) !important;
+    }
+  }
+  &:hover::before,
+  &:hover::after,
+  &.odd:hover::after {
+    opacity: 1;
+  }
+  .sucess-icon-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    h1 {
+      margin: 0;
+      color: var(--primary-bg);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    svg {
+      color: var(--secondary-bg);
+    }
+  }
+
+  p {
+    color: var(--primary-bg);
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+}

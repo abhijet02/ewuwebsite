@@ -1,0 +1,230 @@
+.club-slider-section {
+  padding: 48px 0;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 0;
+    bottom: 0px;
+    background: url("../../assets/shape/shape-1.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    @media screen and (max-width: 567px) {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    right: 0;
+    top: 0px;
+    background: url("../../assets/shape/shape-3.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .clubs-carousel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--primary-bg);
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: #737477;
+    }
+
+    a {
+      width: max-content;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      transition: all linear 0.3s;
+
+      svg {
+        transition: all linear 0.3s;
+      }
+
+      &:hover {
+        color: var(--secondary-bg);
+      }
+
+      &:hover svg {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .clubs-carousel-title-link {
+      display: block ruby;
+    }
+  }
+
+  .clubs-carousel-box {
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: all linear 0.3s;
+
+    .clubs-carousel-img {
+      // width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all linear 0.3s;
+
+      img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+        transition: all linear 0.3s;
+      }
+    }
+
+    &:hover {
+      border: 1px solid #ececec;
+
+      .clubs-carousel-text {
+        opacity: 1;
+        visibility: visible;
+        color: var(--primary-bg);
+      }
+    }
+
+    .clubs-carousel-text {
+      opacity: 0;
+      visibility: hidden;
+      margin-top: 0;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 10px;
+      text-align: center;
+      transition: all linear 0.3s;
+      color: var(--primary-bg);
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 30px;
+    color: black;
+  }
+}
+
+[data-theme="dark"] .club-slider-section {
+  background: var(--dark-primary-bg);
+
+  .clubs-carousel-title {
+    h2 {
+      color: var(--secondary-bg);
+    }
+
+    p {
+      color: #ddd;
+    }
+
+    a {
+      color: var(--text-normal-color);
+
+      &:hover {
+        color: var(--dark-secondary-bg);
+      }
+    }
+  }
+
+  .clubs-carousel-box {
+    border-radius: 6px;
+    &:hover {
+      border: 1px solid #828282;
+      h1.clubs-carousel-text {
+        color: #d1d1d1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .club-slider-section .clubs-carousel-title {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+// Custome SLider pagination
+.custom-swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(128, 128, 128, 0.25);
+  opacity: 1;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--secondary-bg);
+  transform: scale(1.2);
+  width: 48px;
+  height: 8px;
+}
+.header-content-with-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  h2 {
+    margin: 0;
+    color: var(--p-body);
+  }
+  p {
+    margin: 0;
+    --p-text: #808080;
+  }
+  [data-theme="dark"] & {
+    h2 {
+      color: #fff;
+    }
+    p {
+      color: #fff;
+    }
+  }
+}

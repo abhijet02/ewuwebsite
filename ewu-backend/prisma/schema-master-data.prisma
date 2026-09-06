@@ -1,0 +1,600 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["linux-musl-arm64-openssl-3.0.x", "linux-arm64-openssl-3.0.x", "debian-openssl-3.0.x"]
+  output        = "./generated/master-data"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("MASTER_DATA_DATABASE_URI")
+}
+
+enum YesOrNo {
+  YES @map("1")
+  NO  @map("0")
+}
+
+model faculty {
+  id          Int      @id @default(autoincrement())
+  name        String
+  order       Int
+  slug        String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int      @default(0)
+
+  // One-to-many relation with department
+  departments department[] @relation("FacultyDepartments")
+
+  facultyPerson facultyPerson[]
+  program       program[]
+}
+
+model department {
+  id            Int      @id @default(autoincrement())
+  name          String
+  slug          String?
+  mission       String?
+  vision        String?
+  order         Int
+  facultyId     Int
+  photoUrl      String?
+  description   String?
+  whyChooseText String?
+  isSubDepartment   YesOrNo   @default(NO)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+  createdBy     Int      @default(0)
+  updatedBy     Int      @default(0)
+
+  // Reference to faculty
+  faculty faculty  @relation("FacultyDepartments", fields: [facultyId], references: [id])
+  course  course[]
+
+  facultyPerson facultyPerson[]
+  program       program[]
+  //noteableAlumni noteableAlumni[]
+  poe           poe[]
+}
+
+model whyChooseDepartment {
+  id           Int      @id @default(autoincrement())
+  label        String
+  order        Int
+  departmentId Int
+  photoUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+  createdBy    Int      @default(0)
+  updatedBy    Int      @default(0)
+}
+
+model designation {
+  id          Int      @id @default(autoincrement())
+  designation String
+  isClub      YesOrNo  @default(NO)
+  isOffice    YesOrNo  @default(NO)
+  isfaculty   YesOrNo  @default(NO)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int      @default(0)
+}
+
+model programCategory {
+  id             Int      @id @default(autoincrement())
+  title          String
+  order          Int
+  programDetails String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+
+  // relation
+  program program[]
+}
+
+model semester {
+  id        Int      @id @default(autoincrement())
+  title     String
+  order     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+}
+
+model program {
+  id                  Int             @id @default(autoincrement())
+  title               String
+  programCategoryId   Int
+  departmentId        Int
+  facultyId           Int?
+  order               Int
+  programDetails      String?
+  semester            String?
+  admissionDeadline   DateTime?       @default(now())
+  admissionDeadlineText  String?      
+  dateOfaddissionTest DateTime?       @default(now())
+  dateOfadmissionTestText  String?  
+  credit              Int             @default(0)
+  tutionfeePerCredit  Int             @default(0)
+  tutionfeeTotal      Int             @default(0)
+  labFee              Int             @default(0)
+  admissionFee        Int             @default(0)
+  termsAndCondition   String?
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @default(now())
+  createdBy           Int             @default(0)
+  updatedBy           Int?            @default(0)
+  // relation
+  course              course[]
+  department          department      @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  faculty             faculty?        @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  programCategory     programCategory @relation(fields: [programCategoryId], references: [id], onDelete: Cascade)
+}
+
+model course {
+  id           Int     @id @default(autoincrement())
+  courseCode   String  
+  name         String
+  slug         String?
+  departmentId Int
+  programId    Int
+  category     String
+  creditHour   Float
+  order        Int
+  preRequisite String?
+  description  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+
+  // Reference to department
+  department department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  program    program    @relation(fields: [programId], references: [id], onDelete: Cascade)
+
+  facultyPerson facultyPerson[]
+}
+
+model facultyPerson {
+  id                Int     @id @default(autoincrement())
+  slug              String? @unique
+  facultyId         Int
+  departmentId      Int?
+  courseId          Int?
+  isPublished       YesOrNo @default(NO)
+  isBoT             YesOrNo @default(NO)
+  isDean            YesOrNo @default(NO)
+  isChairperson     YesOrNo @default(NO)
+  isCoordinator     YesOrNo @default(NO)
+  isAdjunct         YesOrNo @default(NO)
+  isProctor         YesOrNo @default(NO)
+  isAssProctor      YesOrNo @default(NO)
+  isAdvisor         YesOrNo @default(NO)
+  onLeave           YesOrNo @default(NO)
+  onLeaveText       String?
+  designationText   String?
+  designation       String
+  name              String
+  roomNo            String?
+  photo             String?
+  jobType           String?
+  dateOfJoining     DateTime?
+  signatureUrl      String?
+  cvUrl             String?
+  message           String?
+  biography         String?
+  eduDetails        String?
+  publications      String?
+  onGoingResearch   String?
+  achievements      String?
+  participations    String?
+  researchInterest  String?
+  teachingMaterials String?
+  affiliation       String?
+  profDev           String?
+  others            String?
+  telephone         String?
+  email             String?
+  ext               String?
+  gsLink            String?
+  orcidLink         String?
+  researchGateLink  String?
+  scopusLink        String?
+  liLink            String?
+  fbLink            String?
+  instaLink         String?
+  xLink             String?
+  order             Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int      @default(0)
+
+  // One-to-one relations
+  faculty    faculty     @relation(fields: [facultyId], references: [id])
+  department department? @relation(fields: [departmentId], references: [id])
+  course     course?     @relation(fields: [courseId], references: [id])
+}
+
+model publication {
+  id              Int      @id @default(autoincrement())
+  facultyPersonId Int
+  title           String
+  details         String   @db.Text
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  createdBy       Int      @default(0)
+  updatedBy       Int?     @default(0)
+}
+
+model club {
+  id             Int      @id @default(autoincrement())
+  logoUrl        String?
+  slug           String?  @unique
+  order          Int      @default(0)
+  title          String
+  primaryColor   String?
+  secondaryColor String?
+  introduction   String?
+  mission        String?
+  vission        String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+
+  cluActivityRanking clubActivityRanking?
+}
+
+model clubActivityRanking {
+  id                              Int      @id @default(autoincrement())
+  clubId                          Int      @unique
+  groomingSessionCount            Int
+  groomingSessionShortDescription String?
+  competitionCount                Int
+  competitionShortDescription     String?
+  seminerCount                    Int
+  seminerShortDescription         String?
+  workshopCount                   Int
+  workshopShortDescription        String?
+  createdAt                       DateTime @default(now())
+  updatedAt                       DateTime @default(now())
+  createdBy                       Int      @default(0)
+  updatedBy                       Int?     @default(0)
+
+  club club? @relation(fields: [clubId], references: [id])
+}
+
+model clubMember {
+  id             Int       @id @default(autoincrement())
+  slug           String?   @unique
+  fullName       String
+  studentId      String?
+  startdate      DateTime? @default(now())
+  endDate        DateTime? @default(now())
+  clubId         Int
+  designation    String?
+  photoUrl       String?
+  cvUrl          String?
+  signatureUrl   String?
+  youtubeLink    String?
+  email          String?
+  phoneNumber    String?
+  earnedCredit   String?
+  semester       String?
+  joiningSemeser String?
+  cgpa           String?
+  bloodGroup     String?
+  skillId        Int[]
+  achievements   String?
+  hobby          String?
+  classRoutine   String?
+  isExecutive    YesOrNo   @default(NO)
+  isModerators   YesOrNo   @default(NO)
+  isApproved     YesOrNo   @default(NO)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now())
+  createdBy      Int       @default(0)
+  updatedBy      Int?      @default(0)
+}
+
+model office {
+  id             Int      @id @default(autoincrement())
+  title          String
+  slug           String?  @unique
+  isBOT          YesOrNo  @default(NO)
+  isAuthority    YesOrNo  @default(NO)
+  isDepartmental YesOrNo  @default(NO)
+  departmentId   Int?
+  description    String?
+  location       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+  // relation
+  //OfficeMember   OfficeMember[]
+}
+
+model officeDocument{
+  id             Int      @id @default(autoincrement())
+  officeId       Int
+  order          Int      @default(0)
+  fileName       String?
+  fileUrl        String?
+  link           String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+}
+
+model OfficeMember {
+  id                     Int      @id @default(autoincrement())
+  officeId               Int
+  officeIds              Int[]
+  slug                   String?  @unique
+  order                  Int      @default(0)
+  name                   String
+  designation            String
+  dateOfJoining          DateTime?
+  telephone              String?
+  profilePhotoUrl        String?
+  signatureUrl           String?
+  cvUrl                  String?
+  location               String?
+  email                  String?
+  ext                    String?
+  fbLink                 String?
+  xLink                  String?
+  youtubeLink            String?
+  linkedInLink           String?
+  githubLink             String?
+  portfolioLink          String?
+  pinterestLink          String?
+  instagramLink          String?
+  message                String?
+  previousWorkExperience String?
+  educationDescription   String?
+  careerDescription      String?
+  jobType                String?
+  onLeaveText            String?
+  designationText        String?
+  onLeave                YesOrNo  @default(NO)
+  isPublished            YesOrNo  @default(NO)
+  isBoT                  YesOrNo  @default(NO)
+  isheadOfOffice         YesOrNo  @default(NO)
+  isMember               YesOrNo  @default(NO)
+  isOfficeMember         YesOrNo  @default(NO)
+  isProctor              YesOrNo  @default(NO)
+  isAssProctor           YesOrNo  @default(NO)
+  isSupportMember        YesOrNo  @default(NO)
+  isMemberSecretary      YesOrNo  @default(NO)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @default(now())
+  createdBy              Int      @default(0)
+  updatedBy              Int?     @default(0)
+  // relation
+  //office                 office   @relation(fields: [officeId], references: [id])
+}
+
+model facultyMemberDocument {
+  id        Int      @id @default(autoincrement())
+  facultyId Int
+  order     Int      @default(0)
+  isCertificate YesOrNo  @default(NO)
+  fileName  String?
+  filePath  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+}
+
+model officeMemberDocument {
+  id        Int      @id @default(autoincrement())
+  officeId  Int
+  order     Int      @default(0)
+  isCertificate YesOrNo  @default(NO)
+  fileName  String?
+  filePath  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+}
+
+model noteableAlumni {
+  id             Int      @id @default(autoincrement())
+  departmentId   Int
+  description    String?
+  photoUrl       String?
+  name           String
+  programName    String?
+  graduationYear String?
+  organization   String?
+  designation    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+
+  //department department @relation(fields: [departmentId], references: [id])
+}
+
+model poe {
+  id           Int        @id @default(autoincrement())
+  departmentId Int
+  description  String?
+  title        String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now())
+  createdBy    Int        @default(0)
+  updatedBy    Int?       @default(0)
+  // Relation 
+  department   department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+}
+
+model skill {
+  id          Int      @id @default(autoincrement())
+  clubId      Int
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int?     @default(0)
+}
+
+model faqKeyword {
+  id        Int      @id @default(autoincrement())
+  label     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int      @default(0)
+
+  faq faq[]
+}
+
+model faq {
+  id          Int        @id @default(autoincrement())
+  title       String
+  pageId      Int        @default(0)
+  order       Int        @default(0)
+  answer      String
+  link        String?
+  keywordId   Int
+  isPublished YesOrNo    @default(NO)
+  faqKeyword  faqKeyword @relation(fields: [keywordId], references: [id])
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now())
+  createdBy   Int        @default(0)
+  updatedBy   Int        @default(0)
+}
+
+model inquery {
+  id            Int      @id @default(autoincrement())
+  fullName      String
+  studentId     String?
+  studentEmail  String?
+  email         String
+  phoneNumber   String
+  subject       String?
+  message       String?
+  attachmentUrl String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+}
+
+model ewuEmail {
+  id           Int      @id @default(autoincrement())
+  componentId  Int?
+  pageId       Int?
+  clubId       Int?
+  email        String[]
+  emailSubject String
+  emailBody    String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+  createdBy    Int      @default(0)
+  updatedBy    Int?     @default(0)
+}
+
+model helpDesk {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String?
+  isContact YesOrNo  @default(NO)
+  departmentId Int?
+  link      String?
+  iconPath  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+}
+
+model schedule {
+  id             Int      @id @default(autoincrement())
+  day            String
+  officeMemberId Int?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  createdBy      Int      @default(0)
+  updatedBy      Int?     @default(0)
+}
+
+model fileDeirectory {
+  id        Int      @id @default(autoincrement())
+  fileName  String
+  fileUrl   String?
+  fileMeta  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  createdBy Int      @default(0)
+  updatedBy Int?     @default(0)
+}
+
+model procurement {
+  id          Int      @id @default(autoincrement())
+  title       String
+  fileUrl     String?
+  publishDate String
+  closingDate DateTime?
+  department  String?
+  category    String?
+  priceOfTender String?
+  description  String?
+  tenderOpeningLocation String?
+  tenderOpeningDateTime DateTime?
+  isArchived  YesOrNo  @default(NO)
+  isPublished YesOrNo  @default(NO)
+  isApplyThroughEtenderPortal  YesOrNo  @default(NO)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int?     @default(0)
+
+  procurementNewsPaperDetails procurementNewsPaperDetails[]
+}
+
+model procurementNewsPaperDetails{
+  id          Int      @id @default(autoincrement())
+  procurementId Int
+  name        String
+  pageNo      String?
+  link        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int      @default(0)
+  updatedBy   Int?     @default(0)
+
+  procurement   procurement @relation(fields: [procurementId], references: [id], onDelete: Cascade)
+}
+
+model admissionResult{
+  id                 Int      @id @default(autoincrement())
+  programCategoryId  Int
+  semesterId         Int
+  facultyId          Int?
+  year               Int
+  title              String
+  fileUrl            String?
+  publishDate        String
+  isArchived         YesOrNo  @default(NO)
+  isPublished        YesOrNo  @default(NO)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now())
+  createdBy          Int      @default(0)
+  updatedBy          Int?     @default(0)
+}

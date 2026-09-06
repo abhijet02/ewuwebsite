@@ -1,0 +1,241 @@
+.sidebar-menu {
+  margin: 40px 0px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* 👈 soft subtle shadow */
+  @media (max-width: 767px) {
+    margin: 24px 0;
+  }
+  .sidebar-menu-header {
+    padding: 16px;
+    background: #1c4370;
+    color: #fff;
+
+    h3 {
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .sidebar-menu-body {
+    padding: 8px;
+
+    .sidebar-menu-item {
+      .sidebar-menu-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        white-space: normal; // allow text to wrap
+        word-wrap: break-word; // break long words if needed
+        word-break: break-word; // break really long strings
+        overflow-wrap: anywhere;
+        &.dropdown-toggle {
+          cursor: pointer;
+        }
+
+        &:hover {
+          color: #fff;
+          background-color: #aa4a44;
+        }
+
+        &:active {
+          color: #fff;
+          background-color: #aa4a44;
+        }
+
+        // Active state for menu links
+        &.active {
+          color: #fff;
+          background-color: #aa4a44;
+
+          &:hover {
+            background-color: #aa4a44;
+          }
+        }
+      }
+
+      // Active state for the entire menu item
+      &.active {
+        .sidebar-menu-link {
+          color: #fff;
+          background-color: #aa4a44;
+
+          &:hover {
+            background-color: #aa4a44;
+          }
+        }
+      }
+
+      .drop-down-wrapper {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            a {
+              display: block;
+              padding: 6px 12px;
+              font-size: 14px;
+              font-weight: 400;
+              color: #333;
+              text-decoration: none;
+              border-radius: 4px;
+              transition: all 0.3s ease;
+
+              &:hover {
+                color: #fff;
+                background-color: #aa4a44;
+              }
+
+              // Active state for dropdown menu links
+              &.active {
+                color: #fff;
+                background-color: #aa4a44;
+
+                &:hover {
+                  background-color: #aa4a44;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .sidebar-divider {
+        margin: 4px 0;
+        border: none;
+        border-bottom: 1px solid #939393;
+        height: 0;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] .sidebar-menu {
+  background: var(--dark-bg-one);
+
+  .sidebar-menu-header {
+    background: var(--primary-bg);
+    color: var(--text-normal-color);
+
+    h3 {
+      color: var(--text-normal-color);
+    }
+  }
+
+  .sidebar-menu-body {
+    .sidebar-menu-item {
+      .sidebar-menu-link {
+        color: var(--text-normal-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: #fff;
+          background-color: #aa4a44;
+        }
+
+        &:active {
+          color: #fff;
+          background-color: #aa4a44;
+        }
+
+        // Active state for menu links in dark theme
+        &.active {
+          color: #fff;
+          background-color: #aa4a44;
+
+          &:hover {
+            background-color: #aa4a44;
+          }
+        }
+      }
+
+      // Active state for the entire menu item in dark theme
+      &.active {
+        .sidebar-menu-link {
+          color: #fff;
+          background-color: #aa4a44;
+
+          &:hover {
+            background-color: #aa4a44;
+          }
+        }
+      }
+
+      .drop-down-wrapper {
+        ul li a {
+          color: var(--text-normal-color);
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: #fff;
+            background-color: #aa4a44;
+          }
+
+          &:active {
+            color: #fff;
+            background-color: #aa4a44;
+          }
+
+          // Active state for dropdown menu links in dark theme
+          &.active {
+            color: #fff;
+            background-color: #aa4a44; // background for active dropdown menu
+
+            &:hover {
+              background-color: #aa4a44;
+            }
+          }
+        }
+      }
+
+      .sidebar-divider {
+        border-bottom: 1px solid var(--dark-input-border);
+      }
+    }
+  }
+}
+.sidebar-pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  align-items: center;
+  button {
+    padding: 4px 12px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  span {
+    font-size: 12px;
+    color: #555;
+  }
+}
+// #32373d
+
+[data-theme="dark"] .sidebar-pagination {
+  button {
+    background-color: #32373d;
+    color: #fff !important;
+  }
+  span {
+    font-size: 12px;
+    color: #b9b9b9;
+  }
+}

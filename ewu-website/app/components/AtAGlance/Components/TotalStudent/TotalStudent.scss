@@ -1,0 +1,86 @@
+/* Wrapper */
+.ratio-bar-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .ratio-bar-wrapper {
+  background-color: var(--dark-bg-one);
+}
+
+/* Header */
+.ration-bar-wrapper-header {
+  padding: 24px;
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+/* Top Number */
+.ratio-top-number {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0px 24px 16px;
+
+  h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
+
+/* ===========================
+    MAIN RATIO BAR AREA
+=========================== */
+.ratio-bar {
+  width: 100%;
+  height: 14px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50px;
+  background: #e6e6e6; /* container background */
+}
+
+/* Line segments */
+.ratio-line {
+  height: 100%;
+  transition: width 1s ease-out; /* smooth animation */
+}
+
+/* Undergrad Color */
+.undergrad {
+  background: linear-gradient(90deg, #aa4a44, #d65a53);
+}
+
+/* Postgrad Color */
+.postgrad {
+  background: linear-gradient(90deg, #1c4370, #3467a8);
+}
+
+/* Dark Mode Colors */
+[data-theme="dark"] .undergrad {
+  background: linear-gradient(90deg, #80332f, #aa4a44);
+}
+
+[data-theme="dark"] .postgrad {
+  background: linear-gradient(90deg, #102a45, #1c4370);
+}
+
+/* Labels */
+.ratio-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

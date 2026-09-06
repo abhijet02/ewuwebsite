@@ -1,0 +1,292 @@
+.teachers-say-part {
+  background: var(--primary-bg);
+  margin-top: -1px;
+  padding: 50px 0 60px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url(../../assets/shape/shape-2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    width: 180px;
+    height: 180px;
+    bottom: -130px;
+    left: 40px;
+  }
+
+
+  .teachers-box {
+    display: flex;
+    gap: 50px;
+
+    .teachers-img {
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      
+
+      .visit-us-img-icon {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: #ffffff;
+        // display: flex;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out 0s;
+        box-shadow: rgba(193, 244, 246) 0px 0px 0px 0px;
+        animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none
+          running pulse;
+
+        svg {
+          color: var(--primary-bg);
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      @keyframes pulse {
+        100% {
+          box-shadow: 0 0 0 45px rgba(217, 249, 250, 0);
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../assets/teachers-say-bg-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center left;
+        transform: scaleX(-1);
+        display: block;
+        opacity: 0.4;
+        z-index: -1;
+      }
+
+      img {
+        // width: 100%;
+        // height: 100%;
+        object-position: top;
+        border-width: 15px;
+        border-style: groove;
+        border-radius: 50%;
+        border-color: #b8a213;
+        object-fit: cover;
+      }
+
+      .video-background {
+        height: auto;
+        padding: 10px;
+        border: 1px solid var(--p-text);
+        border-radius: 10px;
+        // background: var(--p-text);
+      }
+    }
+
+    .teachers-img-info {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      display: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../assets/teachers/teachers-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: -25px;
+        z-index: -1;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .theachers-text-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background-image: url(../../assets/teachers/teachers-bg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center right;
+        z-index: -1;
+        opacity: 0.1;
+      }
+      .theachers-text {
+        padding: 60px 80px;
+
+        p {
+          font-size: 18px;
+          font-weight: 400;
+          color: var(--text-normal-color);
+
+          span {
+            &:first-child {
+              padding-right: 14px;
+              position: relative;
+              bottom: 30px;
+
+              svg {
+                transform: rotate(180deg);
+              }
+            }
+
+            &:last-child {
+              padding-left: 14px;
+              position: relative;
+              top: 30px;
+            }
+          }
+        }
+      }
+
+      .theachers-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0 20px 20px;
+        border-top: 1px solid var(--p-text);
+        align-items: center;
+        margin-bottom: 48px;
+        h2 {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          color: var(--text-normal-color);
+          margin: 0;
+        }
+
+        .custom-next {
+          cursor: pointer;
+
+          img {
+            color: transparent;
+            height: 60px;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+  .swiper-wrapper {
+    height: auto !important;
+  }
+  .swiper-pagination-bullet {
+    width: 40px !important;
+    height: 5px !important;
+    background: var(--text-normal-color) !important;
+    border-radius: 2px !important;
+    opacity: 1 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--secondary-bg) !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .teachers-box {
+    .teachers-img {
+      width: 300px !important;
+    }
+  }
+  .teachers-img {
+    display: none;
+  }
+
+  .custom-next {
+    display: none;
+  }
+
+  .teachers-img-info {
+    display: inline-block !important;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-info {
+    justify-content: start;
+    gap: 20px;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-text p {
+    font-size: 16px;
+  }
+
+  .teachers-say-part::after {
+    bottom: 50px;
+    right: 30px;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-text {
+    padding: 30px 4px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .teachers-say-part .teachers-box {
+    flex-direction: column;
+    .teachers-img {
+      height: 300px;
+    }
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-info {
+    padding: 20px 0;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-info h2 {
+    font-size: 16px;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-info p {
+    font-size: 14px;
+  }
+
+  .teachers-say-part .teachers-box .theachers-text-info .theachers-text p {
+    font-size: 14px;
+  }
+
+  .teachers-say-part::after {
+    right: -100px;
+  }
+
+  .teachers-say-part {
+    overflow-x: clip;
+  }
+}

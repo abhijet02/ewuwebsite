@@ -1,0 +1,37 @@
+.populated-wrapper {
+    background: #AA4A44;
+    padding: 60px 0;
+
+    .items-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        .icon-wrapper {
+            color: var(--text-normal-color);
+        }
+        .content-wrapper {
+            h4 {
+                margin-bottom: 0.5rem;
+                color: var(--text-normal-color);
+                font-weight: 500;
+            }
+            p {
+                margin-bottom: 0;
+                color: #e9b6b3;
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (max-width:1024px) {
+    
+}
+
+@media screen and (max-width:567px) {
+    
+}

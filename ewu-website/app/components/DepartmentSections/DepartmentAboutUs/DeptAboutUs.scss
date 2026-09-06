@@ -1,0 +1,131 @@
+.dept-about-us {
+  padding: 48px 0px;
+  background: #f2f2f2;
+
+  .dept-title-stroke {
+    margin: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px #1c4370;
+    font-weight: bold;
+  }
+
+  .dept-title {
+    margin: 0;
+    color: var(--primary-bg);
+    -webkit-text-stroke: 0px #1c4370;
+  }
+
+  .truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dept-description-wrapper {
+    display: flex;
+    align-items: flex-start;
+    .dept-description {
+      flex: 1;
+      padding-left: 24px;
+
+      p {
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+}
+[data-theme="dark"] .dept-title-stroke {
+  -webkit-text-stroke: 1px var(--text-normal-color);
+}
+[data-theme="dark"] .dept-about-us {
+  background: var(--dark-bg-one);
+}
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 860px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e4e4e4ff;
+  color: var(--primary-bg);
+  padding: 16px 24px;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: var(--primary-bg);
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 24px;
+  background: #fff;
+  color: #000;
+  max-height: 70vh; /* prevent overflow */
+  overflow-y: auto;
+}
+
+.modal-body p {
+  margin: 0;
+  white-space: pre-line; /* preserve line breaks */
+}
+
+[data-theme="dark"] .modal-body {
+  background: var(--dark-bg-one);
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .modal-header {
+  background: var(--dark-primary-bg1) !important;
+  color: var(--text-normal-color);
+}
+[data-theme="dark"] .modal-close {
+  color: var(--text-normal-color);
+}
+.read-more-span-button {
+  font-weight: 700;
+  color: #aa4a44;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.read-more-span-button svg {
+  transition: transform 0.3s;
+}
+
+.read-more-span-button:hover svg {
+  transform: rotate(-45deg); /* rotate the SVG on hover */
+}

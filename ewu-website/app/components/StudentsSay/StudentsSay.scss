@@ -1,0 +1,291 @@
+.students-says-part {
+  padding: 40px 0px;
+  background: var(--secondary-bg);
+
+  .students-says-title {
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--text-normal-color);
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-normal-color);
+      text-align: left;
+    }
+  }
+
+  .custom-arrow {
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 10px;
+
+    button {
+      background: transparent;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--text-normal-color);
+      color: var(--text-normal-color);
+      transition: all linear 0.4s;
+
+      &:hover {
+        background: var(--text-normal-color);
+        color: var(--secondary-bg);
+      }
+    }
+  }
+
+  .students-says-box {
+    background: var(--text-normal-color);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+
+    .students-says-info {
+      margin-bottom: 20px;
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0;
+        color: var(--p-text);
+      }
+
+      .students-says-rating {
+        padding-bottom: 14px;
+        color: var(--secondary-bg);
+      }
+    }
+
+    .students-says-img {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+        color: var(--black-bg);
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0;
+        color: var(--p-text);
+      }
+    }
+
+    .student-quote {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      color: rgba(170, 75, 68, 0.2);
+    }
+  }
+}
+
+.student-message {
+  position: relative;
+
+  .student-message-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 4px;
+    font-weight: 700;
+    color: #aa4a44;
+    cursor: pointer;
+  }
+}
+
+.student-designation {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  [data-theme="dark"] &{
+    color: #fff;
+  }
+}
+
+[data-theme="dark"] .students-says-part {
+  background-color: #282f35;
+
+  .students-says-box {
+    background-color: var(--black-bg);
+  }
+}
+
+/* ---------------- Modal ---------------- */
+.student-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.student-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 75%;
+  max-width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .student-modal {
+  background: #282f35;
+}
+.student-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  flex-shrink: 0;
+  z-index: 2;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--black-bg);
+  }
+
+  .close-btn {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #444;
+  }
+}
+[data-theme="dark"] .student-modal-header {
+  background: #282f35;
+
+  h2 {
+    color: var(--text-normal-color);
+  }
+
+  .close-btn {
+    color: var(--text-normal-color);
+  }
+}
+
+.student-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  .student-modal-body-media {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h5 {
+    margin: 0;
+    font-weight: 500;
+    color: var(--black-bg);
+  }
+
+  p {
+    margin: 0;
+    color: var(--p-text);
+  }
+
+  .alumni-description {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+    color: #444;
+  }
+}
+/* Mobile responsive modal */
+@media (max-width: 768px) {
+  .student-modal {
+    width: 95%;
+    height: 90vh;
+    max-height: none;
+  }
+}
+
+.student-modal-body-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 12px;
+  h4,
+  p {
+    margin: 0;
+    color: var(--p-body);
+  }
+}
+
+[data-theme="dark"] .alumni-modal-body-details {
+  h4,
+  p {
+    margin: 0;
+    color: var(--text-normal-color);
+  }
+}
+
+[data-theme="dark"] .student-message-text {
+  color: #fff !important;
+}
+[data-theme="dark"] .student-testimonial {
+  h2 {
+    color: #fff !important;
+  }
+}
+[data-theme="dark"] .student-quote {
+  svg {
+    color: #fff !important;
+  }
+}
+// student-quote

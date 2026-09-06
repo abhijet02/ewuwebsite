@@ -1,0 +1,76 @@
+/* Outer wrapper */
+.achivement-details-wrapper {
+  margin: 48px 0 0;
+}
+
+/* Center images vertically and horizontally in SwiperSlide */
+.achivement-banner .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  cursor: pointer;
+  @media screen and (max-width: 576px) {
+    height: 360px;
+  }
+}
+.achivement-details-subheader-part {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .achivement-details-date-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-bg);
+    p {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 576px) {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.achivement-banner .media-image {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Swiper pagination */
+.custom-swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(128, 128, 128, 0.25);
+  opacity: 1;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--secondary-bg);
+  transform: scale(1.2);
+  width: 48px;
+  height: 8px;
+}
+
+[data-theme="dark"] .custom-swiper-pagination .swiper-pagination-bullet {
+  background: #fff;
+}
+
+[data-theme="dark"] .custom-swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--secondary-bg);
+}

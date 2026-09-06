@@ -1,0 +1,118 @@
+.coursedetails-wrapper {
+  margin: 40px 0;
+
+  .search-field-wrapper {
+    position: relative;
+    margin-bottom: 6px;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 6px;
+      transform: translate(0, -50%);
+      color: #666;
+      z-index: 1;
+    }
+
+    input.form-control[type="text"] {
+      padding-left: 35px;
+      background: transparent;
+      font-size: 0.86rem;
+      border-color: #ddd;
+
+      &:focus {
+        background: var(--text-normal-color);
+      }
+    }
+  }
+}
+.search-course-result{
+  background-color: aliceblue;
+  border-radius: 12px;
+  [data-theme="dark"] & {
+  background-color: var(--dark-bg-one);
+
+  }
+}
+.coursedetails-card {
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  [data-theme="dark"] & {
+    background-color: var(--dark-bg-one);
+  }
+}
+.coursename-coursecode {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #939393;
+  h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+.coursedetails-info-part {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+.coursedetails-info-part-icon-body {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-bg);
+    [data-theme="dark"] & {
+      color: #fff;
+    }
+  }
+}
+.coursedetails-info-details-part {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  h6 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+@media screen and (max-width: 567px) {
+  h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+}
+.coursedetails-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0px;
+  margin-bottom: 24px;
+}

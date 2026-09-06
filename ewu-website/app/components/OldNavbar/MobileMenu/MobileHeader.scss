@@ -1,0 +1,209 @@
+.mobile-header {
+  display: none;
+  padding: 16px 0px;
+  background: rgba(236, 236, 236, 0.4);
+  backdrop-filter: blur(10px);
+
+  .logo {
+    width: 100px;
+
+    img {
+      width: 100%;
+      height: auto !important;
+    }
+  }
+
+  .mobile-header-menu {
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 6px;
+    }
+
+    .accessibility-main-dropdown {
+      margin: 10px 0 0;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      background: transparent;
+
+      h1 {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 20px;
+        text-align: center;
+        background: var(--secondary-bg);
+        color: var(--text-normal-color);
+        margin: 0;
+      }
+
+      .accessibility-dropdown {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 200px;
+
+        .accessibility-item {
+          width: 100%;
+          box-sizing: border-box;
+
+          &:nth-child(1) {
+            border-bottom: 1px solid #d9d9d9;
+          }
+
+          &:nth-child(2) {
+            border-bottom: 1px solid #d9d9d9;
+          }
+
+          &:nth-child(3) {
+            border-bottom: 1px solid #d9d9d9;
+          }
+
+          button {
+            padding: 1.3rem 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #bbc0c5;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s linear;
+
+            span {
+              font-size: 0.9rem;
+              color: var(--text-normal-color);
+              text-transform: uppercase;
+            }
+
+            svg {
+              color: var(--primary-bg);
+            }
+
+            &:hover {
+              background: rgba(28 67 112 / 95%);
+
+              svg {
+                color: var(--text-normal-color);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .login-menu-items {
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      border: none;
+      background: #bbc0c5;
+      backdrop-filter: blur(30px);
+      border: 1px solid #ffffff63;
+      margin-top: 10px;
+      padding: 0;
+      width: auto;
+
+      li {
+        display: block;
+        margin: 0 !important;
+      }
+
+      .login-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .item {
+          width: 100%;
+
+          &:nth-child(1) {
+            border-bottom: 1px solid #d5d5d5;
+          }
+
+          &:nth-child(2) {
+            border-bottom: 1px solid #d5d5d5;
+          }
+
+          .dropdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 1.8rem;
+            color: var(--primary-bg);
+            font-size: 0.86rem;
+            font-weight: 400;
+
+            &:hover {
+              color: var(--text-normal-color);
+              backdrop-filter: blur(25px);
+              background: rgb(28 67 112 / 95%);
+              border-radius: 5px;
+            }
+
+            svg {
+              margin-bottom: 5px;
+            }
+
+            span {
+              color: var(--text-normal-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .theme-mode {
+    border: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    background: var(--text-normal-color);
+  }
+
+  .login-btn {
+    border: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    background: var(--text-normal-color);
+  }
+
+  .search-btn {
+    border: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    background: var(--text-normal-color);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .menu-btn {
+    border: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    background: var(--text-normal-color);
+    display: inline-block;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mobile-header {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .mobile-header .logo {
+    width: 70px !important;
+  }
+
+  .mobile-header .mobile-header-menu li {
+    margin: 0 4px !important;
+  }
+}
