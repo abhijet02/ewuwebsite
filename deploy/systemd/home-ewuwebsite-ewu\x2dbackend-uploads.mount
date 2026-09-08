@@ -1,0 +1,13 @@
+[Unit]
+Description=Local EWU media archive for Nginx
+After=local-fs.target
+Before=nginx.service
+
+[Mount]
+What=/root/ewu/website/ewu-backend/uploads
+Where=/home/ewuwebsite/ewu-backend/uploads
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target

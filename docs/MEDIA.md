@@ -21,13 +21,27 @@ https://localcloud.ewubd.edu/backend/uploads/office-member/photos/example.webp
 ```
 
 The public frontend image loader rewrites image URLs to `cloud.ewubd.edu`.
-nginx proxies `/backend/uploads/` to the legacy archive while uploads are being
-migrated, so old chairperson, department, office, and video records keep
-working without a VPN.
+nginx redirects `localcloud.ewubd.edu` to that canonical HTTPS origin, so old
+CMS URLs, bookmarks, and new requests share one public host.
 
-## Future migration
+All `/backend/uploads/` requests are served from the complete local archive.
+The archive lives at `/root/ewu/website/ewu-backend/uploads` and is bind-mounted
+at `/home/ewuwebsite/ewu-backend/uploads`, which is the path available to nginx
+and to the API gateway container. No media request is proxied to the legacy
+server.
 
-Copy the archive to the current server with a checksum-preserving transfer,
-then change the nginx upload location to the local API gateway. Do not update
-database URLs in bulk until a backup exists and a representative set of images
-and videos has been verified.
+## Local archive mount
+
+Install `deploy/systemd/home-ewuwebsite-ewu\\x2dbackend-uploads.mount` as
+`/etc/systemd/system/home-ewuwebsite-ewu\\x2dbackend-uploads.mount`, then run:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now 'home-ewuwebsite-ewu\x2dbackend-uploads.mount'
+```
+
+This makes the media mount return automatically after a VM reboot. Confirm it
+with `systemctl is-active 'home-ewuwebsite-ewu\x2dbackend-uploads.mount'`.
+
+The uploaded media remains operational data: it is intentionally excluded from
+Git and must be backed up separately from the repository and databases.

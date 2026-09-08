@@ -1,7 +1,7 @@
 # Deployment and updates
 
 This guide deploys the public site at `cloud.ewubd.edu` using nginx, Docker,
-and the legacy upload archive. It is written for a fresh Linux server.
+and the complete local upload archive. It is written for a fresh Linux server.
 
 ## Architecture
 
@@ -11,20 +11,21 @@ flowchart LR
     N -->|/| W[Next.js website\n127.0.0.1:3002]
     N -->|/backend/graphql and API| G[API gateway\n127.0.0.1:4000]
     G --> S[NestJS services\nand PostgreSQL]
-    N -->|/backend/uploads/| L[Legacy upload archive\n103.209.42.132]
-    G --> U[Current upload storage\n/home/ewuwebsite/ewu-backend/uploads]
+    N -->|/backend/uploads/| U[Local media mount\n/home/ewuwebsite/ewu-backend/uploads]
+    U --> A[Complete local archive\n/root/ewu/website/ewu-backend/uploads]
 ```
 
 Requests for pages go to Next.js. API requests are proxied to the gateway.
-Existing database records still point to older uploaded media, so nginx sends
-media requests to the legacy archive until the whole archive is copied to the
-current server. This also preserves video `Range` requests.
+nginx serves every media request from the local archive mount. Historical
+`localcloud.ewubd.edu` URLs are redirected to the canonical
+`cloud.ewubd.edu` origin. Static file serving preserves video `Range` requests.
 
 ## Requirements
 
 - Docker Engine and Docker Compose plugin
 - nginx with TLS certificates for `cloud.ewubd.edu`
-- Persistent upload storage at `/home/ewuwebsite/ewu-backend/uploads`
+- Complete upload archive at `/root/ewu/website/ewu-backend/uploads`
+- Persistent bind mount at `/home/ewuwebsite/ewu-backend/uploads`
 - PostgreSQL data volumes managed by Docker Compose
 
 ## Server preparation
@@ -53,9 +54,16 @@ cp ewu-website/.env.example ewu-website/.env
 Set real database, JWT, email, OAuth, and degree-verification values in the two
 private `.env` files. Never place them in GitHub.
 
-Before starting services, ensure the backend upload mount referenced by
-`ewu-backend/docker-compose.yml` exists. It must be writable by the backend
-container.
+Before starting services, install and enable the supplied local archive mount.
+It makes the complete archive available at the backend upload path referenced
+by `ewu-backend/docker-compose.yml`:
+
+```bash
+sudo install -D -m 0644 deploy/systemd/home-ewuwebsite-ewu\\x2dbackend-uploads.mount \
+  /etc/systemd/system/home-ewuwebsite-ewu\\x2dbackend-uploads.mount
+sudo systemctl daemon-reload
+sudo systemctl enable --now 'home-ewuwebsite-ewu\x2dbackend-uploads.mount'
+```
 
 Start the API services:
 
@@ -74,66 +82,23 @@ docker run --detach --name ewu-website --restart unless-stopped \
 
 ## nginx
 
-Create `/etc/nginx/conf.d/ewuwebsite.conf`. The public site must send the
-frontend to port 3002 and GraphQL/API traffic to the gateway on port 4000.
-Media requests must preserve byte-range support for MP4 playback.
+Install `deploy/nginx/cloud.ewubd.edu.conf` as
+`/etc/nginx/conf.d/localcloud.ewubd.edu.conf`. The public site sends the frontend to
+port 3002 and GraphQL/API traffic to the gateway on port 4000. Media is served
+locally and retains byte-range support for MP4 playback.
 
 ```nginx
-server {
-    listen 80;
-    listen [::]:80;
-    server_name cloud.ewubd.edu localcloud.ewubd.edu;
-    return 301 https://cloud.ewubd.edu$request_uri;
-}
-
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    server_name cloud.ewubd.edu localcloud.ewubd.edu;
-
-    ssl_certificate /etc/nginx/ssl/ewubd.edu.crt;
-    ssl_certificate_key /etc/nginx/ssl/ewubd.edu.key;
-    ssl_protocols TLSv1.2 TLSv1.3;
-
-    # Temporary compatibility route for the old 16 GB upload archive.
-    # Keep proxy buffering off so browsers can seek in MP4 files.
-location /backend/uploads/ {
-    proxy_pass https://103.209.42.132;
-    proxy_ssl_server_name on;
-    proxy_ssl_name localcloud.ewubd.edu;
-    proxy_set_header Host localcloud.ewubd.edu;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto https;
-    proxy_buffering off;
-}
-
-location /backend/ {
-    proxy_pass http://127.0.0.1:4000/;
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-}
-
-location / {
-    proxy_pass http://127.0.0.1:3002;
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-}
-}
+# See deploy/nginx/cloud.ewubd.edu.conf for the complete configuration.
+# It contains distinct cloud and localcloud HTTPS server blocks; the latter
+# permanently redirects to cloud, while the former serves media locally.
 ```
 
 Test and reload after editing:
 
 ```bash
-nginx -t && systemctl reload nginx
+sudo install -D -m 0644 deploy/nginx/cloud.ewubd.edu.conf \
+  /etc/nginx/conf.d/localcloud.ewubd.edu.conf
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
 ## Verification
@@ -179,6 +144,6 @@ volumes/databases (CMS data), and the upload directory (media). A Git clone
 alone cannot restore uploaded photos or videos.
 
 If images fail while pages load, test the image URL directly. A `404` normally
-means the file is absent from both the current and legacy archives. A `502`
-means nginx cannot reach the selected upstream. Check `docker ps`,
-`systemctl status nginx`, and nginx's error log before restarting services.
+means the file is absent from the local archive. Check the bind mount with
+`findmnt /home/ewuwebsite/ewu-backend/uploads`, then check `systemctl status
+nginx` and nginx's error log before restarting services.
